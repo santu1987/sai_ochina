@@ -1,0 +1,94 @@
+$("#traspaso_entre_partida_db_btn_consultar").click(function() {
+	var nd=new Date().getTime();
+	setBarraEstado("<img align='absmiddle' src='imagenes/loading.gif' /> Esperando Respuesta del Servidor...");
+	$.post("modulos/presupuesto/traspaso_entre_partida/db/grid_traspaso_entre_partida.php", { },
+                        function(data)
+                        {								
+								dialog=new Boxy('<table id="list_grid_'+nd+'" class="scroll" cellpadding="0" cellspacing="0"></table><div id="pager_grid_'+nd+'" class="scroll" style="text-align:center;"></div>', { title: 'Consulta Emergente de Presupuesto de Ley', modal: true,center:false,x:0,y:0,show:false });								
+								setTimeout(crear_grid,100);
+                        });
+						function crear_grid()
+						{
+							jQuery("#list_grid_"+nd).jqGrid
+							({
+								width:1100,
+								height:300,
+								recordtext:"Registro(s)",
+								loadtext: "Recuperando Información del Servidor",		
+								url:'modulos/presupuesto/traspaso_entre_partida/db/sql_grid_traspaso_entre_partida.php?nd='+nd,
+								datatype: "json",
+								colNames:['ID', 'Organismo', 'Accion Centralizada','Unidad Ejecutora','Acci&oacute;n Espec&iacute;fica','Proyecto','A&ntilde;o','Monto Presupuesto','Comentario','enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre','id_accion_e','id_unidad','Partida','Partida N&uacute;mero'],
+								colModel:[
+									{name:'id',index:'id', width:50,sortable:false,resizable:false,hidden:true},
+									{name:'organismo',index:'organismo', width:100,sortable:false,resizable:false,hidden:true},
+									{name:'id_accion_central',index:'id_accion_central', width:140,sortable:false,resizable:false,hidden:true},
+									{name:'unidad_ejecutora',index:'unidad_ejecutora', width:120,sortable:false,resizable:false},
+									{name:'especifica',index:'especifica', width:110,sortable:false,resizable:false},
+									{name:'id_proyecto',index:'id_proyecto', width:110,sortable:false,resizable:false},
+									{name:'anio',index:'anio', width:40,sortable:false,resizable:false},
+									{name:'monto_presupuesto',index:'monto_presupuesto', width:100,sortable:false,resizable:false},
+									{name:'comentario',index:'comentario', width:50,sortable:false,resizable:false,hidden:true},
+									{name:'enero',index:'enero', width:50,sortable:false,resizable:false,hidden:true},
+									{name:'febrero',index:'febrero', width:50,sortable:false,resizable:false,hidden:true},
+									{name:'marzo',index:'marzo', width:50,sortable:false,resizable:false,hidden:true},
+									{name:'abril',index:'abril', width:50,sortable:false,resizable:false,hidden:true},
+									{name:'mayo',index:'febrero', width:50,sortable:false,resizable:false,hidden:true},
+									{name:'junio',index:'junio', width:50,sortable:false,resizable:false,hidden:true},
+									{name:'julio',index:'julio', width:50,sortable:false,resizable:false,hidden:true},
+									{name:'agosto',index:'agosto', width:50,sortable:false,resizable:false,hidden:true},
+									{name:'septiembre',index:'septiembre', width:50,sortable:false,resizable:false,hidden:true},
+									{name:'octubre',index:'octubre', width:50,sortable:false,resizable:false,hidden:true},
+									{name:'noviembre',index:'noviembre', width:50,sortable:false,resizable:false,hidden:true},
+									{name:'diciembre',index:'diciembre', width:50,sortable:false,resizable:false,hidden:true},
+									{name:'id_accion_especifica',index:'id_accion_especifica', width:100,sortable:false,resizable:false,hidden:true},
+									{name:'id_unidad_ejecutora',index:'id_unidad_ejecutora', width:150,sortable:false,resizable:false,hidden:true},
+									{name:'partida',index:'partida', width:100,sortable:false,resizable:false},
+									{name:'partida_nro',index:'partida_nro', width:80,sortable:false,resizable:false}
+
+								],
+								pager: $('#pager_grid_'+nd),
+								rowNum:20,
+								rowList:[20,50,100],
+								imgpath: '../../../sai_ochina/utilidades/jqgrid_demo/themes/basic/images',
+								onSelectRow: function(id){
+								var ret = jQuery("#list_grid_"+nd).getRowData(id);
+									getObj('traspaso_entre_partida_db_id').value = ret.id;
+									getObj('traspaso_entre_partida_db_accion_central').value = ret.id_accion_central;
+									getObj('traspaso_entre_partida_db_unidad_ejecutora').value = ret.id_unidad_ejecutora;
+									getObj('traspaso_entre_partida_db_accion_especifica').value = ret.id_accion_especifica;
+									getObj('traspaso_entre_partida_db_proyecto').value = ret.id_proyecto;
+									getObj('traspaso_entre_partida_db_anio').value = ret.anio;
+									getObj('traspaso_entre_partida_db_monto_presupuesto').value = ret.monto_presupuesto;
+									getObj('traspaso_entre_partida_db_comentario').value = ret.comentario;
+									getObj('traspaso_entre_partida_db_monto_enero').value = ret.enero;
+									getObj('traspaso_entre_partida_db_monto_febrero').value = ret.febrero;
+									getObj('traspaso_entre_partida_db_monto_marzo').value = ret.marzo;
+									getObj('traspaso_entre_partida_db_monto_abril').value = ret.abril;
+									getObj('traspaso_entre_partida_db_monto_mayo').value = ret.mayo;
+									getObj('traspaso_entre_partida_db_monto_junio').value = ret.junio;
+									getObj('traspaso_entre_partida_db_monto_julio').value = ret.julio;
+									getObj('traspaso_entre_partida_db_monto_agosto').value = ret.agosto;
+									getObj('traspaso_entre_partida_db_monto_septiembre').value = ret.septiembre;
+									getObj('traspaso_entre_partida_db_monto_octubre').value = ret.octubre;
+									getObj('traspaso_entre_partida_db_monto_noviembre').value = ret.noviembre;
+									getObj('traspaso_entre_partida_db_monto_diciembre').value = ret.diciembre;
+									getObj('traspaso_entre_partida_db_partida').value = ret.partida;
+									getObj('traspaso_entre_partida_db_partida_numero').value = ret.partida_nro;
+									getObj('traspaso_entre_partida_db_btn_consultar').style.display='none';
+									dialog.hideAndUnload();
+									
+					 			},
+								loadComplete:function (id){
+									setBarraEstado("");
+									dialog.center();
+									dialog.show();
+								},
+								loadError:function(xhr,st,err){ 
+									setBarraEstado("Type: "+st+"; Response: "+ xhr.status + " "+xhr.statusText);
+								},															
+								sortname: 'anio',
+								viewrecords: true,
+								sortorder: "asc"
+							});
+						}
+});

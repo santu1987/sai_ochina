@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head><title>QuickMenu Template</title><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"> 
+
+
+<style type="text/css">
+
+
+.common {font-family:arial;font-size:13px;color:#222222;}
+
+.tlist {color:#222222;display:block;text-decoration:none;margin-bottom:4px;}
+.tlist:hover {color:#dd3300;text-decoration:underline;}
+
+.tcborder {background-color:#ffffff;border-style:solid;border-width:2px;border-color:#888888;border-right-color:#cccccc;border-bottom-color:#cccccc;}
+
+.buttons {margin-left:5px;font-size:13px;padding:0px 6px 0px 6px;color:#dd3300;}';
+
+</style>
+
+
+<script type="text/javascript">
+
+
+	var cur_sel = null;
+	var pre = "visual_interface/";
+	
+	window.onresize = size_elements;
+	
+
+	function init_interface()
+	{
+
+		size_elements();
+		
+		
+		var tl = document.getElementById("thelist");
+		tl = tl.getElementsByTagName("A")[0];
+		show_template(new Object(),tl);
+
+
+
+	}
+	
+
+	function size_elements()
+	{
+		
+		var mt = document.getElementById("main_table");
+		var toph = document.getElementById("title_table").offsetHeight;
+		var both = document.getElementById("button_table").offsetHeight;
+		var wh = get_doc_dimensions();
+		var seth = ((wh[1]-(toph+both))-80);
+		mt.style.height = seth+"px"
+		
+		var tf = document.getElementById("theframe");
+		tf.style.height = (seth+20)+"px";	
+
+		var tl = document.getElementById("thelist");
+		tl.style.height = (seth)+"px";
+		tl = tl.getElementsByTagName("A")[0];
+
+		
+
+
+
+	}
+
+
+	function show_template(e,a)
+	{
+
+		var tf = document.getElementById("theframe");
+		tf.src = pre+a.getAttribute("loc")+"no_visual.html";
+
+
+		var fl = document.getElementById("folderlocation");
+		fl.innerHTML = pre+a.getAttribute("loc")+"template.html";
+
+		
+		if (cur_sel)
+		{
+
+			cur_sel.style.textDecoration = "";
+			cur_sel.style.color = "";
+			
+
+		}		
+
+		cur_sel = a;
+
+		cur_sel.style.textDecoration = "underline";
+		cur_sel.style.color = "#dd3300";
+		
+
+	}
+
+
+	function get_doc_dimensions()
+	{
+
+		var dh = 0;
+		var dw = 0;
+		if (window.innerHeight)
+		{
+			dh = window.innerHeight;
+			dw = window.innerWidth;
+		}
+		else
+		{
+			dh = document.documentElement.clientHeight;
+			dw = document.documentElement.clientWidth;
+		}
+		
+		return new Array(dw,dh);
+
+	}
+
+	function open_menu()
+	{
+
+		var newwindow = window.open(pre+cur_sel.getAttribute("loc")+"template.html","","scrollbars=no,location=no,status=yes,menu=no,toolbar=no,resizable=yes");
+		if (window.focus) {newwindow.focus()}
+
+	}
+
+
+</script>
+
+
+
+</head>
+<body style="margin:20px;background-color:#e9e9e9;overflow:hidden;" scroll=no onload="init_interface()"><noscript><span style="font-size:13px;font-family:arial;"><span style="color:#dd3300">Warning!</span>&nbsp&nbsp; QuickMenu may have been blocked by IE-SP2's active content option. This browser feature blocks JavaScript from running locally on your computer.<br><br>This warning will not display once the menu is on-line.  To enable the menu locally, click the yellow bar above, and select <span style="color:#0033dd;">"Allow Blocked Content"</span>.<br><br>To permanently enable active content locally...<div style="padding:0px 0px 30px 10px;color:#0033dd;"><br>1: Select 'Tools' --> 'Internet Options' from the IE menu.<br>2: Click the 'Advanced' tab.<br>3: Check the 2nd option under 'Security' in the tree (Allow active content to run in files on my computer.)</div></span></noscript>
+
+
+<div>
+<table id="title_table" cellpadding=0 cellspacing=0 style="width:100%;"><tr>
+
+	<td style="width:100%;padding:0px 0px 20px 0px;">
+
+		<div class="common" style="font-weight:bold;"><img src="visual_interface/qmv4/oc_logo.gif" widht=16 height=16 style="position:relative;top:3px;margin-right:5px;">Visual CSS QuickMenu Templates</div>
+		<div style="font-size:1px;height:10px;"></div>
+		<div class="common" style="padding:5px 5px 0px 5px;"><span style="color:#0033dd;">Tip:</span>&nbsp;Choose a template then click the <span style="color:#dd3300;">'Customize Menu'</span> button, or double click the template name to launch the visual interface.</div>
+
+	</td>
+
+</tr></table>
+</div>
+
+
+<div>
+<table id="main_table" cellpadding=0 cellspacing=0 style="width:100%;"><tr>
+
+
+	<td class="tcborder" style="white-space:nowrap;vertical-align:top;">
+
+
+		<div id="thelist" style="padding:10px 0px 10px 10px;position:relative;overflow-y:scroll;width:170px;">
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template17/" class="common tlist">Adobe (advanced)</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template15/" class="common tlist">Basic Template</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template2/" class="common tlist">Full Gradient Bar</a>		
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template3/" class="common tlist">Gradient Hover</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template18/" class="common tlist">Blended Angles</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template4/" class="common tlist">Vertical Gray Scale</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template5/" class="common tlist">Thick Red Borders</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template6/" class="common tlist">Match Widths</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template7/" class="common tlist">Main Tab Items</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template16/" class="common tlist">Drop Shadows</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template1/" class="common tlist">CSS Bullets</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template8/" class="common tlist">Image Based</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template9/" class="common tlist">Animated Horizontals</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template10/" class="common tlist">Rounded Subs</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template11/" class="common tlist">Pointer Arrow</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template12/" class="common tlist">Gradient Buttons</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template13/" class="common tlist">Item Dividers</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template14/" class="common tlist">Rounded Items</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="tree_menu/" class="common tlist">Gradient Tree Menu</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template19/" class="common tlist">Basic Tree Menu</a>
+		<a href="#" ondblclick="open_menu()" onclick="show_template(event,this)" loc="template20/" class="common tlist">Text Tree Menu</a>
+		</div>
+
+	</td>
+
+	<td><div style="font-size:1px;width:2px;"></div></td>
+
+	<td class="tcborder" style="width:100%;vertical-align:top;">
+		<iframe name="qmvtemplateiframe" src="" id='theframe'  scrolling=no frameborder=none style='overflow:hidden;width:100%;height:100%;border-style:none;background-color:#ffffff;margin:0px;padding:0px;'></iframe>
+	</td>
+
+</tr></table>
+</div>
+
+<div>
+<table id="button_table" cellpadding=0 cellspacing=0 style="width:100%;"><tr>
+
+	<td class="common" style="color:#0033dd;white-space:nowrap;padding-left:5px;text-align:left;">Template File Location:&nbsp;<span id="folderlocation" style="color:#222222;"></span></td>
+	<td style="text-align:right;width:100%;padding:20px 0px 0px 0px;"><input onclick="open_menu()" class="common buttons" type="button" value="Customize Menu"></td>
+
+</tr></table>
+</div>
+
+
+</body>
+</html>

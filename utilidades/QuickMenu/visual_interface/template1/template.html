@@ -1,0 +1,268 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head><title>QuickMenu Template</title><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"> 
+
+
+
+<!-- *** QuickMenu copyright (c) 2007, OpenCube Inc. All Rights Reserved.
+
+          -This document, the JavaScript source code, and core CSS may not be modified,
+           re-distributed, or displayed for public consumption.
+    	
+          -This product must be purchased before its official inclusion in any public or 
+           private web site or application.
+
+          -This product may not be used in, or redistributed as part of an application whose
+           purpose is to enhance or create menu systems.
+-->     
+
+
+
+<!--%%%%%%%%%%%% Quick Menu Script %%%%%%%%%%%*-->
+<script type="text/JavaScript" src="qm.js"></script>
+
+<!-- Add-On Core Code (Remove when not using any add-on's) -->
+<style type="text/css">.qmfv{visibility:visible !important;}.qmfh{visibility:hidden !important;}</style><script type="text/JavaScript">var qmad = new Object();qmad.bvis="";qmad.bhide="";qmad.bhover="";</script>
+
+
+	<!-- Add-On Settings -->
+	<script type="text/JavaScript">
+
+		/*******  Menu 0 Add-On Settings *******/
+		var a = qmad.qm0 = new Object();
+
+		// Item Bullets (CSS - Imageless) Add On
+		a.ibcss_apply_to = "parent";
+		a.ibcss_main_type = "arrow-head-v";
+		a.ibcss_main_direction = "down";
+		a.ibcss_main_size = 5;
+		a.ibcss_main_bg_color = "transparent";
+		a.ibcss_main_bg_color_hover = "";
+		a.ibcss_main_border_color = "#555555";
+		a.ibcss_main_border_color_hover = "#dd3300";
+		a.ibcss_main_position_x = -19;
+		a.ibcss_main_position_y = -4;
+		a.ibcss_main_align_x = "right";
+		a.ibcss_main_align_y = "middle";
+		a.ibcss_sub_type = "arrow-head-v";
+		a.ibcss_sub_direction = "right";
+		a.ibcss_sub_size = 5;
+		a.ibcss_sub_bg_color = "transparent";
+		a.ibcss_sub_bg_color_hover = "";
+		a.ibcss_sub_border_color = "#555555";
+		a.ibcss_sub_border_color_hover = "#dd3300";
+		a.ibcss_sub_position_x = -16;
+		a.ibcss_sub_position_y = 0;
+		a.ibcss_sub_align_x = "right";
+		a.ibcss_sub_align_y = "middle";
+
+
+	</script>
+
+<!-- Add-On Code: Item Bullets -->
+<script type="text/javascript" src="qm_item_bullets_css.js"></script>
+
+
+
+
+<!--%%%%%%%%%%%% QuickMenu Styles [Keep in head for full validation!] %%%%%%%%%%%-->
+<style type="text/css">
+
+
+/*!!!!!!!!!!! QuickMenu Core CSS [Do Not Modify!] !!!!!!!!!!!!!*/
+.qmmc .qmdivider{display:block;font-size:1px;border-width:0px;border-style:solid;} .qmmc .qmdividery{float:left;width:0px;} .qmmc .qmtitle{display:block;cursor:default;white-space:nowrap;} .qmclear {font-size:1px;height:0px;width:0px;clear:left;line-height:0px;display:block;}.qmmc {position:relative;}.qmmc a {float:left;display:block;white-space:nowrap;}.qmmc div a {float:none;}.qmsh div a{float:left;}.qmmc div {visibility:hidden;position:absolute;}
+
+
+/*!!!!!!!!!!! QuickMenu Styles [Please Modify!] !!!!!!!!!!!*/
+
+
+	/* Remove the comments bleow for vertical mains and change the false value to
+           true in the qm_create function after the menus structure. */
+	/*.qmmc a {float:none}*/
+
+		
+
+	/*"""""""" (MAIN) Container """"""""*/
+	#qm0
+	{ 
+		background-color:transparent;
+	}
+
+
+	 /*"""""""" (MAIN) Items """"""""*/
+	#qm0 a
+	{
+		color:#000000;
+		background-color:#ffffff;
+		font-family:Arial;
+		font-size:11px;
+		text-decoration:none;
+		padding:5px 40px 5px 8px;
+		border-style:solid;
+		border-color:#a6a6a6;
+		border-width:1px;
+	
+	}
+
+
+	/*"""""""" (MAIN) Hover State """"""""*/
+	#qm0 a:hover
+	{ 
+		background-color:#e6e6e6;
+	}
+
+
+	/*"""""""" (MAIN) Active State """"""""*/	
+	body #qm0 .qmactive, body #qm0 .qmactive:hover
+	{ 
+		background-color:#e6e6e6;
+		text-decoration:underline;
+	}
+
+
+	/*"""""""" (MAIN) Parent Items """"""""*/
+	#qm0 .qmparent
+	{
+		
+	}
+
+
+	/*"""""""" [SUB] Containers """"""""*/
+	#qm0 div
+	{
+		background-color:#e6e6e6;
+		padding:5px;
+		border-style:solid;
+		border-width:1px;
+		border-color:#a6a6a6;
+		margin:-1px 0px 0px 0px;
+		
+	}
+
+	
+	/*"""""""" [SUB] Hover State """"""""*/
+	#qm0 div a:hover
+	{
+		text-decoration:underline;
+	}
+
+
+	/*""""""""[SUB] Active State """"""""*/
+	body #qm0 div .qmactive, body #qm0 div .qmactive:hover
+	{
+		background-color:#ffffff;
+	}
+
+
+	/*"""""""" [SUB] Parent Items """"""""*/
+	#qm0 div .qmparent 
+	{
+		
+	}
+
+
+	/*"""""""" [SUB] Items """"""""*/
+	#qm0 div a
+	{		
+		background-color:transparent;
+		padding:2px 40px 2px 5px;
+		border-width:0px;
+		border-style:none;
+		border-color:#000000;
+	}
+
+
+</style>
+</head>
+
+
+
+<body style="margin:40px"><noscript><span style="font-size:13px;font-family:arial;"><span style="color:#dd3300">Warning!</span>&nbsp&nbsp; QuickMenu may have been blocked by IE-SP2's active content option. This browser feature blocks JavaScript from running locally on your computer.<br><br>This warning will not display once the menu is on-line.  To enable the menu locally, click the yellow bar above, and select <span style="color:#0033dd;">"Allow Blocked Content"</span>.<br><br>To permanently enable active content locally...<div style="padding:0px 0px 30px 10px;color:#0033dd;"><br>1: Select 'Tools' --> 'Internet Options' from the IE menu.<br>2: Click the 'Advanced' tab.<br>3: Check the 2nd option under 'Security' in the tree (Allow active content to run in files on my computer.)</div></span></noscript>
+
+
+
+<!--%%%%%%%%%%%% QuickMenu Stucture %%%%%%%%%%%*-->
+
+<div id="qm0" class="qmmc" style="visibility:hidden;">
+
+	<a href="javascript:void(0)">Who We Are</a>
+	
+		<div>
+		<a href="javascript:void(0)">Management</a>
+		<a href="javascript:void(0)">Global Sites</a>
+			
+			<div>
+			<a href="javascript:void(0)">Asia</a>
+			<a href="javascript:void(0)">South America</a>
+			<a href="javascript:void(0)">Australia</a>
+			<a href="javascript:void(0)">North America</a>
+			<a href="javascript:void(0)">Europe</a>
+			<a href="javascript:void(0)">Africa</a>
+			</div>
+
+		<a href="javascript:void(0)">Investors</a>
+		
+			<div>
+			<a href="javascript:void(0)">Asia</a>
+			<a href="javascript:void(0)">South America</a>
+			<a href="javascript:void(0)">Australia</a>
+			<a href="javascript:void(0)">North America</a>
+			<a href="javascript:void(0)">Europe</a>
+			<a href="javascript:void(0)">Africa</a>
+			</div>
+
+		<a href="javascript:void(0)">Worldwide</a>
+		<a href="javascript:void(0)">Product Overview</a>
+		<a href="javascript:void(0)">Publicity</a>
+		</div>
+	
+	<a href="javascript:void(0)">Our Commitment</a>
+
+		<div>
+		<a href="javascript:void(0)">Satisfaction</a>
+		<a href="javascript:void(0)">Our Goals</a>
+		<a href="javascript:void(0)">Product Warranty</a>
+		<a href="javascript:void(0)">Future Outlook</a>
+		<a href="javascript:void(0)">Product Quality</a>
+		<a href="javascript:void(0)">Continued Support</a>
+		</div>
+
+
+	<a href="javascript:void(0)">Our Investors</a>
+	
+
+		<div>
+		<a href="javascript:void(0)">Annual Meetings</a>
+		<a href="javascript:void(0)">Financial Reports</a>
+		<a href="javascript:void(0)">Nasdaq Quoting</a>
+		<a href="javascript:void(0)">Dividend Information</a>
+		<a href="javascript:void(0)">Future Outlook</a>
+		<a href="javascript:void(0)">CEO Announcements</a>
+		</div>
+
+	
+	<a href="javascript:void(0)">Technology</a>
+
+		<div>
+		<a href="javascript:void(0)">Satisfaction</a>
+		<a href="javascript:void(0)">Our Goals</a>
+		<a href="javascript:void(0)">Product Warranty</a>
+		<a href="javascript:void(0)">Future Outlook</a>
+		<a href="javascript:void(0)">Product Quality</a>
+		<a href="javascript:void(0)">Continued Support</a>
+		</div>
+
+<span class="qmclear">&nbsp;</span></div>
+
+
+<!--%%%%%%%%%%%% QuickMenu Create Menu (menu id, is vertical, show timer (ms), hide timer (ms), on click) %%%%%%%%%%%*-->
+<script type="text/JavaScript">qm_create(0,false,0,500,false)</script>
+
+
+
+
+
+<!-- This script references optionally loads the QuickMenu visual interface, to run the menu stand alone remove the script.-->
+<script type="text/javascript" src="../qmv4/qm_visual.js"></script>
+</body>
+</html>

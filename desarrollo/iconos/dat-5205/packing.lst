@@ -1,0 +1,25 @@
+   Network Associates 5205 (v4.0.xx) Data Files
+
+
+Packing List and Validation Codes       PACKING.LST
+
+Virus Clean Up Data                     CLEAN.DAT
+Hostile ActiveX/Java Data File          INTERNET.DAT
+Virus Names Data                        NAMES.DAT
+Virus Detection Data                    SCAN.DAT
+
+Validate Program                        VALIDATE.EXE
+
+Package Description File                PKGDESC.INI
+
+Validation codes for the Virus Data Files included
+in this package:
+
+CLEAN    DAT   1404901  01-11-08   5:20a   4DC9   4B59
+INTERNET DAT     12124  10-15-98   3:20a   238B   6C9A
+NAMES    DAT    832312  01-11-08   5:20a   794D   6DD5
+SCAN     DAT  17987329  01-11-08   5:20a   4862   FDC4
+
+VALIDATE EXE     51200  07-21-04   3:32a   67A7   2F0C
+
+PKGDESC  INI       714  01-11-08   5:20a   C8F2   AA71

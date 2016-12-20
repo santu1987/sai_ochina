@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+	<title>datePicker - mootools</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="_web.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="mootools-1.2-core.js"></script>
+	<script type="text/javascript" src="_class.datePicker.js"></script>
+	<script type="text/javascript">//<![CDATA[
+	window.addEvent('domready',function(){
+
+		//Ejemplo 1
+		$('fecha01').datePicker();
+
+		//Ejemplo 2
+		$('fecha02').datePicker({
+			klass: 'black_datePicker',
+			days: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+			draggable: true,
+			position: {x:'right',y:'top'},
+			offset: {x:10,y:-100},
+			firstday: 3
+		},'click');
+
+		//Ejemplo 3
+		var fecha03 = $('fecha03').getPrevious();
+		var dp3 = $('fecha03').datePicker({
+			format: '%DD %d, %MM %Y | %D %d %M %y | %Y-%m-%d',
+			from: [2008,10,11],
+			to: [2009,0,24],
+			initial: [2008,10,18],
+			setInitial: true,
+			updateElement: false,
+			onShow: function(container){
+				container.fade('hide').fade('in');
+			},
+			onHide: function(container){
+				container.fade('out');
+			},
+			onUpdate: function(){
+				fecha03.set('html',this.format());
+			}
+		},'click');
+
+		var inputs03 = $('sample3').getElements('input,button').associate(['fecha','formato','set']);
+		inputs03.set.addEvent('click',function(){
+			var date = inputs03.fecha.value.split('/');
+			dp3.setFullDate(date[2].toInt(),date[1].toInt()-1,date[0].toInt());
+			dp3.options.format = inputs03.formato.value;
+			dp3.update();
+		});
+
+		//Ejemplo 4
+		var hoy = new Date();
+		var salidaFrom = new Date(hoy.getFullYear(),hoy.getMonth(),hoy.getDate()+7);
+		salidaFrom = [salidaFrom.getFullYear(),salidaFrom.getMonth(),salidaFrom.getDate()];
+
+		var dpFechaRetorno = $('fecha05_2').datePicker();
+		var dpFechaSalida = $('fecha05_1').datePicker({
+			from: salidaFrom,
+			initial: salidaFrom,
+			setInitial: true,
+			onUpdate: function(date){
+				var retornoFrom = new Date(date.y,date.m,date.d+14);
+				var retornoTo = new Date(date.y,date.m,date.d+14+30);
+				dpFechaRetorno.options.from = [retornoFrom.getFullYear(),retornoFrom.getMonth(),retornoFrom.getDate()];
+				dpFechaRetorno.options.to = [retornoTo.getFullYear(),retornoTo.getMonth(),retornoTo.getDate()];
+				dpFechaRetorno.setFullDate(date.y,date.m,date.d+14).update();
+			}
+		});
+
+	});
+	//]]></script>
+</head>
+<body>
+<div id="cont">
+
+<h1>datePicker - mootools</h1>
+
+<div class="description">
+	<p><strong>datePicker</strong>, plugin (clase) para <a href="http://mootools.net" title="a super lightweight web2.0 javascript framework">mootools 1.2</a>. Múltiples formatos de retorno de fecha, rangos de fechas, opciones para personalización de funcionamiento y estilo.</p>
+	<p>_class.datePicker.packed.js (6.24kb)</p>
+	<h4>Descargar:</h4>
+	<p>
+		- <a href="noob_datePicker_v0.8.zip">datePicker (v0.8) / 2008-10-31</a> <br />
+		- <a href="CHANGELOG">changelog</a>
+	</p>
+	<h4>Relacionado:</h4>
+	<p>
+		- <a href="../" title="Mootools Plugins">mootools plugins</a>
+	</p>
+</div>
+
+<!-- EJEMPLO 1 -->
+<h2>Ejemplo 1</h2>
+<div class="description">
+<p>Se ha implementado el evento <code>datePicker</code> para la clase <code>Element</code>, quiere decir que al llamar al evento <code>datePicker</code> de cualquier elemento, se le asignará una instancia de "datePicker" que se mostrará con el evento "focus".</p>
+<pre>
+$('fecha01').datePicker();
+</pre>
+</div>
+<div class="sample">
+	<p><input type="text" id="fecha01" value="dd/mm/yyyy" /></p>
+</div>
+
+<!-- EJEMPLO 2 -->
+<h2>Ejemplo 2</h2>
+<div class="description">
+<p>Al llamar al evento <code>datePicker</code> de la clase <code>Element</code>, se le puede pasar las opciones como primer parámetro y el evento como segundo parámetro.</p>
+<br />
+<p>Para este ejemplo, algunas opciones simples:</p>
+<p><code>klass</code>: clase CSS para la instancia (para darle un estilo diferente)</p>
+<p><code>days</code>: días de la semana</p>
+<p><code>draggable</code>: arrastrable, requiere la clase <code>Drag.Move</code>->mootools-1.2.1-more</p>
+<p><code>position</code>: posición con respecto del elemento</p>
+<p><code>offset</code>: distancias a sumar a la posición</p>
+<p><code>firstday</code>: primer día de la semana (0=Domingo,1=Lunes,...)</p>
+<pre>
+$('fecha02').datePicker({
+	klass: 'black_datePicker',
+	days: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+	draggable: true,
+	position: {x:'right',y:'top'},
+	offset: {x:10,y:-100},
+	firstday: 3
+},'click');
+</pre>
+</div>
+<div class="sample">
+	<p><span id="fecha02">click aquí para seleccionar una fecha</span></p>
+</div>
+
+<!-- EJEMPLO 3 -->
+<h2>Ejemplo 3</h2>
+<div class="description">
+<p>Más opciones:</p>
+<p><code>format</code>: formato de retorno</p>
+<p><code>from</code>: rango inferior de fechas seleccionables</p>
+<p><code>to</code>: rango superior de fechas seleccionables</p>
+<p><code>initial</code>: fecha inicial</p>
+<p><code>setInitial</code>: estable si <code>initial</code>(la fecha inicial) actualiza al elemento asignado al crear la instancia</p>
+<p><code>updateElement</code>: estable si al seleccionar una fecha se actualiza el elemento asignado</p>
+<br />
+<p>Los 3 eventos disponibles:</p>
+<p><code>onShow()</code>: al mostrar</p>
+<p><code>onHide()</code>: al esconder</p>
+<p><code>onUpdate()</code>: al seleccionar una fecha o al llamar al evento <code>update</code></p>
+<br />
+<p>Algunos métodos:</p>
+<p><code>format()</code>: retorna una fecha formateada, se le pueden pasar dos parámetros: el primero la fecha que es un array [yyyy,m(0-11),d] año,mes,dia o un objeto {y:año,m:mes(0-1),d:dia}; y el segundo parámetro es el formato. Si no se le pasa alguno de los parámetros tomará los de la instancia.</p>
+<p><code>setFullDate()</code>: asignar fecha a la instancia, requiere 3 parámetros: año,mes(0-11),día</p>
+<p><code>update()</code>: dispara el evento <code>update</code> y si la opcion <code>updateElement</code> es <code>true</code> actualiza el elemento asignado con la fecha formateada.</p>
+<pre>
+var fecha03 = $('fecha03').getPrevious();
+var dp3 = $('fecha03').datePicker({
+	format: '%DD %d, %MM %Y | %D %d %M %y | %Y-%m-%d',
+	from: [2008,10,11],
+	to: [2009,0,24],
+	initial: [2008,10,18],
+	setInitial: true,
+	updateElement: false,
+	onShow: function(container){
+		container.fade('hide').fade('in');
+	},
+	onHide: function(container){
+		container.fade('out');
+	},
+	onUpdate: function(){
+		fecha03.set('html',this.format());
+	}
+},'click');
+
+var inputs03 = $('sample3').getElements('input,button').associate(['fecha','formato','set']);
+inputs03.set.addEvent('click',function(){
+	var date = inputs03.fecha.value.split('/');
+	dp3.setFullDate(date[2].toInt(),date[1].toInt()-1,date[0].toInt());
+	dp3.options.format = inputs03.formato.value;
+	dp3.update();
+});
+</pre>
+</div>
+<div class="sample" id="sample3">
+	<p><strong>Seleccione una fecha &raquo; </strong> <img id="fecha03" src="calendar.png" alt="Seleccione una fecha" /></p>
+	<br />
+	<p>Fecha (dd/mm/yyyy) <input type="text" value="04/02/2008" /></p>
+	<p>Formato <input type="text" value="%DD %d, %MM %Y | %D %d %M %y | %Y-%m-%d" /></p>
+	<p><button>set &raquo;</button></p>
+</div>
+
+<!-- EJEMPLO 4 -->
+<h2>Ejemplo 4</h2>
+<div class="description">
+<p>Implementando un ejemplo más práctico:</p>
+<p>Se requiere seleccionar dos fechas, fechaSalida y fechaRetorno para un boleto de viaje.</p>
+<p>La fechaSalida debe estar disponible apartir de los próximos 7 días.</p>
+<p>La fechaRetorno debe estar disponible durante 30 días a partir de 14 días después de la fechaSalida.</p>
+<pre>
+var hoy = new Date();
+var salidaFrom = new Date(hoy.getFullYear(),hoy.getMonth(),hoy.getDate()+7);
+salidaFrom = [salidaFrom.getFullYear(),salidaFrom.getMonth(),salidaFrom.getDate()];
+
+var dpFechaRetorno = $('fecha05_2').datePicker();
+var dpFechaSalida = $('fecha05_1').datePicker({
+	from: salidaFrom,
+	initial: salidaFrom,
+	setInitial: true,
+	onUpdate: function(date){
+		var retornoFrom = new Date(date.y,date.m,date.d+14);
+		var retornoTo = new Date(date.y,date.m,date.d+14+30);
+		dpFechaRetorno.options.from = [retornoFrom.getFullYear(),retornoFrom.getMonth(),retornoFrom.getDate()];
+		dpFechaRetorno.options.to = [retornoTo.getFullYear(),retornoTo.getMonth(),retornoTo.getDate()];
+		dpFechaRetorno.setFullDate(date.y,date.m,date.d+14).update();
+	}
+});
+</pre>
+</div>
+<div class="sample">
+	<p>Salida <input type="text" id="fecha05_1" value="" /> Retorno <input type="text" id="fecha05_2" value="" /></p>
+</div>
+
+<div class="links">
+	<a href="noob_datePicker_v0.8.zip">download datePicker (v0.8)</a>
+</div>
+
+</div>
+</body>
+</html>

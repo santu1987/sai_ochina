@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head><title>QuickMenu Template</title><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"> 
+
+
+
+<!-- *** QuickMenu copyright (c) 2007, OpenCube Inc. All Rights Reserved.
+
+          -This document, the JavaScript source code, and core CSS may not be modified,
+           re-distributed, or displayed for public consumption.
+    	
+          -This product must be purchased before its official inclusion in any public or 
+           private web site or application.
+
+          -This product may not be used in, or redistributed as part of an application whose
+           purpose is to enhance or create menu systems.
+-->     
+
+
+
+<!--%%%%%%%%%%%% QuickMenu JavaScript %%%%%%%%%%%*-->
+
+	<!-- Core Menu Code -->
+	<script type="text/JavaScript" src="qm.js"></script>
+
+	<!-- Add-On Core Code (Remove when not using any add-on's) -->
+	<style type="text/css">.qmfv{visibility:visible !important;}.qmfh{visibility:hidden !important;}</style><script type="text/JavaScript">var qmad = new Object();qmad.bvis="";qmad.bhide="";qmad.bhover="";</script>
+
+		<!-- Add-On Settings -->
+		<script type="text/JavaScript">
+
+			/*Menu 0 Settings*/
+			var a = qmad.qm0 = new Object();
+		
+			//the CSS accessible class name for the shadow element is 'qmrcorner'
+			a.rcorner_container_padding = 5;
+			a.rcorner_size = 6;
+			a.rcorner_border_color = "#cccccc";
+			a.rcorner_bg_color = "#eeeeee";
+			a.rcorner_opacity = .9;
+
+			a.rcorner_angle_corners = false;
+			a.rcorner_apply_corners = new Array(false,true,true,true);  //top-left, top-right, bottom-right, bottom-left
+			
+			
+		</script>
+
+
+	<!-- Optional Add-On's (Must appear after core menu code) -->
+	<script type="text/JavaScript" src="qm_round_corners.js"></script>
+
+
+<!--%%%%%%%%%%%% QuickMenu Styles [Keep in head for full validation!] %%%%%%%%%%%-->
+<style type="text/css">
+
+
+/*!!!!!!!!!!! QuickMenu Core CSS [Do Not Modify!] !!!!!!!!!!!!!*/
+.qmclear {font-size:1px;height:0px;width:0px;clear:left;line-height:0px;display:block;}.qmmc {position:relative;}.qmmc a {float:left;display:block;white-space:nowrap;}.qmmc div a {float:none;}.qmmc div {visibility:hidden;position:absolute;}
+
+
+/*!!!!!!!!!!! QuickMenu Styles [Please Modify!] !!!!!!!!!!!*/
+
+
+	/* Remove the comments bleow for vertical mains and change the false value to
+           true in the qm_create function after the menus structure. */
+	/*.qmmc a {float:none}*/
+
+		
+
+	/*"""""""" (MAIN) Container """"""""*/
+	#qm0
+	{ 
+		background-color:transparent;
+	}
+
+
+	 /*"""""""" (MAIN) Items """"""""*/
+	#qm0 a
+	{
+		color:#000000;
+		background-color:#ffffff;
+		font-family:Arial;
+		font-size:.8em;
+		text-decoration:none;
+		padding:5px 40px 5px 8px;
+		border-style:solid;
+		border-color:#dddddd;
+		border-width:1px;
+	
+	}
+
+
+	/*"""""""" (MAIN) Hover State """"""""*/
+	#qm0 a:hover
+	{ 
+		background-color:#efefef;
+	}
+
+
+	/*"""""""" (MAIN) Active State """"""""*/	
+	body #qm0 .qmactive, body #qm0 .qmactive:hover
+	{ 
+		background-color:#efefef;
+		text-decoration:underline;
+	}
+
+
+	/*"""""""" (MAIN) Parent Items """"""""*/
+	#qm0 .qmparent
+	{
+		background-image:url(images/arrow_down.gif);
+		background-repeat:no-repeat;
+		background-position:95%;
+	}
+
+
+	/*"""""""" [SUB] Containers """"""""*/
+	#qm0 div
+	{
+		background-color:transparent;
+		padding:5px;
+		border-style:none;
+		border-width:1px;
+		border-color:#cccccc;
+		margin-top:-1px;
+		
+	}
+
+	
+	/*"""""""" [SUB] Hover State """"""""*/
+	#qm0 div a:hover
+	{
+		text-decoration:underline;
+		background-color:transparent;
+	}
+
+
+	/*""""""""[SUB] Active State """"""""*/
+	body #qm0 div .qmactive, body #qm0 div .qmactive:hover
+	{
+		background-color:transparent;
+	}
+
+
+	/*"""""""" [SUB] Parent Items """"""""*/
+	#qm0 div .qmparent 
+	{
+		background-image:url(images/arrow_right.gif);	
+	}
+
+
+	/*"""""""" [SUB] Items """"""""*/
+	#qm0 div a
+	{		
+		background-color:transparent;
+		padding:2px 40px 2px 5px;
+		border-width:0px;
+		border-style:none;
+		border-color:#000000;
+	}
+
+
+</style>
+</head>
+
+
+
+<body style="margin:40px">
+
+
+
+<!--%%%%%%%%%%%% QuickMenu Stucture %%%%%%%%%%%*-->
+
+<div id="qm0" class="qmmc">
+
+	<a href="#">Who We Are</a>
+	
+		<div>
+		<a href="#">Management</a>
+		<a href="#">Global Sites</a>
+			
+			<div style="width:9em">
+			<a href="#">Asia</a>
+			<a href="#">South America</a>
+			<a href="#">Australia</a>
+			<a href="#">North America</a>
+			<a href="#">Europe</a>
+			<a href="#">Africa</a>
+			</div>
+
+		<a href="#">Investors</a>
+		
+			<div style="width:9em">
+			<a href="#">Asia</a>
+			<a href="#">South America</a>
+			<a href="#">Australia</a>
+			<a href="#">North America</a>
+			<a href="#">Europe</a>
+			<a href="#">Africa</a>
+			</div>
+
+		<a href="#">Worldwide</a>
+		<a href="#">Product Overview</a>
+		<a href="#">Publicity</a>
+		</div>
+	
+	<a href="#">Our Commitment</a>
+
+		<div>
+		<a href="#">Satisfaction</a>
+		<a href="#">Our Goals</a>
+		<a href="#">Product Warranty</a>
+		<a href="#">Future Outlook</a>
+		<a href="#">Product Quality</a>
+		<a href="#">Continued Support</a>
+		</div>
+
+
+	<a href="#">Our Investors</a>
+	
+
+		<div>
+		<a href="#">Annual Meetings</a>
+		<a href="#">Financial Reports</a>
+		<a href="#">Nasdaq Quoting</a>
+		<a href="#">Dividend Information</a>
+		<a href="#">Future Outlook</a>
+		<a href="#">CEO Announcements</a>
+		</div>
+
+	
+	<a href="#">Technology</a>
+
+		<div>
+		<a href="#">Satisfaction</a>
+		<a href="#">Our Goals</a>
+		<a href="#">Product Warranty</a>
+		<a href="#">Future Outlook</a>
+		<a href="#">Product Quality</a>
+		<a href="#">Continued Support</a>
+		</div>
+
+<span class="qmclear">&nbsp;</span></div>
+
+
+<!--%%%%%%%%%%%% QuickMenu Create Menu (menu id, is vertical, show timer (ms), hide timer (ms), on click) %%%%%%%%%%%*-->
+<script type="text/JavaScript">qm_create(0,false,0,500,false)</script>
+
+
+
+<!-- Page Content -->
+<div style="margin:60px 20px 0px 20px;color:#111111;font-family:Arial;font-size:.8em;">
+<font style="color:#ff3300;">QuickMenu Rounded Corners Add-On</font><br><br>View the source HTML for this page to see where to apply this add on to your menu, or use this template as your starting point.
+<br><br>
+Rounded corners are achieved without the use of any images.  CSS styled divs create the effect, all colors, sizes, rounding types, and corners are customizable.
+</div>
+<!-- End Content -->
+
+
+
+</body>
+</html>

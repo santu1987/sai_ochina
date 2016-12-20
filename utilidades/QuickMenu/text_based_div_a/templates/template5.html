@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head><title>QuickMenu Template</title><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"> 
+
+
+
+<!-- *** QuickMenu copyright (c) 2007, OpenCube Inc. All Rights Reserved.
+
+          -This document, the JavaScript source code, and core CSS may not be modified,
+           re-distributed, or displayed for public consumption.
+    	
+          -This product must be purchased before its official inclusion in any public or 
+           private web site or application.
+
+          -This product may not be used in, or redistributed as part of an application whose
+           purpose is to enhance or create menu systems.
+-->     
+
+
+
+<!--%%%%%%%%%%%% Quick Menu Script %%%%%%%%%%%*-->
+
+	<!-- Core Menu Code-->
+	<script type="text/JavaScript" src="qm.js"></script>
+	
+	<!-- Add-On Core Code (Remove when not using any add-on's) -->
+	<style type="text/css">.qmfv{visibility:visible !important;}.qmfh{visibility:hidden !important;}</style><script type="text/JavaScript">var qmad = new Object();qmad.bvis="";qmad.bhide="";qmad.bhover="";</script>
+
+	<!-- Add-On Settings -->
+	<script type="text/JavaScript">
+
+		/*Menu 0 Settings*/
+		var a = qmad.qm0 = new Object();
+		a.mwidths_active = true;
+		
+
+	</script>
+
+	<!-- Optional Add-On's-->
+	<script type="text/JavaScript" src="add-ons/qm_match_widths.js"></script>
+
+
+<!--%%%%%%%%%%%% QuickMenu Styles [Keep in head for full validation!] %%%%%%%%%%%-->
+<style type="text/css">
+
+
+/*!!!!!!!!!!! QuickMenu Core CSS [Do Not Modify!] !!!!!!!!!!!!!*/
+.qmclear {font-size:1px;height:0px;width:0px;clear:left;line-height:0px;display:block;}.qmmc {position:relative;}.qmmc a {float:left;display:block;white-space:nowrap;}.qmmc div a {float:none;}.qmmc div {visibility:hidden;position:absolute;}
+
+
+/*!!!!!!!!!!! QuickMenu Styles [Please Modify!] !!!!!!!!!!!*/
+
+
+	/* Remove the comments bleow for vertical mains and change the false value to
+           true in the qm_create function after the menus structure. */
+	/*.qmmc a {float:none}*/
+
+		
+
+	/*"""""""" (MAIN) Container """"""""*/
+	#qm0
+	{ 
+		background-color:transparent;
+	}
+
+
+	 /*"""""""" (MAIN) Items """"""""*/
+	#qm0 a
+	{
+		color:#666;
+		background-color:#ffffff;
+		font-family:Arial;
+		font-size:.8em;
+		text-decoration:none;
+		padding:5px 60px 3px 0px;
+		border-style:solid;
+		border-color:#666;
+		border-width:0px;
+		border-bottom-width:8px;
+		margin-right:3px;
+		font-weight:bold;
+		
+	
+	}
+
+
+	/*"""""""" (MAIN) Hover State """"""""*/
+	#qm0 a:hover
+	{ 
+		background-color:#fff;
+		border-color:#f00;
+		color:#000;
+	}
+
+
+	/*"""""""" (MAIN) Active State """"""""*/	
+	body #qm0 .qmactive, body #qm0 .qmactive:hover
+	{ 
+		background-color:#fff;
+		text-decoration:none;
+		border-color:#f00;
+		color:#000;
+	}
+
+
+	/*"""""""" (MAIN) Parent Items """"""""*/
+	#qm0 .qmparent
+	{
+		background-image:url();
+		background-repeat:no-repeat;
+		background-position:95%;
+	}
+
+
+	/*"""""""" [SUB] Containers """"""""*/
+	#qm0 div
+	{
+		background-color:#eeeeee;
+		padding:10px 5px 10px 5px;
+		border-style:solid;
+		border-width:1px;
+		border-color:#ff0000;
+	}
+
+	
+	/*"""""""" [SUB] Hover State """"""""*/
+	#qm0 div a:hover
+	{
+		text-decoration:none;
+		background-color:#666666; 
+		color:#ffffff;
+	}
+
+
+	/*""""""""[SUB] Active State """"""""*/
+	body #qm0 div .qmactive, body #qm0 div .qmactive:hover
+	{
+		
+		background-color:#666666; 
+		color:#ffffff;
+	}
+
+
+	/*"""""""" [SUB] Parent Items """"""""*/
+	#qm0 div .qmparent 
+	{
+		background-image:url(images/arrow_right.gif);	
+	}
+
+
+	/*"""""""" [SUB] Items """"""""*/
+	#qm0 div a
+	{		
+		color:#000000;
+		background-color:transparent;
+		padding:3px 3px 3px 5px;
+		border-width:0px;
+		border-style:none;
+		border-color:#000000;
+		font-weight:normal;
+		font-size:.7em;
+		margin-right:0px;
+	}
+
+
+</style>
+</head>
+
+
+
+<body style="margin:40px">
+
+
+
+<!--%%%%%%%%%%%% QuickMenu Stucture %%%%%%%%%%%*-->
+
+<div id="qm0" class="qmmc">
+
+	<a href="#">Products</a>
+	
+		<div>
+		<a href="#">All...</a>
+		<a href="#">Digital Imaging</a>
+		<a href="#">Video and audio</a>
+		<a href="#">Web publishing</a>
+		<a href="#">Print Publishing</a>
+		</div>
+	
+	<a href="#">Solutions</a>
+
+		<div>
+		<a href="#">Satisfaction</a>
+		<a href="#">Our Goals</a>
+		<a href="#">Product Warranty</a>
+		<a href="#">Future Outlook</a>
+		<a href="#">Product Quality</a>
+		</div>
+
+
+	<a href="#">Support</a>
+	
+
+		<div>
+		<a href="#">Annual Meetings</a>
+		<a href="#">Financial Reports</a>
+		<a href="#">Nasdaq Quoting</a>
+		<a href="#">Future Outlook</a>
+		</div>
+
+	
+	<a href="#">About</a>
+
+		<div>
+		<a href="#">Satisfaction</a>
+		<a href="#">Our Goals</a>
+		<a href="#">Future Outlook</a>
+		</div>
+
+<span class="qmclear">&nbsp;</span></div>
+
+
+<!--%%%%%%%%%%%% QuickMenu Create Menu (false=horizontal true=veritcal) %%%%%%%%%%%*-->
+<script type="text/JavaScript">qm_create(0,false)</script>
+
+
+
+
+
+
+
+</body>
+</html>

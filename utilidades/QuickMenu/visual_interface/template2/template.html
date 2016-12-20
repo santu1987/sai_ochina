@@ -1,0 +1,297 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head><title>QuickMenu Template</title><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"> 
+
+
+
+<!-- *** QuickMenu copyright (c) 2007, OpenCube Inc. All Rights Reserved.
+
+          -This document, the JavaScript source code, and core CSS may not be modified,
+           re-distributed, or displayed for public consumption.
+    	
+          -This product must be purchased before its official inclusion in any public or 
+           private web site or application.
+
+          -This product may not be used in, or redistributed as part of an application whose
+           purpose is to enhance or create menu systems.
+-->     
+
+
+
+<!--%%%%%%%%%%%% Quick Menu Script %%%%%%%%%%%*-->
+<script type="text/JavaScript" src="qm.js"></script>
+
+<!-- Add-On Core Code (Remove when not using any add-on's) -->
+<style type="text/css">.qmfv{visibility:visible !important;}.qmfh{visibility:hidden !important;}</style><script type="text/JavaScript">var qmad = new Object();qmad.bvis="";qmad.bhide="";qmad.bhover="";</script>
+
+
+	<!-- Add-On Settings -->
+	<script type="text/JavaScript">
+
+		/*******  Menu 0 Add-On Settings *******/
+		var a = qmad.qm0 = new Object();
+
+		// Item Bullets Add On
+		a.ibullets_apply_to = "parent";
+		a.ibullets_main_image = "images/white_arrow.gif";
+		a.ibullets_main_image_hover = "images/black_arrow.gif";
+		a.ibullets_main_image_active = "images/black_arrow.gif";
+		a.ibullets_main_image_width = 6;
+		a.ibullets_main_image_height = 3;
+		a.ibullets_main_position_x = -16;
+		a.ibullets_main_position_y = -5;
+		a.ibullets_main_align_x = "right";
+		a.ibullets_main_align_y = "middle";
+
+		a.ibullets_sub_image = "images/black_arrow_right.gif";
+		a.ibullets_sub_image_width = 3;
+		a.ibullets_sub_image_height = 6;
+		a.ibullets_sub_position_x = -12;
+		a.ibullets_sub_position_y = -2;
+		a.ibullets_sub_align_x = "right";
+		a.ibullets_sub_align_y = "middle";
+
+	</script>
+
+<!-- Add-On Code: Item Bullets -->
+<script type="text/javascript" src="qm_item_bullets.js"></script>
+
+
+<!--%%%%%%%%%%%% QuickMenu Styles [Keep in head for full validation!] %%%%%%%%%%%-->
+<style type="text/css">
+
+/*!!!!!!!!!!! QuickMenu Core CSS [Do Not Modify!] !!!!!!!!!!!!!*/
+.qmmc .qmdivider{display:block;font-size:1px;border-width:0px;border-style:solid;} .qmmc .qmdividery{float:left;width:0px;} .qmmc .qmtitle{display:block;cursor:default;white-space:nowrap;} .qmclear {font-size:1px;height:0px;width:0px;clear:left;line-height:0px;display:block;}.qmmc {position:relative;}.qmmc a {float:left;display:block;white-space:nowrap;}.qmmc div a {float:none;}.qmsh div a{float:left;}.qmmc div {visibility:hidden;position:absolute;}
+
+
+/*!!!!!!!!!!! QuickMenu Styles [Please Modify!] !!!!!!!!!!!*/
+
+
+	/* Remove the comments bleow for vertical mains and change the false value to
+           true in the qm_create function after the menus structure. */
+	/*.qmmc a {float:none}*/
+
+	
+	/*"""""""" (MAIN) Container """"""""*/
+	#qm0
+	{ 
+		background-color:#ffffff;
+		padding-left:10px;
+		border-width:1px 0px 1px 0px;
+		border-style:solid;
+		border-color:#000000;
+		background-image:url(images/bg.gif);
+		
+	}
+
+
+	 /*"""""""" (MAIN) Items """"""""*/
+	#qm0 a
+	{
+		color:#ffffff;
+		background-color:transparent;
+		font-family:Arial;
+		font-size:12px;
+		text-decoration:none;
+		padding:5px 20px 5px 8px;
+		border-style:solid;
+		border-color:#000000;
+		border-width:0px 0px 0px 1px;
+		
+	}
+
+
+	/*"""""""" (MAIN) Hover State """"""""*/
+	#qm0 a:hover
+	{ 
+		/*border-color:#333333;*/
+
+		color:#000000;
+		background-color:#EFF4FA;
+		text-decoration:underline;
+	}
+
+
+	/*"""""""" (MAIN) Active State """"""""*/	
+	body #qm0 .qmactive, body #qm0 .qmactive:hover
+	{ 
+		color:#000000;
+		background-color:#EFF4FA;
+		text-decoration:underline;
+		
+	}
+
+
+	/*"""""""" (MAIN) Parent Items """"""""*/
+	#qm0 .qmparent
+	{
+		
+		
+	}
+
+	
+
+
+	/*"""""""" [SUB] Containers """"""""*/
+	#qm0 div
+	{
+		
+		background-color:#D6DCE2;
+		padding:5px 5px 5px 5px;
+		border-style:solid;
+		border-width:1px 1px 1px 1px;
+		margin:0px;
+		border-color:#333333;
+		
+	}
+
+
+	/*"""""""" [SUB] Items """"""""*/
+	#qm0 div a
+	{		
+		font-size:11px;
+		color:#333333;
+		border-width:0px 1px 0px 1px;
+		border-color:#D6DCE2;
+		border-style:solid;
+		padding:3px 30px 3px 5px;
+		
+	}
+	
+	/*"""""""" [SUB] Hover State """"""""*/
+	#qm0 div a:hover
+	{
+
+		border-color:#666666;
+		background-color:#EFF4FA;
+		color:#000000;
+		text-decoration:none;
+	}
+
+	#qm0 div div
+	{
+		margin:0px 0px 0px 3px;
+	}
+
+	/*""""""""[SUB] Active State """"""""*/
+	body #qm0 div .qmactive, body #qm0 div .qmactive:hover
+	{
+		
+		border-color:#666666;
+		background-color:#EFF4FA;
+		color:#000000;
+		text-decoration:underline;
+		
+		
+	}
+
+
+	/*"""""""" [SUB] Parent Items """"""""*/
+	#qm0 div .qmparent 
+	{
+
+		
+
+	}
+
+
+</style>
+</head>
+
+
+
+<body style="margin:40px"><noscript><span style="font-size:13px;font-family:arial;"><span style="color:#dd3300">Warning!</span>&nbsp&nbsp; QuickMenu may have been blocked by IE-SP2's active content option. This browser feature blocks JavaScript from running locally on your computer.<br><br>This warning will not display once the menu is on-line.  To enable the menu locally, click the yellow bar above, and select <span style="color:#0033dd;">"Allow Blocked Content"</span>.<br><br>To permanently enable active content locally...<div style="padding:0px 0px 30px 10px;color:#0033dd;"><br>1: Select 'Tools' --> 'Internet Options' from the IE menu.<br>2: Click the 'Advanced' tab.<br>3: Check the 2nd option under 'Security' in the tree (Allow active content to run in files on my computer.)</div></span></noscript>
+
+
+
+<!--%%%%%%%%%%%% QuickMenu Stucture %%%%%%%%%%%*-->
+
+<div id="qm0" class="qmmc" style="visibility:hidden;">
+
+	<a href="javascript:void(0)">Company</a>
+	
+		<div>
+		<a href="../../../../recursos/QuickMenu/visual_interface/template2/buy_now.html">Purchase Software</a>
+		<a href="../../../../recursos/QuickMenu/visual_interface/template2/contact.html">Customer Service</a>
+		<a href="../../../../recursos/QuickMenu/visual_interface/template2/contact.html">Tech. Support</a>
+		<a href="../../../../recursos/QuickMenu/visual_interface/template2/specs.html">Product Comparison</a>
+		<a href="javascript:void(0)">Product Overviews</a>
+
+			<div style="width:7em;">
+			<a href="../../../../recursos/QuickMenu/visual_interface/template2/im_overview.html">Infnite Menus</a>
+			<a href="../../../../recursos/QuickMenu/visual_interface/template2/qm_overview.html" style="border-bottom-width:0px;">QuickMenu</a>
+			</div>
+
+		<a href="javascript:void(0)">Our Customers</a>
+
+			<div style="width:7em;">
+			<a href="http://www.fedex.com/us/">Fex-Ex</a>
+			<a href="http://www.tyco.com">Tyco</a>
+			<a href="http://www.bestbuy.com">Best Buy</a>
+			<a href="http://www.kofax.com/">Kofax</a>
+			<a href="http://www.rayovac.com/">Rayovac</a>
+			<a href="http://www.bea.com/">BEA</a>
+			<a href="http://www.polycom.com/">Polycom</a>
+			<a href="http://www.act.com/">Act</a>
+			<a href="http://www.delta.com/" style="border-bottom-width:0px;">Delta</a>
+			</div>
+
+		<a href="../../../../recursos/QuickMenu/visual_interface/template2/who_we_are.html" style="border-bottom-width:0px;">Who We Are</a>
+
+		</div>
+		
+	
+	<a href="javascript:void(0)">Customers</a>
+
+		<div>
+		<a href="http://www.fedex.com/us/">Fex-Ex</a>
+		<a href="http://www.tyco.com">Tyco</a>
+		<a href="http://www.bestbuy.com">Best Buy</a>
+		<a href="http://www.kofax.com/">Kofax</a>
+		<a href="http://www.rayovac.com/">Rayovac</a>
+		<a href="http://www.bea.com/">BEA</a>
+		<a href="http://www.polycom.com/">Polycom</a>
+		<a href="http://www.act.com/">Act</a>
+		<a href="http://www.delta.com/" style="border-bottom-width:0px;">Delta</a>
+		</div>
+
+
+	<a href="javascript:void(0)">QuickMenu</a>
+
+		<div>
+		<a href="../../../../recursos/QuickMenu/visual_interface/template2/qm_overview.html">Overview</a>
+		<a href="../../../../recursos/QuickMenu/visual_interface/template2/specs.html">Specifications</a>
+		<a href="../../../../recursos/QuickMenu/visual_interface/template2/specs.html">Browser Support</a>
+		<a href="../../../../recursos/QuickMenu/visual_interface/template2/qm_overview.html">Sample Menus</a>
+		<a href="../../../../recursos/QuickMenu/visual_interface/template2/download.html" style="border-bottom-width:0px;">Download</a>
+		</div>
+
+	<a href="javascript:void(0)">Infinite Menus</a>
+
+		<div>
+		<a href="../../../../recursos/QuickMenu/visual_interface/template2/im_overview.html">Overview</a>
+		<a href="../../../../recursos/QuickMenu/visual_interface/template2/specs.html">Specifications</a>
+		<a href="../../../../recursos/QuickMenu/visual_interface/template2/specs.html">Browser Support</a>
+		<a href="../../../../recursos/QuickMenu/visual_interface/template2/im_overview.html">Screen Shots</a>
+		<a href="../../../../recursos/QuickMenu/visual_interface/template2/download.html" style="border-bottom-width:0px;">Download</a>
+		</div>
+
+	
+
+	<a style="border-right-width:1px;" href="../../../../recursos/QuickMenu/visual_interface/template2/buy_now.html">Buy Now!</a>
+
+	
+
+<span class="qmclear">&nbsp;</span></div>
+
+
+<!--%%%%%%%%%%%% QuickMenu Create Menu (menu id, is vertical, show timer (ms), hide timer (ms), on click) %%%%%%%%%%%*-->
+<script type="text/JavaScript">qm_create(0,false,0,500,false)</script>
+
+
+
+
+<!-- This script references optionally loads the QuickMenu visual interface, to run the menu stand alone remove the script.-->
+<script type="text/javascript" src="../qmv4/qm_visual.js"></script>
+</body>
+</html>

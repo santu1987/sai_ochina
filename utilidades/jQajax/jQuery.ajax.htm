@@ -1,0 +1,581 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html class="js" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head>
+
+	
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="Ajax/jQuery.ajax,Ajax,Ajax/jQuery.ajaxSetup,Ajax Events,Specifying the Data Type for AJAX Requests">
+<link rel="shortcut icon" href="http://docs.jquery.com/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://docs.jquery.com/opensearch_desc.php" title="jQuery JavaScript Library (English)"><title>Ajax/jQuery.ajax - jQuery JavaScript Library</title>
+		
+		<link rel="stylesheet" href="jQuery.ajax_archivos/reset.css" type="text/css">
+		<link rel="stylesheet" href="jQuery.ajax_archivos/screen.css" type="text/css">
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "http://docs.jquery.com/skins/monobook/main.css?9"; /*]]>*/</style>
+
+		<link rel="stylesheet" type="text/css" href="jQuery.ajax_archivos/jquery.css"><!--[if lte IE 7]>
+		<link rel="stylesheet" href="http://jquery.com/files/social/jquery.tabs-ie.css" type="text/css" media="projection, screen"/>
+		<![endif]-->
+		
+
+		<script type="text/javascript" src="jQuery.ajax_archivos/jquery.txt"></script>
+		<script src="jQuery.ajax_archivos/jquery.js"></script>
+
+		<script>$(function(){
+			$("div[id=examples]").each(function(){
+				$(this).siblings("div:first").find("div.desc").after(
+					$(this).find("div.example:has(#demo):first").remove().clone());
+
+				if ( !$("div.example", this).length )
+					$(this).remove();
+			});
+
+			$("div.entry")
+				.children("p").remove().end()
+				.find("ul:first li").each(function(){
+					if ( !$(this).parent().siblings( $("a",this).attr("href") ).length )
+						$(this).remove();
+				}).end()
+				.tabs();
+
+			$("div.args > br").remove();
+
+			$("div.example")
+				.children("p").remove().end()
+				.tabs();
+
+			var keywords = "String,Number,Object,Options,Array,Function,Callback,Selector,Event,Element,Integer,Float,Boolean".split(",");
+
+			$("td.default span, td.type").each(function(){
+				var html = this.innerHTML;
+				jQuery.each(keywords, function(i,key){
+					html = html.replace(new RegExp(key, "ig"), "<a href='/Types#" + key + "'>" + key + "</a>");
+				});
+				this.innerHTML = html;
+			});
+
+			$("div[id=source]").each(function(){
+				var source = $("pre", this).html()
+					.replace(/<\/?a.*?>/ig, "")
+					.replace(/<\/?strong.*?>/ig, "")
+					.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
+
+				//var items = [];
+				//source = source.replace(/\s*<(link|script).*?>\s\*/g, function(m){
+					//items.push(m);
+					//return "";
+				//}).replace("</head>", items.join("") + "</head>")
+				//*/
+
+				var iframe = document.createElement("iframe");
+				iframe.src = "/index-blank.html";
+				iframe.width = "100%";
+				iframe.height = $(this).prev().attr("rel") || "125";
+				iframe.style.border = "none";
+				$(this).prev().append(iframe);
+
+
+				$(window).load(function(){
+					var doc = iframe.contentDocument || iframe.contentWindow.document;
+					source = source
+						// IE needs to wait for the script to load (?)
+						.replace("$(document).ready(function(){", "window.onload = (function(){try{")
+						.replace(/}\);\s*<\/sc/, "}catch(e){}});</sc")
+						//.replace("http://code.jquery.com/jquery-latest.js", "http://dev.jquery.com/~john/ticket/expando/dist/jquery.js")
+						.replace("</head>", "<style>html,body{border:0; margin:0; padding:0;}</style></head>");
+					doc.open();
+					doc.write( source );
+					doc.close();
+				});
+
+			});
+		});</script>
+		<script type="text/javascript" src="jQuery.ajax_archivos/custom.txt"></script>
+		<link rel="shortcut icon" href="http://static.jquery.com/favicon.ico" type="image/x-icon">
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/skins/monobook/main.css?9"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="jQuery.ajax_archivos/commonPrint.css"><!--[if lt IE 5.5000]><style type="text/css">@import "/skins/monobook/IE50Fixes.css";</style><![endif]--><!--[if IE 5.5000]><style type="text/css">@import "/skins/monobook/IE55Fixes.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/monobook/IE60Fixes.css";</style><![endif]--><!--[if IE 7]><style type="text/css">@import "/skins/monobook/IE70Fixes.css?1";</style><![endif]--><!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]--><!-- Head Scripts --></head><body id="jq-interior" class="mediawiki ns-0 ltr jq-enhanced">
+
+	<div id="jq-siteContain">
+			<div id="jq-header">
+				<a id="jq-siteLogo" href="http://jquery.com/" title="jQuery Home"><img src="jQuery.ajax_archivos/logo_jquery_215x53.gif" alt="jQuery: Write Less, Do More." height="53" width="215"></a>
+
+				<div id="jq-primaryNavigation">
+
+					<ul>
+
+						<li class="jq-jquery jq-current"><a href="http://jquery.com/" title="jQuery Home">jQuery</a></li>
+						<li class="jq-plugins"><a href="http://plugins.jquery.com/" title="jQuery Plugins">Plugins</a></li>
+						<li class="jq-ui"><a href="http://ui.jquery.com/" title="jQuery UI">UI</a></li>
+						<li class="jq-blog"><a href="http://jquery.com/blog/" title="jQuery Blog">Blog</a></li>
+						<li class="jq-about"><a href="http://docs.jquery.com/About" title="About jQuery">About</a></li>
+
+						<li class="jq-donate"><a href="http://docs.jquery.com/Donate" title="Donate to jQuery">Donate</a></li>
+
+					</ul>
+				</div><!-- /#primaryNavigation -->
+
+				<div id="jq-secondaryNavigation">
+					<ul>
+						<li class="jq-download jq-first"><a href="http://docs.jquery.com/Downloading_jQuery"><span class="jq-shadow">Download</span><span>Download</span></a></li>
+						<li class="jq-documentation jq-current"><a href="http://docs.jquery.com/"><span class="jq-shadow">Documentation</span><span>Documentation</span></a></li>
+						<li class="jq-tutorials"><a href="http://docs.jquery.com/Tutorials"><span class="jq-shadow">Tutorials</span><span>Tutorials</span></a></li>
+
+						<li class="jq-bugTracker"><a href="http://dev.jquery.com/"><span class="jq-shadow">Bug Tracker</span><span>Bug Tracker</span></a></li>
+						<li class="jq-discussion jq-last"><a href="http://docs.jquery.com/Discussion"><span class="jq-shadow">Discussion</span><span>Discussion</span></a></li>
+					</ul>
+				</div><!-- /#secondaryNavigation -->
+
+				
+
+				<h1>Documentation</h1>
+
+				<form id="jq-primarySearchForm" action="/Special:Search">
+
+					<div>
+						<input value="1" name="ns0" type="hidden">
+						<label for="primarySearch">Search <span class="jq-jquery">jQuery</span></label>
+						<input value="" accesskey="f" title="Search jQuery" name="search" id="jq-primarySearch" type="text">
+						<button type="submit" name="go" id="jq-searchGoButton"><span>Go</span></button>
+					</div>
+
+				</form>
+
+			</div><!-- /#header -->
+
+			<div id="jq-content" class="jq-clearfix">
+
+				<div style="min-height: 283.4em;" id="jq-interiorNavigation">
+					<div class="jq-portlet" id="jq-p-Getting-Started">
+						<h5>Getting Started</h5>
+						<div class="jq-pBody">
+
+							<ul>
+
+								<li id="jq-n-Main-Page"><a href="http://docs.jquery.com/Main_Page">Main Page</a></li>
+								<li id="jq-n-Downloading-jQuery"><a href="http://docs.jquery.com/Downloading_jQuery">Downloading jQuery</a></li>
+				
+								<li id="jq-n-How-jQuery-Works"><a href="http://docs.jquery.com/How_jQuery_Works">How jQuery Works</a></li>
+								<li id="jq-n-FAQ"><a href="http://docs.jquery.com/Frequently_Asked_Questions">FAQ</a></li>
+								<li id="jq-n-Tutorials"><a href="http://docs.jquery.com/Tutorials">Tutorials</a></li>
+
+								<li id="jq-n-Using-jQuery-with-Other-Libraries"><a href="http://docs.jquery.com/Using_jQuery_with_Other_Libraries">Using jQuery with Other Libraries</a></li>
+
+								<li id="jq-n-Variable-Types"><a href="http://docs.jquery.com/Types">Variable Types</a></li>
+							</ul>
+				
+						</div>
+					</div>
+						<div class="jq-portlet" id="jq-p-API-Reference">
+						<h5>API Reference</h5>
+
+						<div class="jq-pBody">
+
+							<ul>
+								<li id="jq-n-jQuery-Core"><a href="http://docs.jquery.com/Core">jQuery Core</a></li>
+								<li id="jq-n-Selectors"><a href="http://docs.jquery.com/Selectors">Selectors</a></li>
+				
+								<li id="jq-n-Attributes"><a href="http://docs.jquery.com/Attributes">Attributes</a></li>
+								<li id="jq-n-Traversing"><a href="http://docs.jquery.com/Traversing">Traversing</a></li>
+								<li id="jq-n-Manipulation"><a href="http://docs.jquery.com/Manipulation">Manipulation</a></li>
+
+								<li id="jq-n-CSS"><a href="http://docs.jquery.com/CSS">CSS</a></li>
+								<li id="jq-n-Events"><a href="http://docs.jquery.com/Events">Events</a></li>
+								<li id="jq-n-Effects"><a href="http://docs.jquery.com/Effects">Effects</a></li>
+				
+								<li id="jq-n-Ajax"><a href="http://docs.jquery.com/Ajax">Ajax</a></li>
+								<li id="jq-n-Utilities"><a href="http://docs.jquery.com/Utilities">Utilities</a></li>
+								<li id="jq-n-jQuery-UI"><a href="http://docs.jquery.com/UI">jQuery UI</a></li>
+
+							</ul>
+						</div>
+					</div>
+						<div class="jq-portlet" id="jq-p-Plugins">
+				
+						<h5>Plugins</h5>
+						<div class="jq-pBody">
+							<ul>
+								<li id="jq-n-Plugin-Repository"><a href="http://jquery.com/plugins/">Plugin Repository</a></li>
+
+								<li id="jq-n-Authoring"><a href="http://docs.jquery.com/Plugins/Authoring">Authoring</a></li>
+							</ul>
+						</div>
+				
+					</div>
+						<div class="jq-portlet" id="jq-p-Support">
+						<h5>Support</h5>
+						<div class="jq-pBody">
+
+							<ul>
+
+								<li id="jq-n-Mailing-List-and-Chat"><a href="http://docs.jquery.com/Discussion">Mailing List and Chat</a></li>
+								<li id="jq-n-Submit-New-Bug"><a href="http://jquery.com/dev/bugs/new/">Submit New Bug</a></li>
+				
+							</ul>
+						</div>
+					</div>
+						<div class="jq-portlet" id="jq-p-About-jQuery">
+
+						<h5>About jQuery</h5>
+
+						<div class="jq-pBody">
+							<ul>
+								<li id="jq-n-Contributors"><a href="http://docs.jquery.com/Contributors">Contributors</a></li>
+				
+								<li id="jq-n-History-of-jQuery"><a href="http://docs.jquery.com/History_of_jQuery">History of jQuery</a></li>
+								<li id="jq-n-Sites-Using-jQuery"><a href="http://docs.jquery.com/Sites_Using_jQuery">Sites Using jQuery</a></li>
+
+								<li id="jq-n-Browser-Compatibility"><a href="http://docs.jquery.com/Browser_Compatibility">Browser Compatibility</a></li>
+								<li id="jq-n-License"><a href="http://docs.jquery.com/Licensing">Licensing</a></li>
+
+								<li id="jq-n-Donate"><a href="http://docs.jquery.com/Donate">Donate</a></li>
+							</ul>
+				
+						</div>
+					</div>
+						
+	<div class="jq-portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="jq-pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://docs.jquery.com/index.php?title=Special:Whatlinkshere&amp;target=Ajax%2FjQuery.ajax">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="http://docs.jquery.com/index.php?title=Special:Recentchangeslinked&amp;target=Ajax%2FjQuery.ajax">Related changes</a></li>
+<li id="t-upload"><a href="http://docs.jquery.com/Special:Upload">Upload file</a></li>
+<li id="t-specialpages"><a href="http://docs.jquery.com/Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="http://docs.jquery.com/index.php?title=Ajax/jQuery.ajax&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="http://docs.jquery.com/index.php?title=Ajax/jQuery.ajax&amp;oldid=11555">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+
+	<div id="jq-p-cactions" class="jq-portlet">
+		<h5>Views</h5>
+		<div class="jq-pBody">
+		<ul>
+				 <li id="jq-ca-nstab-main" class="selected"><a href="http://docs.jquery.com/Ajax/jQuery.ajax">Article</a></li>
+				 <li id="jq-ca-talk"><a href="http://docs.jquery.com/Talk:Ajax/jQuery.ajax">Discussion</a></li>
+				 <li id="jq-ca-edit"><a href="http://docs.jquery.com/action/edit/Ajax/jQuery.ajax">Edit</a></li>
+				 <li id="jq-ca-history"><a href="http://docs.jquery.com/action/history/Ajax/jQuery.ajax">History</a></li>
+		</ul>
+		</div>
+	</div>
+	<div class="jq-portlet" id="jq-p-personal">
+		<h5>Personal tools</h5>
+		<div class="jq-pBody">
+			<ul>
+				<li id="jq-pt-login"><a href="http://docs.jquery.com/index.php?title=Special:Userlogin&amp;returnto=Ajax/jQuery.ajax">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+
+					
+				</div><!-- /#interiorNavigation -->
+
+
+
+
+
+				<div style="min-height: 283.4em;" id="jq-primaryContent">
+		<div id="column-content">
+	<div id="docs-content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Ajax/jQuery.ajax</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From jQuery JavaScript Library</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>« <a href="http://docs.jquery.com/Ajax" title="Ajax">Back to Ajax</a></p><div class="api"><div>
+</div><span id="options" style="display: none;"></span><div class="section-edit">[<a href="http://docs.jquery.com/action/edit/Ajax/jQuery.ajax">edit</a>]</div>
+
+<a name="jQuery.ajax.28.C2.A0options_.29"></a><h3> <strong class="selflink">jQuery.ajax</strong>(&nbsp;options ) </h3>
+<p></p><div class="entry">
+<ul class="tabs-nav">
+<li class=""><a href="#overview"><span>Overview</span></a></li>
+<li class="tabs-selected"><a href="#toptions"><span>Options</span></a></li>
+<li class=""><a href="#examples"><span>Examples</span></a></li>
+
+</ul>
+<div id="overview" class="tabs-container tabs-hide">
+
+<div class="desc"><div>Load a remote page using an HTTP request.</div>
+<div class="longdesc">This is jQuery's low-level AJAX implementation.
+See $.get, $.post etc. for higher-level abstractions that are often
+easier to understand and use, but don't offer as much functionality
+(such as error callbacks).
+<p>$.ajax() returns the XMLHttpRequest that it creates. In most cases
+you won't need that object to manipulate directly, but it is available
+if you need to abort the request manually.
+</p><p>$.ajax() takes one argument, an object of key/value pairs, that
+are used to initialize and handle the request. See below for a full
+list of the key/values that can be used.
+</p><p><b>Note:</b> If you specify the dataType option described below, make sure
+the server sends the correct MIME type in the response (eg. xml as "text/xml").
+Sending the wrong MIME type can lead to unexpected problems in your script.
+See <a href="http://docs.jquery.com/Specifying_the_Data_Type_for_AJAX_Requests" title="Specifying the Data Type for AJAX Requests">Specifying the Data Type for AJAX Requests</a> for more information.
+</p><p><b>Note:</b> All remote (not on the same domain) POST requests
+are converted to GET when 'script' is the dataType (because it loads
+script using a DOM script tag).
+</p>
+As of jQuery 1.2, you can load JSON data located on another domain if you specify a <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" class="external text" title="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">JSONP</a>
+callback, which can be done like so: "myurl?callback=?". jQuery
+automatically replaces the&nbsp;? with the correct method name to call,
+calling your specified callback. Or, if you set the dataType to "jsonp"
+a callback will be automatically added to your Ajax request.</div></div><div class="args"><b class="args">Arguments:</b><table class="args" cellspacing="0"><tbody><tr class="option"><th>options</th><td class="type"><a href="http://docs.jquery.com/Types#Options">Options</a></td><td class="default"></td></tr><tr><td colspan="3" class="desc">A set of key/value pairs that configure the Ajax request. All options are optional. A default can be set for any option with <a href="http://docs.jquery.com/Ajax/jQuery.ajaxSetup" title="Ajax/jQuery.ajaxSetup">$.ajaxSetup</a>().</td></tr></tbody></table></div> </div>
+<div id="toptions" class="options tabs-container"><b class="options">Options:</b><p></p><table class="options" cellspacing="0"><thead><tr><th>Name</th><th>Type</th></tr></thead><tbody>
+<tr class="option"><th>async</th><td class="type"><a href="http://docs.jquery.com/Types#Boolean">Boolean</a></td><td class="default"><b>Default:</b> <span>true</span></td></tr><tr><td colspan="3" class="desc">By
+default, all requests are sent asynchronous (i.e. this is set to true
+by default). If you need synchronous requests, set this option to
+false. Note that synchronous requests may temporarily lock the browser,
+disabling any actions while the request is active.</td></tr>
+<tr class="option"><th>beforeSend</th><td class="type"><a href="http://docs.jquery.com/Types#Function">Function</a></td><td class="default"></td></tr><tr><td colspan="3" class="desc">A
+pre-callback to modify the XMLHttpRequest object before it is sent. Use
+this to set custom headers etc. The XMLHttpRequest is passed as the
+only argument. This is an <a href="http://docs.jquery.com/Ajax_Events" title="Ajax Events">Ajax Event</a>. You may return false in function to cancel the request.
+
+<pre>function (XMLHttpRequest) {
+  this; // the options for this ajax request
+}
+</pre>
+<p></p></td></tr>
+<tr class="option"><th>cache</th><td class="type"><a href="http://docs.jquery.com/Types#Boolean">Boolean</a></td><td class="default"><b>Default:</b> <span>true, false for dataType "script"</span></td></tr><tr><td colspan="3" class="desc">Added in jQuery 1.2, if set to false it will force the pages that you request to not be cached by the browser.</td></tr>
+<tr class="option"><th>complete</th><td class="type"><a href="http://docs.jquery.com/Types#Function">Function</a></td><td class="default"></td></tr><tr><td colspan="3" class="desc">A
+function to be called when the request finishes (after success and
+error callbacks are executed). The function gets passed two arguments:
+The XMLHttpRequest object and a string describing the type of success
+of the request. This is an <a href="http://docs.jquery.com/Ajax_Events" title="Ajax Events">Ajax Event</a>.
+
+<pre>function (XMLHttpRequest, textStatus) {
+  this; // the options for this ajax request
+}
+</pre>
+<p></p></td></tr>
+<tr class="option"><th>contentType</th><td class="type"><a href="http://docs.jquery.com/Types#String">String</a></td><td class="default"><b>Default:</b> <span>"application/x-www-form-urlencoded"</span></td></tr><tr><td colspan="3" class="desc">When
+sending data to the server, use this content-type. Default is
+"application/x-www-form-urlencoded", which is fine for most cases.</td></tr>
+<tr class="option"><th>data</th><td class="type"><a href="http://docs.jquery.com/Types#Object">Object</a>, <a href="http://docs.jquery.com/Types#String">String</a></td><td class="default"></td></tr><tr><td colspan="3" class="desc">Data
+to be sent to the server. It is converted to a query string, if not
+already a string. It's appended to the url for GET-requests. See
+processData option to prevent this automatic processing. Object must be
+Key/Value pairs. If value is an Array, jQuery serializes multiple
+values with same key i.e. {foo:["bar1", "bar2"]} becomes
+'&amp;foo=bar1&amp;foo=bar2'.</td></tr>
+<tr class="option"><th>dataFilter</th><td class="type"><a href="http://docs.jquery.com/Types#Function">Function</a></td><td class="default"></td></tr><tr><td colspan="3" class="desc">A
+function to be used to handle the raw responsed data of
+XMLHttpRequest.This is a pre-filtering function to sanitize the
+response.You should return the sanitized data.The function gets passed
+two arguments: The raw data returned from the server, and the
+'dataType' parameter.
+<pre>function (data, type) {
+  // do something
+  // return the sanitized data
+  return data;
+}
+</pre>
+<p></p></td></tr>
+<tr class="option"><th>dataType</th><td class="type"><a href="http://docs.jquery.com/Types#String">String</a></td><td class="default"><b>Default:</b> <span>Intelligent Guess (xml or html)
+</span></td></tr><tr><td colspan="3" class="desc">The type of data that
+you're expecting back from the server. If none is specified, jQuery
+will intelligently pass either responseXML or responseText to your
+success callback, based on the MIME type of the response. The available
+types (and the result passed as the first argument to your success
+callback) are:
+<ul><li>"xml": Returns a XML document that can be processed via jQuery.
+</li><li>"html": Returns HTML as plain text; included script tags are evaluated when inserted in the DOM.
+</li><li>"script": Evaluates the response as JavaScript and returns it as plain text. Disables caching unless option "cache" is used. <b>Note:</b> This will turn POSTs into GETs for remote-domain requests.
+</li><li>"json": Evaluates the response as JSON and returns a JavaScript Object.
+</li><li>"jsonp": Loads in a JSON block using <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" class="external text" title="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">JSONP</a>. Will add an extra "?callback=?" to the end of your URL to specify the callback. (Added in jQuery 1.2)
+</li><li>"text": A plain text string.</li></ul></td></tr>
+
+<tr class="option"><th>error</th><td class="type"><a href="http://docs.jquery.com/Types#Function">Function</a></td><td class="default"></td></tr><tr><td colspan="3" class="desc">A
+function to be called if the request fails. The function is passed
+three arguments: The XMLHttpRequest object, a string describing the
+type of error that occurred and an optional exception object, if one
+occurred.
+Possible values for the second argument (besides null) are "timeout",
+"error", "notmodified" and "parsererror".
+This is an <a href="http://docs.jquery.com/Ajax_Events" title="Ajax Events">Ajax Event</a>.
+
+<pre>function (XMLHttpRequest, textStatus, errorThrown) {
+  // typically only one of textStatus or errorThrown 
+  // will have info
+  this; // the options for this ajax request
+}
+</pre>
+<p></p></td></tr>
+<tr class="option"><th>global</th><td class="type"><a href="http://docs.jquery.com/Types#Boolean">Boolean</a></td><td class="default"><b>Default:</b> <span>true</span></td></tr><tr><td colspan="3" class="desc">Whether
+to trigger global AJAX event handlers for this request. The default is
+true. Set to false to prevent the global handlers like ajaxStart or
+ajaxStop from being triggered. This can be used to control various <a href="http://docs.jquery.com/Ajax_Events" title="Ajax Events">Ajax Events</a>.</td></tr>
+<tr class="option"><th>ifModified</th><td class="type"><a href="http://docs.jquery.com/Types#Boolean">Boolean</a></td><td class="default"><b>Default:</b> <span>false</span></td></tr><tr><td colspan="3" class="desc">Allow
+the request to be successful only if the response has changed since the
+last request. This is done by checking the Last-Modified header.
+Default value is false, ignoring the header.</td></tr>
+<tr class="option"><th>jsonp</th><td class="type"><a href="http://docs.jquery.com/Types#String">String</a></td><td class="default"></td></tr><tr><td colspan="3" class="desc">Override
+the callback function name in a jsonp request. This value will be used
+instead of 'callback' in the 'callback=?' part of the query string in
+the url for a GET or the data for a POST. So {jsonp:'onJsonPLoad'}
+would result in 'onJsonPLoad=?' passed to the server.</td></tr>
+<tr class="option"><th>password</th><td class="type"><a href="http://docs.jquery.com/Types#String">String</a></td><td class="default"></td></tr><tr><td colspan="3" class="desc">A password to be used in response to an HTTP access authentication request.</td></tr>
+<tr class="option"><th>processData</th><td class="type"><a href="http://docs.jquery.com/Types#Boolean">Boolean</a></td><td class="default"><b>Default:</b> <span>true</span></td></tr><tr><td colspan="3" class="desc">By
+default, data passed in to the data option as an object (technically,
+anything other than a string) will be processed and transformed into a
+query string, fitting to the default content-type
+"application/x-www-form-urlencoded". If you want to send DOMDocuments,
+or other non-processed data, set this option to false.</td></tr>
+<tr class="option"><th>scriptCharset</th><td class="type"><a href="http://docs.jquery.com/Types#String">String</a></td><td class="default"></td></tr><tr><td colspan="3" class="desc">Only
+for requests with 'jsonp' or 'script' dataType and GET type. Forces the
+request to be interpreted as a certain charset. Only needed for charset
+differences between the remote and local content.</td></tr> 
+<tr class="option"><th>success</th><td class="type"><a href="http://docs.jquery.com/Types#Function">Function</a></td><td class="default"></td></tr><tr><td colspan="3" class="desc">A
+function to be called if the request succeeds. The function gets passed
+two arguments: The data returned from the server, formatted according
+to the 'dataType' parameter, and a string describing the status. This
+is an <a href="http://docs.jquery.com/Ajax_Events" title="Ajax Events">Ajax Event</a>.
+
+<pre>function (data, textStatus) {
+  // data could be xmlDoc, jsonObj, html, text, etc...
+  this; // the options for this ajax request
+}
+</pre>
+<p></p></td></tr>
+<tr class="option"><th>timeout</th><td class="type"><a href="http://docs.jquery.com/Types#Number">Number</a></td><td class="default"></td></tr><tr><td colspan="3" class="desc">Set a local timeout in ms for the request. This will override the global timeout, if one is set via <a href="http://docs.jquery.com/Ajax/jQuery.ajaxSetup" title="Ajax/jQuery.ajaxSetup">$.ajaxSetup</a>.
+For example, you could use this property to give a single request a
+longer timeout than all other requests that you've set to time out in
+one second. See <a href="http://docs.jquery.com/Ajax/jQuery.ajaxSetup" title="Ajax/jQuery.ajaxSetup">$.ajaxSetup</a>() for global timeouts.</td></tr>
+<tr class="option"><th>type</th><td class="type"><a href="http://docs.jquery.com/Types#String">String</a></td><td class="default"><b>Default:</b> <span>"GET"</span></td></tr><tr><td colspan="3" class="desc">The
+type of request to make ("POST" or "GET"), default is "GET". Note:
+Other HTTP request methods, such as PUT and DELETE, can also be used
+here, but they are not supported by all browsers.</td></tr>
+<tr class="option"><th>url</th><td class="type"><a href="http://docs.jquery.com/Types#String">String</a></td><td class="default"><b>Default:</b> <span>The current page</span></td></tr><tr><td colspan="3" class="desc">The URL to request.</td></tr>
+<tr class="option"><th>username</th><td class="type"><a href="http://docs.jquery.com/Types#String">String</a></td><td class="default"></td></tr><tr><td colspan="3" class="desc">A username to be used in response to an HTTP access authentication request.</td></tr>
+<tr class="option"><th>xhr</th><td class="type"><a href="http://docs.jquery.com/Types#Function">Function</a></td><td class="default"></td></tr><tr><td colspan="3" class="desc">Callback
+for creating the XMLHttpRequest object. Defaults to the ActiveXObject
+when available (IE), the XMLHttpRequest otherwise. Override to provide
+your own implementation for XMLHttpRequest or enhancements to the
+factory.It's not available in jQuery 1.2.6 and in any early version.</td></tr>
+</tbody></table></div>
+<div id="examples" class="options examples tabs-container tabs-hide"><b class="options">Examples:</b><div class="example">
+<ul class="tabs-nav"><li class="tabs-selected"><a href="#code"><span>Code</span></a></li></ul>
+<div id="code" class="tabs-container">
+Load and execute a JavaScript file.<br>
+
+<pre>$.ajax({
+  type: "GET",
+  url: "test.js",
+  dataType: "script"
+});
+</pre>
+<p></p></div>
+</div>
+<div class="example">
+<ul class="tabs-nav"><li class="tabs-selected"><a href="#code"><span>Code</span></a></li></ul>
+<div id="code" class="tabs-container">
+Save some data to the server and notify the user once its complete.<br>
+
+<pre> $.ajax({
+   type: "POST",
+   url: "some.php",
+   data: "name=John&amp;location=Boston",
+   success: function(msg){
+     alert( "Data Saved: " + msg );
+   }
+ });
+</pre>
+<p></p></div>
+</div>
+<div class="example">
+<ul class="tabs-nav"><li class="tabs-selected"><a href="#code"><span>Code</span></a></li></ul>
+<div id="code" class="tabs-container">
+Retrieve the latest version of an HTML page.<br>
+
+<pre>$.ajax({
+  url: "test.html",
+  cache: false,
+  success: function(html){
+    $("#results").append(html);
+  }
+});
+</pre>
+<p></p></div>
+</div>
+<div class="example">
+<ul class="tabs-nav"><li class="tabs-selected"><a href="#code"><span>Code</span></a></li></ul>
+<div id="code" class="tabs-container">
+Loads data synchronously. Blocks the browser while the requests is active.
+It is better to block user interaction by other means when synchronization is
+necessary.<br>
+
+<pre> var html = $.ajax({
+  url: "some.php",
+  async: false
+ }).responseText;
+</pre>
+<p></p></div>
+</div>
+<div class="example">
+<ul class="tabs-nav"><li class="tabs-selected"><a href="#code"><span>Code</span></a></li></ul>
+<div id="code" class="tabs-container">
+Sends an xml document as data to the server. By setting the processData
+option to false, the automatic conversion of data to strings is prevented.<br>
+
+<pre> var xmlDocument = [create xml document];
+ $.ajax({
+   url: "page.php",
+   processData: false,
+   data: xmlDocument,
+   success: handleResponse
+ });
+</pre>
+<p></p></div>
+</div>
+<table class="options examples" cellspacing="0"><thead><tr><th>Name</th><th>Type</th></tr></thead><tbody>
+</tbody></table></div>
+</div></div>
+<!-- 
+Pre-expand include size: 25235 bytes
+Post-expand include size: 33582 bytes
+Template argument size: 22650 bytes
+Maximum: 2097152 bytes
+-->
+
+<!-- Saved in parser cache with key jqdocs_docs:pcache:idhash:1906-0!1!0!!en!2 and timestamp 20081208100101 -->
+<div class="printfooter">
+Retrieved from "<a href="http://docs.jquery.com/Ajax/jQuery.ajax">http://docs.jquery.com/Ajax/jQuery.ajax</a>"</div>
+			<div id="catlinks"><p class="catlinks"><a href="http://docs.jquery.com/index.php?title=Special:Categories&amp;article=Ajax%2FjQuery.ajax" title="Special:Categories">Categories</a>: <span dir="ltr"><a href="http://docs.jquery.com/Category:Ajax/jQuery.ajax" title="Category:Ajax/jQuery.ajax">Ajax/jQuery.ajax</a></span> | <span dir="ltr"><a href="http://docs.jquery.com/action/edit/Category:API" class="new" title="Category:API">API</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+
+				</div><!-- /#primaryContent -->
+
+				
+				
+				
+			</div><!-- /#content -->
+
+
+			<div id="jq-footer" class="jq-clearfix">
+
+				<div id="jq-credits">
+					<p id="jq-copyright">© 2008 <a href="http://ejohn.org/">John Resig</a> and the <a href="http://docs.jquery.com/Contributors">jQuery Team</a>.</p>
+					<p id="jq-hosting">Hosting provided by <a href="http://mediatemple.net/" class="jq-mediaTemple">Media Temple</a></p>
+
+				</div>
+
+				<div id="jq-footerNavigation">
+					<ul>
+						<li class="jq-download jq-first"><a href="http://docs.jquery.com/Downloading_jQuery"><span class="jq-shadow">Download</span><span>Download</span></a></li>
+						<li class="jq-documentation jq-current"><a href="http://docs.jquery.com/"><span class="jq-shadow">Documentation</span><span>Documentation</span></a></li>
+						<li class="jq-tutorials"><a href="http://docs.jquery.com/Tutorials"><span class="jq-shadow">Tutorials</span><span>Tutorials</span></a></li>
+						<li class="jq-bugTracker"><a href="http://dev.jquery.com/"><span class="jq-shadow">Bug Tracker</span><span>Bug Tracker</span></a></li>
+
+						<li class="jq-discussion jq-last"><a href="http://docs.jquery.com/Discussion"><span class="jq-shadow">Discussion</span><span>Discussion</span></a></li>
+					</ul>
+				</div><!-- /#secondaryNavigation -->
+				
+			</div><!-- /#footer -->
+
+
+	</div><!-- /#siteContain -->
+	
+	<script src="jQuery.ajax_archivos/urchin.js" type="text/javascript"></script>
+	<script type="text/javascript">_uacct="UA-1076265-1";urchinTracker();</script>
+	<!-- Cached 20081208100126 -->
+</body></html>

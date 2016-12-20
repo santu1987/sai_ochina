@@ -1,0 +1,25 @@
+
+Warning!
+
+
+If you have SP2 installed, by default, IE will show a warning message and attempt to block QuickMenu from
+running until you allow active content from your hard drive.  This warning and block does not occur online,
+it is a local IE security precaution only.
+
+Despite the warning, OpenCube software will not access your system, this is simply an IE precaution.
+
+Firefox by default trusts local content, and QuickMenu will run from your hard drive in this browser.
+
+
+To allow active content in IE you can....
+
+
+     A: Temporarily enable the software by clicking the yellow security warning bar, and selecting 
+        "Allow Blocked Content".
+
+
+     B: Permanently enable active content locally...
+
+           1: Select 'Tools' --> 'Internet Options' from the IE menu.
+           2: Click the 'Advanced' tab.
+           3: Check the 2nd option under 'Security' in the tree (Allow active content to run in files on my computer.)

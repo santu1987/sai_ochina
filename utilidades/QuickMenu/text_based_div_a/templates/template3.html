@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head><title>QuickMenu Template</title><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"> 
+
+
+
+<!-- *** QuickMenu copyright (c) 2007, OpenCube Inc. All Rights Reserved.
+
+          -This document, the JavaScript source code, and core CSS may not be modified,
+           re-distributed, or displayed for public consumption.
+    	
+          -This product must be purchased before its official inclusion in any public or 
+           private web site or application.
+
+          -This product may not be used in, or redistributed as part of an application whose
+           purpose is to enhance or create menu systems.
+-->     
+
+
+
+<!--%%%%%%%%%%%% Quick Menu Script %%%%%%%%%%%*-->
+<script type="text/JavaScript" src="qm.js"></script>
+
+
+<!--%%%%%%%%%%%% QuickMenu Styles [Keep in head for full validation!] %%%%%%%%%%%-->
+<style type="text/css">
+
+/*!!!!!!!!!!! QuickMenu Core CSS [Do Not Modify!] !!!!!!!!!!!!!*/
+.qmclear {font-size:1px;height:0px;width:0px;clear:left;line-height:0px;display:block;}.qmmc {position:relative;}.qmmc a {float:left;display:block;white-space:nowrap;}.qmmc div a {float:none;}.qmmc div {visibility:hidden;position:absolute;}
+
+
+/*!!!!!!!!!!! QuickMenu Styles [Please Modify!] !!!!!!!!!!!*/
+
+
+	/* Remove the comments bleow for vertical mains and change the false value to
+           true in the qm_create function after the menus structure. */
+	/*.qmmc a {float:none}*/
+
+	
+	
+	/*"""""""" (MAIN) Container """"""""*/
+	#qm0
+	{ 
+		background-color:#000000;
+		border-width:1px 1px 1px 1px;
+		border-style:solid;
+		border-color:#000000;
+		margin:0px 0px 0px 0px;
+		padding:40px 10px 40px 10px;
+		width:7em;
+		background-image:url(images/template3_bg.gif);
+		
+	}
+
+
+	 /*"""""""" (MAIN) Items """"""""*/
+	#qm0 a
+	{
+		color:#aaaaaa;
+		background-color:transparent;
+		font-family:Arial;
+		font-size:.75em;
+		text-decoration:none;
+		padding:3px 20px 3px 3px;
+		border-style:solid;
+		border-color:#aaaaaa;
+		border-width:0px 0px 1px 0px;
+		
+	}
+
+
+	/*"""""""" (MAIN) Hover State """"""""*/
+	#qm0 a:hover
+	{ 
+		/*border-color:#333333;*/
+
+		color:#ffffff;
+		border-color:#FFCC33;
+		
+		/*text-decoration:underline;*/
+	}
+
+
+	/*"""""""" (MAIN) Active State """"""""*/	
+	body #qm0 .qmactive, body #qm0 .qmactive:hover
+	{ 
+		color:#ffffff;
+		border-color:#FFCC33;
+		background-image:url(images/template3_arrow_hl.gif);
+	}
+
+
+	/*"""""""" (MAIN) Parent Items """"""""*/
+	#qm0 .qmparent
+	{
+		background-image:url(images/template3_arrow2.gif);
+		background-repeat:no-repeat;
+		background-position:97%;
+	}
+
+	
+
+
+	/*"""""""" [SUB] Containers """"""""*/
+	#qm0 div
+	{
+		
+		background-color:#000000;
+		padding:5px 5px 5px 5px;
+		border-style:solid;
+		border-width:1px 1px 1px 1px;
+		background-image:url(images/template3_bg.gif);
+		border-color:#FFCC33;
+		
+	}
+
+
+	/*"""""""" [SUB] Items """"""""*/
+	#qm0 div a
+	{		
+		font-size:.7em;
+		color:#cccccc;
+		border-width:0px 0px 0px 0px;
+		border-color:#FFCC33;
+		padding:3px 20px 3px 5px;
+		
+		
+	}
+	
+	/*"""""""" [SUB] Hover State """"""""*/
+	#qm0 div a:hover
+	{
+
+		color:#FFCC33;
+		text-decoration:underline;
+	}
+
+	
+
+	/*""""""""[SUB] Active State """"""""*/
+	body #qm0 div .qmactive, body #qm0 div .qmactive:hover
+	{
+		
+		color:#FFCC33;
+		text-decoration:underline;
+		background-image:url(../../../../recursos/QuickMenu/text_based_div_a/templates/images/bullet_black_right.gif);
+		
+	}
+
+
+	/*"""""""" [SUB] Parent Items """"""""*/
+	#qm0 div .qmparent 
+	{
+
+		background-image:url(../../../../recursos/QuickMenu/text_based_div_a/templates/images/bullet_black_right.gif);
+
+	}
+
+
+
+</style>
+</head>
+
+
+
+<body style="margin:40px">
+
+
+
+<!--%%%%%%%%%%%% QuickMenu Stucture %%%%%%%%%%%*-->
+
+
+<div id="qm0" class="qmmc">
+
+	<a href="#">Menu Overview</a>
+				
+		<div>
+		<a href="#">CSS Based</a>
+		<a href="#">Simple Structure</a>
+		<a href="#">Fast Running</a>
+		<a href="#">Light Wegith</a>
+		<a href="#">Cusomization</a>
+		<a href="#">Specifications</a>
+		<a href="#">Simple Integration</a>
+		<a href="#">Strict Validation</a>
+		</div>
+					
+				
+	<a href="#">Possibilities</a>
+		
+		<div>
+		<a href="#">Database Population</a>
+		<a href="#">Custom Events</a>
+		<a href="#">Custom Classes</a>
+		<a href="#">Multiple Menus</a>
+		<a href="#">Vertical / Horizontal</a>
+		<a href="#">Unlimited Subs</a>
+		<a href="#">Large Structures</a>
+		<a href="#">Ulimited Design Options</a>
+		</div>
+			
+			
+	<a href="#">Developers</a>
+			
+		<div>
+		<a href="#">HTML Structure</a>
+		<a href="#">Inline Loading</a>
+		<a href="#">Pure CSS Mains</a>
+		<a href="#">Scalability</a>
+		<a href="#">Strict Validation</a>
+		</div>
+
+			
+	<a href="#">Menu Design</a>
+
+		<div>
+		<a href="#">CSS Based</a>
+		<a href="#">Simple Structure</a>
+		<a href="#">Fast Running</a>
+		<a href="#">Light Weight</a>
+		<a href="#">Customization</a>
+		<a href="#">Specifications</a>
+		<a href="#">Simple Integration</a>
+		<a href="#">Strict Validation</a>
+		</div>
+
+	<a href="#">Page Integration</a>
+			
+		<div>
+		<a href="#">HTML Structure</a>
+		<a href="#">Inline Loading</a>
+		<a href="#">Pure CSS Mains</a>
+		<a href="#">Scalability</a>
+		<a href="#">Strict Validation</a>
+		</div>
+			
+<span class="qmclear">&nbsp;</span></div>
+
+
+<!--%%%%%%%%%%%% QuickMenu Create Menu (menu id, is vertical, show timer (ms), hide timer (ms), on click) %%%%%%%%%%%*-->
+<script type="text/JavaScript">qm_create(0,true,0,500,false)</script>
+
+</body>
+</html>

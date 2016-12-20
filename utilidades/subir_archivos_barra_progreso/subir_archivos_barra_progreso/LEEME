@@ -1,0 +1,9 @@
+|------------------------------------------------------------------|
+| CÓDIGO FUENTE - www.codigo-fuente.com |
+|------------------------------------------------------------------|
+
+Hay que tener en cuenta que la carpeta upload tiene que tener permisos de escritura, ya que el script en perl necesita escribir en él.
+Los archivos que se suben a la carpeta upload, necesitan ser filtrados por el script en PHP descargar.php, ya que las primeras líneas que se
+escriben en los archivos subidos, son inecesarias para el archivo, y dan problemas.
+
+No olviden de visitar www.codigo-fuente.com

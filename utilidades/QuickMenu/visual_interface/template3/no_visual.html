@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head><title>QuickMenu Template</title><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"> 
+
+
+
+<!-- *** QuickMenu copyright (c) 2007, OpenCube Inc. All Rights Reserved.
+
+          -This document, the JavaScript source code, and core CSS may not be modified,
+           re-distributed, or displayed for public consumption.
+    	
+          -This product must be purchased before its official inclusion in any public or 
+           private web site or application.
+
+          -This product may not be used in, or redistributed as part of an application whose
+           purpose is to enhance or create menu systems.
+-->     
+
+
+
+<!--%%%%%%%%%%%% Quick Menu Script %%%%%%%%%%%*-->
+<script type="text/JavaScript" src="qm.js"></script>
+
+<!-- Add-On Core Code (Remove when not using any add-on's) -->
+<style type="text/css">.qmfv{visibility:visible !important;}.qmfh{visibility:hidden !important;}</style><script type="text/JavaScript">var qmad = new Object();qmad.bvis="";qmad.bhide="";qmad.bhover="";</script>
+
+
+
+	<!-- Add-On Settings -->
+	<script type="text/JavaScript">
+
+		/*******  Menu 0 Add-On Settings *******/
+		var a = qmad.qm0 = new Object();
+
+		// Item Bullets Add On
+		a.ibullets_apply_to = "parent";
+
+		a.ibullets_sub_image = "images/black_arrow_right.gif";
+		a.ibullets_sub_image_width = 3;
+		a.ibullets_sub_image_height = 6;
+		a.ibullets_sub_position_x = -15;
+		a.ibullets_sub_position_y = -3;
+		a.ibullets_sub_align_x = "right";
+		a.ibullets_sub_align_y = "middle";
+
+	</script>
+
+<!-- Add-On Code: Item Bullets -->
+<script type="text/javascript" src="qm_item_bullets.js"></script>
+
+<!--%%%%%%%%%%%% QuickMenu Styles [Keep in head for full validation!] %%%%%%%%%%%-->
+<style type="text/css">
+
+/*!!!!!!!!!!! QuickMenu Core CSS [Do Not Modify!] !!!!!!!!!!!!!*/
+.qmmc .qmdivider{display:block;font-size:1px;border-width:0px;border-style:solid;} .qmmc .qmdividery{float:left;width:0px;} .qmmc .qmtitle{display:block;cursor:default;white-space:nowrap;} .qmclear {font-size:1px;height:0px;width:0px;clear:left;line-height:0px;display:block;}.qmmc {position:relative;}.qmmc a {float:left;display:block;white-space:nowrap;}.qmmc div a {float:none;}.qmsh div a{float:left;}.qmmc div {visibility:hidden;position:absolute;}
+
+
+/*!!!!!!!!!!! QuickMenu Styles [Please Modify!] !!!!!!!!!!!*/
+
+
+	/* Remove the comments bleow for vertical mains and change the false value to
+           true in the qm_create function after the menus structure. */
+	/*.qmmc a {float:none}*/
+
+	
+	
+	/*"""""""" (MAIN) Container """"""""*/
+	#qm0
+	{ 
+		background-color:#ffffff;
+		padding-left:10px;
+		border-width:1px 0px 1px 0px;
+		border-style:solid;
+		border-color:#000000;
+		margin:0px 0px 0px 0px;
+		z-index:10 !important;
+		
+	}
+
+
+	 /*"""""""" (MAIN) Items """"""""*/
+	#qm0 a
+	{
+		color:#444444;
+		background-color:transparent;
+		font-family:Arial;
+		font-size:11px;
+		text-decoration:none;
+		padding:3px 20px 3px 8px;
+		border-style:solid;
+		border-color:#000000;
+		border-width:0px 0px 0px 1px;
+		
+	}
+
+
+	/*"""""""" (MAIN) Hover State """"""""*/
+	#qm0 a:hover
+	{ 
+		/*border-color:#333333;*/
+
+		color:#000000;
+		background-color:#EFF4FA;
+		text-decoration:underline;
+	}
+
+
+	/*"""""""" (MAIN) Active State """"""""*/	
+	body #qm0 .qmactive, body #qm0 .qmactive:hover
+	{ 
+			
+		color:#000000;
+		background-color:#EFF4FA;
+		text-decoration:underline;
+		background-image:url(images/item_bg.gif);
+	}
+
+
+	/*"""""""" (MAIN) Parent Items """"""""*/
+	#qm0 .qmparent
+	{
+		/*background-image:url(images/bullet_white_down.gif);*/
+		background-repeat:no-repeat;
+		background-position:92%;
+	}
+
+	
+
+
+	/*"""""""" [SUB] Containers """"""""*/
+	#qm0 div
+	{
+		
+		background-color:#ffffff;
+		padding:5px 5px 5px 5px;
+		border-style:solid;
+		border-width:1px 1px 1px 1px;
+		
+		border-color:#333333;
+		
+	}
+
+
+	/*"""""""" [SUB] Items """"""""*/
+	#qm0 div a
+	{		
+		font-size:11px;
+		color:#333333;
+		border-width:0px 0px 0px 4px;
+		border-color:#ffffff;
+		border-style:solid;
+		padding:3px 20px 3px 5px;
+		
+	}
+	
+	/*"""""""" [SUB] Hover State """"""""*/
+	#qm0 div a:hover
+	{
+
+		border-color:#75B1C2;
+		text-decoration:none;
+	}
+
+	#qm0 div div
+	{
+		margin:0px 0px 0px 3px;
+	}
+
+	/*""""""""[SUB] Active State """"""""*/
+	body #qm0 div .qmactive, body #qm0 div .qmactive:hover
+	{
+		border-color:#75B1C2;
+		text-decoration:underline;
+		
+		
+	}
+
+
+	/*"""""""" [SUB] Parent Items """"""""*/
+	#qm0 div .qmparent 
+	{
+
+		
+
+	}
+
+
+</style>
+</head>
+
+
+
+<body style="margin:40px">
+
+
+
+<!--%%%%%%%%%%%% QuickMenu Stucture %%%%%%%%%%%*-->
+
+
+<div id="qm0" class="qmmc">
+
+	<a href="javascript:void(0)">Menu Overview</a>
+				
+		<div>
+		<a href="javascript:void(0)">CSS Based</a>
+		<a href="javascript:void(0)">Simple Structure</a>
+		<a href="javascript:void(0)">Fast Running</a>
+		<a href="javascript:void(0)">Light Wegith</a>
+		<a href="javascript:void(0)">Cusomization</a>
+		
+			<div style="width:8em;">
+			<a href="javascript:void(0)">Borders</a>
+			<a href="javascript:void(0)">Backgrounds</a>
+			<a href="javascript:void(0)">Colors</a>
+			<a href="javascript:void(0)">Fonts</a>
+			<a href="javascript:void(0)">Sizing</a>
+			<a href="javascript:void(0)">Images</a>
+			<a href="javascript:void(0)">Hovering</a>
+			<a href="javascript:void(0)">Parents</a>
+			</div>
+			
+		<a href="javascript:void(0)">Specifications</a>
+			
+			<div style="width:8em;">
+			<a href="javascript:void(0)">2K JavaScript</a>
+			<a href="javascript:void(0)">Div-A Structure</a>
+			<a href="javascript:void(0)">Pure CSS Mains</a>
+			<a href="javascript:void(0)">CSS Styled</a>
+			<a href="javascript:void(0)">Scalable</a>
+			<a href="javascript:void(0)">Search Friendly</a>
+			<a href="javascript:void(0)">508 Compliant</a>
+			<a href="javascript:void(0)">Extendable Structure</a>
+			</div>
+			
+		<a href="javascript:void(0)">Simple Integration</a>
+		<a href="javascript:void(0)">Strict Validation</a>
+		</div>
+					
+				
+	<a href="javascript:void(0)">Possibilites</a>
+			
+		<div>
+		<a href="javascript:void(0)">Database Population</a>
+		<a href="javascript:void(0)">Custom Events</a>
+		<a href="javascript:void(0)">Custom Classes</a>
+		<a href="javascript:void(0)">Multiple Menus</a>
+		<a href="javascript:void(0)">Vertical / Horizontal</a>
+		<a href="javascript:void(0)">Unlimited Subs</a>
+		<a href="javascript:void(0)">Large Structures</a>
+		<a href="javascript:void(0)">Ulimited Design Options</a>
+		</div>
+		
+			
+	<a href="javascript:void(0)" style="border-right-width:1px;">Developers</a>
+	
+		<div>
+		<a href="javascript:void(0)">HTML Structure</a>
+		<a href="javascript:void(0)">Inline Loading</a>
+		<a href="javascript:void(0)">Pure CSS Mains</a>
+		<a href="javascript:void(0)">Scalability</a>
+		<a href="javascript:void(0)">Strict Validation</a>
+		</div>
+			
+			
+<span class="qmclear">&nbsp;</span></div>
+
+
+<!--%%%%%%%%%%%% QuickMenu Create Menu (menu id, is vertical, show timer (ms), hide timer (ms), on click) %%%%%%%%%%%*-->
+<script type="text/JavaScript">qm_create(0,false,0,500,false)</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+The menus produced by QuickMenu run identical on all platforms and supported borwsers.
+
+The QuickMenu visual interface will run in both IE or Firefox, if you are using a non
+windows platform and wish to use the visual tool, use your Firefox browser.

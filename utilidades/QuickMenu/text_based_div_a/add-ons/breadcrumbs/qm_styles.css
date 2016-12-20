@@ -1,0 +1,178 @@
+
+/*!!!!!!!!!!! QuickMenu Core CSS [Do Not Modify!] !!!!!!!!!!!!!*/
+.qmclear {font-size:1px;height:0px;width:0px;clear:left;line-height:0px;display:block;}.qmmc {position:relative;}.qmmc a {float:left;display:block;white-space:nowrap;}.qmmc div a {float:none;}.qmmc div {visibility:hidden;position:absolute;}
+
+
+/*!!!!!!!!!!! QuickMenu Styles [Please Modify!] !!!!!!!!!!!*/
+
+
+	/* Remove the comments bleow for vertical mains and change the false value to
+           true in the qm_create function after the menus structure. */
+	/*.qmmc a {float:none}*/
+
+
+	/*"""""""" Breadcrumb Styles """"""""*/
+
+		
+		/* (Main) Breadcrumb Path - Menu Item */
+		#qm0.qmmc .qmbcmain { background-color:#ffdd00 !important;color:#333333 !important;}
+		#qm0.qmmc .qmbcmain:hover { background-color:#ffdd00 !important;color:#333333 !important;}
+		#qm0.qmmc .qmbcmainparent { background-image:url(images/slide_black_arrow.gif)!important;}		
+				
+
+		/* (Sub) Breadcrumb Path - Menu Items */
+		#qm0.qmmc .qmbcsub { background-color:#ffdd00 !important;color:#333333 !important;border-width:1px !important;border-color:#666666;}
+		#qm0.qmmc .qmbcsub:hover { background-color:#ffdd00 !important;color:#333333 !important;border-width:1px !important;cursor:default;}
+		#qm0.qmmc .qmbcsubparent { background-color:#ffdd00 !important;color:#333333 !important;border-width:1px !important;border-color:#666666;}
+
+
+	
+		/* External Breadcrumb Container */
+		.qm-crumbs-container {color:#ffffff;text-decoration:none;font-family:Arial;font-size:1em;}
+
+		/* External Breadcrumb Links */
+		.qm-crumbs-container a {color:#ffdd00;text-decoration:none;font-family:Arial;font-size:.7em;}
+
+		/* External Breadcrumb Links Hover */
+		.qm-crumbs-container a:hover {text-decoration:underline;}
+
+		/* External Breadcrumb Current Page Text or No Link Text */
+		.qm-crumbs-current {font-size:.7em;}
+
+		/* External Breadcrumb Didivers */
+		.qm-crumbs-divider {font-size:.7em;}
+
+
+		/* This CSS positions the breadcrumb text container over the menu bar and to the right. */
+		.qm-crumbs-container {position:absolute;left:60%;z-index:999999;padding-top:7px;}
+		.qm-crumbs-container a {display:block;float:left;}
+		.qm-crumbs-container span {display:block;float:left;}
+
+
+	
+	/*"""""""" (MAIN) Container """"""""*/
+	#qm0
+	{ 
+		background-color:#ffffff;
+		padding-left:10px;
+		border-width:1px 0px 1px 0px;
+		border-style:solid;
+		border-color:#000000;
+		background-image:url(images/slide_bg.gif);
+		
+	}
+
+
+	 /*"""""""" (MAIN) Items """"""""*/
+	#qm0 a
+	{
+		color:#ffffff;
+		background-color:transparent;
+		font-family:Arial;
+		font-size:.8em;
+		text-decoration:none;
+		padding:5px 20px 5px 8px;
+		border-style:solid;
+		border-color:#000000;
+		border-width:0px 0px 0px 1px;
+		
+	}
+
+
+	/*"""""""" (MAIN) Hover State """"""""*/
+	#qm0 a:hover
+	{ 
+		/*border-color:#333333;*/
+
+		color:#000000;
+		background-color:#EFF4FA;
+		text-decoration:underline;
+	}
+
+
+	/*"""""""" (MAIN) Active State """"""""*/	
+	body #qm0 .qmactive, body #qm0 .qmactive:hover
+	{ 
+		
+		color:#000000;
+		background-color:#EFF4FA;
+		text-decoration:underline;
+		background-image:url(images/slide_black_arrow.gif);
+	}
+
+
+	/*"""""""" (MAIN) Parent Items """"""""*/
+	#qm0 .qmparent
+	{
+		background-image:url(images/slide_white_arrow.gif);
+		background-repeat:no-repeat;
+		background-position:92%;
+		cursor:default;
+	}
+
+	
+
+
+	/*"""""""" [SUB] Containers """"""""*/
+	#qm0 div
+	{
+		
+		background-color:#D6DCE2;
+		padding:5px 5px 5px 5px;
+		border-style:solid;
+		border-width:1px 1px 1px 1px;
+		margin:0px;
+		border-color:#333333;
+		
+	}
+
+
+	/*"""""""" [SUB] Items """"""""*/
+	#qm0 div a
+	{		
+		font-size:.7em;
+		color:#333333;
+		border-width:0px 1px 0px 1px;
+		border-color:#D6DCE2;
+		border-style:solid;
+		padding:3px 30px 3px 5px;
+		
+	}
+	
+	/*"""""""" [SUB] Hover State """"""""*/
+	#qm0 div a:hover
+	{
+
+		border-color:#666666;
+		background-color:#EFF4FA;
+		color:#000000;
+		text-decoration:none;
+	}
+
+	#qm0 div div
+	{
+		margin:0px 0px 0px 3px;
+	}
+
+	/*""""""""[SUB] Active State """"""""*/
+	body #qm0 div .qmactive, body #qm0 div .qmactive:hover
+	{
+		
+		border-color:#666666;
+		background-color:#EFF4FA;
+		color:#000000;
+		text-decoration:underline;
+		background-image:url(images/slide_black_arrow_right.gif);
+		
+	}
+
+
+	/*"""""""" [SUB] Parent Items """"""""*/
+	#qm0 div .qmparent 
+	{
+
+		background-image:url(images/slide_black_arrow_right.gif);
+
+	}
+
+

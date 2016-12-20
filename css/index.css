@@ -1,0 +1,187 @@
+/* CSS Document */
+@charset "iso-8859-1";
+* {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;	
+}
+html, body,form{
+	margin: 0;			/* Remove body margin/padding */
+	padding: 0;
+	
+	overflow: hidden;	/* Remove scroll bars on browser window */
+}
+#tabla_principal{
+	margin:0px;
+	padding:0px;
+	border-spacing:0px;
+	border:0px #000000 solid;
+}
+#td_top{
+	height:70px;
+	background-image:url(../imagenes/top.png);
+}
+#td_menu{
+	margin:0px;
+	padding:0px;
+	vertical-align:top;
+	background-color:#ececec;	
+}
+#div_logon_on, #div_logon_off{
+	font-size:9px;
+	padding-bottom:10px;
+	padding-top:10px;
+	border-bottom:2px #83B4D8 inset;
+	width:100%;
+	height:100px;
+}
+#div_logon_off td, #div_logon_on td{
+	font-weight:bold;
+	color:#000000;
+}
+.clear { /* generic container (i.e. div) for floating buttons */
+    overflow: hidden;
+    width: 100%;
+}
+a.button {
+    background: transparent url(../imagenes/bg_button_a.png) no-repeat scroll top right;
+    color: #444;
+    display: block;
+    float: left;
+    font: normal 12px arial, sans-serif;
+    height: 24px;
+    margin-right: 6px;
+    padding-right: 18px; /* sliding doors padding */
+    text-decoration: none;
+}
+a.button span {
+    background: transparent url(../imagenes/bg_button_span.png) no-repeat;
+    display: block;
+    line-height: 14px;
+    padding: 5px 0 5px 18px;
+}
+
+a.button:active {
+    background-position: bottom right;
+    color: #000;
+    outline: none; /* hide dotted outline in Firefox */
+}
+
+a.button:active span {
+    background-position: bottom left;
+    padding: 6px 0 4px 18px; /* push text down 1px */
+}
+
+#td_main{
+	width:100%;
+}
+#td_bottom{
+	background-color:#83B4D8;
+	bottom:0px;
+	height:30px;
+	padding-left:15px;
+	font-weight:bold;
+	color:#000000;
+}
+.holder {
+	float: left;
+	margin: 0px;
+	width:100%;
+	height:100%;
+}
+.scroll-pane {
+	float:left;
+	overflow:hidden;
+}
+.scroll-pane-menu {
+	float:left;
+	overflow:auto;
+}
+#main {
+	width:100%;
+	height: 100%;
+	border-left:1px #ececec solid;
+	padding:10px;
+}
+#menu_principal {
+	height: 100%;
+	background-color:#83B4D8;
+}
+/*Splitter style */
+#Splitter {
+	min-width: 600px;/* Splitter can't be too thin ... */
+	min-height: 300px; /* ... or too flat */
+	margin: 0;
+	border: 2px solid #83B4D8; /* No padding allowed */
+	border-top:1px solid #83B4D8;
+	background-color:#FFFFFF;
+}
+
+#LeftPane {
+	background: #F8F8FF;
+	padding: 0px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+/*
+ * Right-side element of the splitter.
+ */
+
+#RightPane {
+	border:10px #FF0000 solid;
+	background: #FFFFFF;
+	padding: 0px;
+	top:45px;
+	overflow:auto;
+}
+/* 
+ * Splitter bar style; the .active class is added when the
+ * mouse is over the splitter or the splitter is focused
+ * via the keyboard taborder or an accessKey. 
+ */
+#Splitter .vsplitbar {
+	width: 2px;
+	background: #83B4D8 url(images/vgrabber.gif) no-repeat center;
+}
+#Splitter .vsplitbar.active, #Splitter .vsplitbar:hover {
+	background: #c66 url(images/vgrabber.gif) no-repeat center;
+}
+#mensaje{
+	background-color:#FFFFFF;
+	padding:50px;
+	text-align:center;
+	width:auto;
+	height:auto;
+}
+#mensaje img{
+	width:64px;
+	border:0px;
+	padding-right:15px;
+}
+#icono_popup{
+	margin-top:-25px; 
+	margin-left:93%; 
+	width:25px; 
+	height:25px
+}
+#popup{
+	position: absolute;
+	border: 1px solid #83B4D8;
+	background-color:#F7F7F7;
+	width: 200px;
+	height: 100px;
+	margin-top: -130px;
+	margin-left:78%;
+	-moz-border-radius: 10px 10px 10px 10px;
+}
+#popup_titulo{
+	background-color:#83B4D8; 
+	-moz-border-radius: 10px 10px 0px 0px; 
+	color:#000; 
+	font-weight:bold;
+}
+#popup_contenido{
+	padding-top:10px;
+}
+.div_busqueda{
+	padding:5px;
+}

@@ -1,0 +1,397 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>QuickMenu</title>
+
+
+<style type="text/css">
+a:link {color:#0033cc;}
+a:visited {}
+
+.title {font-family:arial;font-size:15px;color:#000000;}
+.content {font-family:arial;font-size:13px;margin-left:10px;margin-right:10px;}
+.copyright {font-family:arial;font-size:10px;}
+
+.ctitle {font-family:arial;font-size:13px;color:#0033cc;font-weight:bold;margin-bottom:2px;padding-top:16px;}
+.icontent {margin-bottom:10px;}
+.ordlist {margin-bottom:10px;}
+.ordlist_container {margin-bottom:22px;}
+.iimage {text-align:left;margin:10px;}
+
+.topdivider {border-color:#333333;border-style:dashed;border-width:0px;border-bottom-width:1px;margin-bottom:10px;}
+.bottomdivider {border-color:#333333;border-style:dashed;border-width:0px;border-bottom-width:1px;margin-top:25px;margin-bottom:3px;}
+
+</style>
+
+
+</head><body class="title" style="margin:20px;"><div style="padding-bottom:5px;"><img src="images/oc_logo.gif" width=16 height=16 align=absbottom style="margin-right:5px;">QuickMenu</div><div class="topdivider"></div><div class="content">
+
+<div class="ctitle">Document Index</div>
+<ol class="ordlist_container">
+	<li class="ordlist"><a href="#b1">About The Menu</a></li>
+	<li class="ordlist"><a href="#b2">What Makes QuickMenu's Div-A Hybrid Design Better Than Pure CSS?</a></li>
+	<li class="ordlist"><a href="#b3">Evaluation Version Information</a></li>
+	<li class="ordlist"><a href="#b4">QuickMenu Documentation</a></li>
+	<li class="ordlist"><a href="#b5">Getting Started [Editing The Menu]</a></li>
+	<li class="ordlist"><a href="#b6">Inserting In My Page</a></li>
+	<li class="ordlist"><a href="#b7">Vertical or Horizontal Mains</a></li>
+	<li class="ordlist"><a href="#b8">Multiple Menus</a></li>
+	<li class="ordlist"><a href="#b9">Positioning Sub Menus</a></li>
+	<li class="ordlist"><a href="#b10">Margins vs. Padding</a></li>
+	<li class="ordlist"><a href="#b11">Known Quarks</a></li>
+	<li class="ordlist"><a href="#b12">Browser Support</a></li>
+	<li class="ordlist"><a href="#b13">Tips and Tricks</a></li>
+	<li class="ordlist"><a href="#b14">Common CSS Styles</a></li>
+
+</ol>
+
+
+<div class="ctitle">Additional Help</div>
+<ol class="ordlist_container">
+	<li class="ordlist"><a href="add-ons/doc.html">Working With Add-Ons [add-ons/doc.html]</a></li>
+	<li class="ordlist"><a href="../../../recursos/QuickMenu/text_based_div_a/add-ons/image_based/doc.html">Image Based Add-On [add-ons/image_based/doc.html]</a></li>
+	<li class="ordlist"><a href="add-ons/breadcrumbs/doc.html">Breadcrumbs Add-On [add-ons/breadcrumbs/doc.html]</a></li>
+	<li class="ordlist"><a href="positioning/doc.html">Positioning Menus [positioining/doc.html]</a></li>
+</ol>
+
+
+<div class="ctitle">Basic Templates</div>
+<ol class="ordlist_container">
+	<li class="ordlist"><a href="qm.html">Starter Template</a></li>
+	<li class="ordlist"><a href="templates/image_based.html">Image Based</a></li>
+	<li class="ordlist"><a href="templates/template1.html">OpenCube Website</a></li>
+	<li class="ordlist"><a href="templates/template2.html">Boxed Mains</a></li>
+	<li class="ordlist"><a href="templates/template7.html">Green / Blue Rounded Subs</a></li>
+	<li class="ordlist"><a href="templates/template3.html">Vertical Grey Scale</a></li>
+	<li class="ordlist"><a href="templates/template4.html">Red with Thick Left Border</a></li>
+	<li class="ordlist"><a href="add-ons/tree_menu/tree_menu1.html">Green Animated Tree Menu</a></li>
+	<li class="ordlist"><a href="templates/tabs1.html">Green Tabs with Angled Corners</a></li>
+	<li class="ordlist"><a href="templates/template5.html">Underlines with Match Widths</a></li>
+	<li class="ordlist"><a href="templates/template6.html">Top hover bars with sub arrows.</a></li>
+
+</ol>
+
+<div class="ctitle">Add-On Templates</div>
+<ol class="ordlist_container">
+	<li class="ordlist"><a href="add-ons/tree_menu/tree_menu1.html">Green Animated Tree Menu</a></li>
+	<li class="ordlist"><a href="add-ons/slide_effect/slide_effect1.html">Slide down with drop away.</a></li>
+	<li class="ordlist"><a href="add-ons/slide_effect/slide_effect2.html">Slide Down / Slide Up</a></li>
+	<li class="ordlist"><a href="add-ons/merge_effect/merge_effect.html">Merge Left to Right</a></li>
+	<li class="ordlist"><a href="add-ons/zoom_effect/zoom_effect1.html">Zoom With Pulse Effect</a></li>
+	<li class="ordlist"><a href="add-ons/zoom_effect/zoom_effect2.html">Standard Zoom Effect</a></li>
+	<li class="ordlist"><a href="add-ons/gap_effect/gap_effect.html">Items flying into position from above the menu.</a></li>
+	<li class="ordlist"><a href="add-ons/gap_effect/gap_effect2.html">Items stretching down with a custom background image reveal.</a></li>
+	<li class="ordlist"><a href="add-ons/gap_effect/gap_effect3.html">Items stretching up.</a></li>
+	<li class="ordlist"><a href="add-ons/gap_effect/gap_effect4.html">Items expanding down and stretching the container</a></li>
+	<li class="ordlist"><a href="add-ons/gap_effect/gap_effect5.html">Items flying up when sub menus hide.</a></li>
+	<li class="ordlist"><a href="add-ons/breadcrumbs/A-START-HERE.HTML">Breadcrumbs website with highlighting and text path.</a></li>
+	<li class="ordlist"><a href="add-ons/image_based/image_based.html">Image base menu items.</a></li>
+	<li class="ordlist"><a href="../../../recursos/QuickMenu/text_based_div_a/add-ons/multiple add-ons/merge_slide_effect.html">Combo - Merge and Slide Effect</a></li>
+	<li class="ordlist"><a href="../../../recursos/QuickMenu/text_based_div_a/add-ons/multiple menus/multiple_menus.html">Multiple menus with different add-ons</a></li>
+	<li class="ordlist"><a href="add-ons/drop_shadow/drop_shadow.html">Drop Shadow</a></li>
+	<li class="ordlist"><a href="add-ons/over_select_box/over_select_box.html">Subs over select box in IE.</a></li>
+	<li class="ordlist"><a href="add-ons/item_shift/item_shift1.html">Item Shift Animations</a></li>
+	<li class="ordlist"><a href="add-ons/tabs_css_based/tabs1.html">Tabs with Angled Corners</a></li>
+	<li class="ordlist"><a href="add-ons/tabs_css_based/tabs2.html">Tabs With Rounded Corners</a></li>
+	<li class="ordlist"><a href="add-ons/rounded_corners/round_corners1.html">Basic Template with Rounded Corners</a></li>
+	<li class="ordlist"><a href="add-ons/match_widths/match_widths1.html">Underlines with Match Widths</a></li>
+	<li class="ordlist"><a href="add-ons/item_enhancer/item_enhancer1.html">Item Enhancer - Main bars with sub arrows.</a></li>
+	<li class="ordlist"><a href="add-ons/keyboard_access/keyboard_access1.html">KeyBoard Access (Arrows, Tab, Enter Keys)</a></li>
+	<li class="ordlist"><a href="add-ons/item_bullets/item_bullets1.html">Item Bullets with Rollover Effect</a></li>
+	<li class="ordlist"><a href="add-ons/item_bullets_css/item_bullets_css1.html">Imageless Item Bullets</a></li>
+	<li class="ordlist"><a href="add-ons/follow_pointer/follow_pointer.html">Image Based Follow Pointer</a></li>
+
+</ol>
+
+
+<div style="font-size:1px;height:20px;">&nbsp;</div>
+
+<div class="ctitle"><a name=b1>About The Menu</a></div>
+<div class="icontent">QuickMenu is based on a new menu concept which 
+	was conceived and developed by OpenCube. 
+	Originally menus were DHTML based and typically to complicated and heavy to be viable solutions for most web sites.  Pure CSS menu concepts emerged with the advent of FireFox 
+	and other CSS2 browsers and offered a significantly streamlined approach, however design 
+	capabilities, true scalability, and IE6 support were lacking.  While pure CSS menus are gaining popularity, 
+	their limitations have kept DHTML menus as the preferred menu type for most web sites.</div>
+<ul class="ordlist_container">
+	<li class="ordlist"><b>DHTML Based:</b> DHTML based menus rely purely on JavaScript to both create the menu structure and make it interactive.</li>
+	<li class="ordlist"><b>Pure CSS:</b> Pure CSS menus use an inline UL / LI tag structure with 
+	CSS styles and CSS2 pseudo classes for the interactivity.</li>
+</ul>
+<div class="icontent">QuickMenu is a Div-A Hybrid menu and represents the next evolutionary step in the web based menu system. 
+	Concepts unique to the menu include...</div>
+	
+<ul class="ordlist_container">
+	<li class="ordlist"><b>Div-A Structure:</b> This new structure concept is lighter, less nested, and easier to work with compared to traditional UL / LI pure 
+	CSS structures.  The Div-A allows for faster menu interactivity, simplified manual and dynamic population of items, full validation, 508 
+	compliancy, and native search engine spider support.</li>
+	<li class="ordlist"><b>True Scalability:</b> You'll be searching the code 
+	for those table tags, but they're not there!  A unique combination of float lefts and block level Anchor tags allow for full cross browser 
+	scalability. Menu items and containers all stretch to fit the width of your text without having to use unit widths of any kind, 
+	including em's.</li>
+	<li class="ordlist"><b>No-Script Support:</b> Unlike DHTML based menus, QuickMenu displays a fully functional main menu bar with links and hover styles when the browser has it's JavaScript turned off.</li>
+	<li class="ordlist"><b>The Smallest Menu in the World!:</b> The QuickMenu 
+	source code is as much as 10 to 20 times smaller than traditional DHTML 
+	based menus while offering full featured customization and functionality.&nbsp; 
+	The entire sample template menu (<a href="qm.html">qm.html</a>) and all its 
+	support files, including source code, HTML menu structure, CSS style settings, 
+	HTML page, and images is an amazing 7K.&nbsp; The QuickMenu JavaScript is a 
+	true smattering and weighs in at less than 2K.<br>
+	<br></li>
+	<li class="ordlist"><b>Rapid Interactivity!:</b> QuickMenu's script utilizes a single onmouseover event combined with light weight code to create the fastest running menu possible.  Internal testing with huge menu structures containing thousands of items showed 
+	QuickMenu to run unaffected while comparable DHTML and Pure CSS style menus like suckerfish bogged down.
+	<li class="ordlist"><b>Simply Simple:</b> Simplified CSS style customization combined with the unique 
+	'XML like' Div-A structure makes QuickMenu unbelievable robust while being easier to customize and work with.
+	<br></li>
+	<li class="ordlist"><b>No Boundries:</b> QuickMenu's structure is fully extendable with custom classes, scripted events, dynamic generation, and even non-menu sibling HTML.  This capability combined with scripted positioning and user control is un-attainable with existing Pure CSS or DHTML solutions.
+	<br></li>
+	
+	
+</ul>
+
+  
+<div class="ctitle"><a name=b2>What Makes QuickMenu's Div-A Hybrid Design Better Than Pure CSS?</a></div>
+<div class="icontent">
+The biggest improvement over the UL / LI based pure CSS menus is scalability.  With a 
+CSS menu you must define either the width of the menu items or the width of the containers.  With 
+QuickMenu's Div-A, all widths are truly scaleable to the size of the text within the items and containers.  The new 
+Div-A structure is also lighter and easier to work with...
+<br>
+<br>
+<div style="padding-left:50px;padding-top:10px;padding-bottom:10px;">
+<font color="#800000">&lt;a href=&quot;sample.html&quot;&gt;Main Item 1&lt;/a&gt;<br>
+&lt;a href=&quot;sample.html&quot;&gt;Main Item 2&lt;/a&gt;</font><p>
+<font color="#800000">&nbsp;&nbsp;&nbsp; &lt;DIV&gt;<br>
+&nbsp;&nbsp;&nbsp;
+&lt;a href=&quot;sample.html&quot;&gt;Sub Item 1&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;
+&lt;a href=&quot;sample.html&quot;&gt;Sub Item 2&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;DIV&gt;</font></p>
+<p><font color="#800000">&lt;a href=&quot;sample.html&quot;&gt;Main Item 3&lt;/a&gt;
+</font></p>
+</div>
+</div>  
+<div class="icontent">
+Above is a sample of QuickMenu's Div-A structure, it's an HTML structure for the menu items in the 
+simplest form possible.  Notice that the DIV's which define sub menu containers sit as siblings to the a tags, similar to an XML menu structure, in a pure CSS menu they would be UL tags nested within LI tags.  The CSS UL / LI solution makes sense for running menus in IE7 and other CSS2 browsers without JavaScript, but in reality very few sites actually employ a no-script menu.  The reason for this is that full customizability and user control enhancement via delay timers is just not possible with CSS alone, plus IE6 does not support the pure CSS solution.
+<br><br>
+With script support being required why deal with the scalability, user control, and typical 
+clunkiness of pure CSS.  QuickMenu's Div-A still supports fully customized main menus, hover styles, and linking with its JavaScript removed, plus it's truly scaleable, offers delay timers for user control, full cross-browser support, and a more friendly structure to work with.<p>
+Div-A Hybrid also works in an incredably small footprint, script size is 2K for the entire menu, this small size combined with minimal CSS and a streamlined structure puts the total menu weight right on par with Pure CSS.  Like CSS, load speed is instantaneous and happens inline, while interactivity is faster than deeper nested Pure CSS solutions.</div>
+  
+  
+  
+<div class="ctitle"><a name=b3>Evaluation Version Information</a></div>
+<div class="icontent">
+This evaluation download is fully functional, it's the complete product and may be tested on and in your web site.  If you access the menu via http:// you will get a pop up purchase reminder message, click 'OK', and continue to test, customize, and use the menu.
+<br><br>
+If you decide to purchase the menu, an unlock code will be provided which must be added to the menus script file, the code will remove the purchase reminder.  The unlock mechanism is 100% client side with no outside connections, it's a simple script based unlock with zero added overhead.
+<br><br>
+**NOTE: You will not have to re-do your menu after purchasing, this download will be activated by the unlock code.
+</div>
+
+
+<div class="ctitle"><a name=b4>QuickMenu Documentation</a></div>
+<div class="icontent">
+Welcome to QuickMenu!  This documentation will cover the basic principals of designing and working with QuickMenu.  It's assumed that the reader already has basic 
+CSS knowledge and understands how to work with typical style setting such as background-color, padding, margin values, etc.
+It's also assumed that the reader understands basic HTML tags and knows how to place or add tags to a document manually.
+</div>
+<div class="ctitle"><a name=b5>Getting Started [Editing The Menu]</a></div>
+<div class="icontent">
+Open <a href="qm.html">qm.html</a> in a plain text editor to start customizing the menu.  This file is a template menu and is what you will base your design on, all customizable options are contained within the source HTML.  To view your changes, simultaneously open the file in your browser and use the refresh button to update the menu after changing styles and saving your work in the text editor.
+<br><br>
+<b>To change the structure and items...</b>
+</div>
+
+<ol class="ordlist_container">
+	<li class="ordlist">Find the section in the source of qm.html titled "QuickMenu Structure".</li>
+	<li class="ordlist">Add new items by adding A tags in the location you wish the item to appear.</li>
+	<li class="ordlist">Add a new sub menu by surrounding your new item or items with 
+	DIV tags.</li>
+</ol>
+
+<div class="icontent">
+There are almost no limitations with QuickMenu, the structure may have any inline styles or class names you wish added to both the items and container to create a specific look for certain 
+areas of the menu.  Make sure your custom styles for individual items do not include position, display, or float settings, stick to formatting styles only.  The A tags may also have any valid markup added to them as well as target or title attribute options.
+<br><br>
+<b>To change the style and looks of the menu...</b>
+</div>
+<ol class="ordlist_container">
+	<li class="ordlist">Find the section in the source of <a href="qm.html">qm.html</a> titled "QuickMenu Styles".</li>
+	<li class="ordlist">Add any valid CSS to the desired sections</li>
+</ol>
+<div class="ctitle"><a name=b6>Inserting In My Page</a></div>
+<div class="icontent">
+The QuickMenu code is in two sections, the first section is in the head and contains a reference to the script and your menus CSS styles.  The second section appears in the body of the HTML page at the point were you wish the menu to appear and contains the structure and a JavaScript call to create the menu.
+<br><br>
+For full validation the script reference to qm.js and the CSS should appear in the head, however the menu will work if these are placed in the body above the structure.
+<br><br>
+The structure is positioned in your document body at the point you wish the menu to display.  It should be placed in a DIV, TABLE, or similar block level element.  Your containing element needs to have enough space to 
+accommodate your menu or the main items may wrap to the next line.  It may be 
+helpful, depending on your layout, to add a fixed width large enough to 
+accommodate the menu (style=&quot;width:Npx&quot;) to your containing element. The 
+main container is a position relative div and display within your document as a 
+block level element.<br><br>
+You can optimize your page by moving the JavaScript call which creates the menu "<font color="#CC0000">&lt;script 
+type=&quot;text/JavaScript&quot;&gt;qm_create(0,false)&lt;/script&gt;</font>".  If placed directly before your closing body tag the page will load first, and the menu will render last.  If left directly after the structure, the menu will render inline with the structure.  We recommend moving the call to the end of the body if you are using a very large menu structure.  *Note:  The JavaScript call will not work if positioned before the menu, it must appear after the menus structure.
+</div>
+<div class="ctitle"><a name=b7>Vertical or Horizontal Mains</a></div>
+<div class="icontent">
+The main menu may be switched from vertical to horizontal by changing the false statement in the create menu call to true.<br>
+<br>
+&lt;script type=&quot;text/JavaScript&quot;&gt;qm_create(0,<font color="#cc3300">false</font>)&lt;/script&gt;
+<br><br>
+There is also a section which should be uncommented at the top of the CSS styles.  Its the first option in the style section, and if uncommented will allow the mains to be vertically oriented in browsers without 
+their JavaScript turned on.
+</div>
+<div class="ctitle"><a name=b8>Multiple Menus</a></div>
+<div class="icontent">
+You can add multiple menus to a single page.  To do this add a second structure to your page, change the id in the opening div of the structure to "qm1".
+<br><br>
+<div style="padding-left:50px;padding-top:10px;padding-bottom:10px;">
+&lt;div <font color="#CC3300">id=&quot;qm1&quot;</font> class=&quot;qmmc&quot;&gt;<br><br>
+</div>
+Next add a new JavaScript menu create function below the new structure, change the id in the create menu call to match the id above.
+<br><br>
+
+<div style="padding-left:50px;padding-top:10px;padding-bottom:10px;">
+&lt;script type=&quot;text/JavaScript&quot;&gt;qm_create(<font color="#CC3300">1</font>,false)&lt;/script&gt;
+</div>
+<br><br>
+
+You can individually style the second menu by adding additional CSS to the menu styles section.  Change the id on each new style section to match the new menu.
+<br>
+<br>
+<div style="padding-left:50px;padding-top:10px;padding-bottom:10px;">
+/*&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; (MAIN) Container &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;*/<br>
+#qm<font color="#CC3300">1</font><br>
+{ <br>
+&nbsp;&nbsp;&nbsp; background-color:transparent;<br>
+}</div>
+<br>
+<br>
+You can optionaly force all menus on the page to use the same styles by changing the "#qm0" id references for any of the style options to the global class reference ".qmmc".
+<br><br>
+<div style="padding-left:50px;padding-top:10px;padding-bottom:10px;">
+/*&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; (MAIN) Container &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;*/<br>
+<font color="#CC3300">.qmmc</font><br>
+{ <br>
+&nbsp;&nbsp;&nbsp; background-color:transparent;<br>
+}
+<br>
+</div>
+
+<div class="ctitle"><a name=b9>Positioning Sub Menus</a></div>
+<div class="icontent">
+QuickMenu subs will automatically position to the right edge, or underneath their parent items.  To offset a sub menus position from the default, use positive and negative margin values, you can define the margins 
+globally in the menu styles section, or on an individual basis.  Adding the following 
+statement to the sub container styles section will move all sub menus up 1 pixel.
+<br>
+<br>
+<div style="padding-left:50px;padding-top:10px;padding-bottom:10px;">
+margin-top:-1px;
+</div>
+<br><br>
+To move an individual sub menu container, add the margin value inline to its DIV tag...
+<br>
+<br>
+<div style="padding-left:50px;padding-top:10px;padding-bottom:10px;">
+&lt;DIV style=&quot;margin-top:-1px;&quot;&gt;</div>
+<br><br>
+</div>
+
+<div class="ctitle"><a name=b10>Margins vs. Padding</a></div>
+<div class="icontent">
+When styling your menu its good to know the difference between margins and padding.  Padding adds space inside the container, e.g. if you define a padding for the sub menu containers, a gap will be created between the edge of the containers inside border and the menu items.  Margins are added outside of the containers borders and will create space between adjacent containers.  Margins are 
+useful for gaping menu items to create a block style effect, or offsetting sub menu positions.
+</div>
+
+
+<div class="ctitle"><a name=b11>Known Quarks</a></div>
+<div class="icontent">
+The quark factor for QuickMenu is quite low, however with any HTML or script based product there are bound to be some inconsistencies, primarily in older browsers with compliancy issues such as IE5 and IE6.  While we have managed to work around most display issues, there are a few remaining quarks to look out for...
+</div>
+<ul class="ordlist_container">
+	<li class="ordlist">IE6 will not allow the sub menus to appear on top of drop down lists (select tags).  A 
+	<a href="add-ons/over_select_box/over_select_box.html">select tag fix add-on</a> is included in this download.  IE7 fixes this issue.</li>
+	<li class="ordlist">Second level sub menu containers will not stretch to surround the items in Netscape 7, unless you define a width for the container.  To define a width, add a 
+	style=&quot;width:10em&quot; statement to the DIV tag for the sub menu container in 
+	the menus structure.</li>
+	<li class="ordlist">Because QuickMenu is truly scaleable, it does not use dimensions to define widths, depending on your layout this may cause the main menu or sub menus to crunch up.  This is true for any scaleable content and typically happens if the menu hits a dimensional 
+	boundary in your HTML page, to overcome this you must add fixed widths to the containers within the structure, or alter your HTML pages containing elements to 
+	accommodate the width of the menu.</li>
+	<li class="ordlist">Placing a horizontal menu in a table without dimensions in Safari 1.x will cause the main menu items to wrap.  Safari 2.x works correctly.  To fix the issue for Safari 1.x, give your table or menu a 100%, or fixed width.</li>
+	
+	
+</ul>
+
+<div class="ctitle"><a name=b12>Browser Support</a></div>
+<div class="icontent">
+QuickMenu was tested to function and appear identically in the following browsers 
+on Unix, Mac and Windows platforms...
+</div>
+<ul class="ordlist_container">
+	<li class="ordlist">IE 5*,6,7</li>
+	<li class="ordlist">FireFox 1, 2</li>
+	<li class="ordlist">Mozilla 1.x</li>
+	<li class="ordlist">Netscape 6, 7, 8</li>
+	<li class="ordlist">Opera 7, 8, 9</li>
+	<li class="ordlist">Safari 1, 2</li>
+	<li class="ordlist">Konqueror 3</li>
+	<li class="ordlist">K-Melon (All)</li>
+</ul>
+<div class="icontent" style="font-size:11px;">
+*Quarks in IE 5 Mac will force sub menu containers to 100% of the main menu 
+containers width, to work around this specify dimensions for all sub containers.
+<br>
+&nbsp;</div>
+
+<div class="ctitle"><a name=b13>Tips and Tricks</a></div>
+<ul class="ordlist_container">
+	<li class="ordlist">The main container is a position relative div and will stretch to the width of its containing element in your page.  To make the container fit the width of the menu items, place your menu in a table with no dimensions or set a fixed width for the menu that matches the width of your items plus container padding and borders.  *Note: Quarks in Safari 1.x will make horizontal menus wrap when in a dimensionless container.  Safari 2.x works as expected.</li>
+	<li class="ordlist">You can offset the main menu container by settings a top and left style property in the main container style settings section.</li>
+	<li class="ordlist">To customize the look of an individual menu item or container, add an inline style to the items tag. 
+	(style=&quot;font-size:2em&quot;)</li>
+	<li class="ordlist">The menus structure may be dynamically server side or client side generated in any way you see fit.</li>
+	<li class="ordlist">You can optionally call the qm_create function with the document body's onload event, this may be 
+	useful if you are dynamically changing the menu structure in the DOM.</li>
+	<li class="ordlist">The qm_create function may be optionally called from your scripts, if you use the DOM to change the menu structure, calling qm_create after the modifications will refresh the menu.</li>
+	<li class="ordlist">To gain true scalability in IE6 and IE7, use 'em' units to define the size of your text.  This will allow the text size to adjust if the user changes the default font size for their browser.</li>
+	<li class="ordlist">You can add custom events and JavaScript to any item in the structure.  QuickMenu does hog the onmouseover event for all A tags, however you can still use AddEventListner and AttachEvent.</li>
+</ul>
+
+
+<div class="ctitle"><a name=b14>Common CSS Styles</a></div>
+<div class="icontent">
+The styles used to customize your QuickMenu may be any valid CSS.  Below is a quick reference to some common styles.
+</div>
+<ul class="ordlist_container">
+	<li class="ordlist"><font color="#CC3300">font-size:1em;</font>&nbsp;  (use px, em, ex, etc...)</li>
+	<li class="ordlist"><font color="#CC3300">font-weight:normal;</font>&nbsp; (normal, bold, lighter, bolder)</li>
+	<li class="ordlist"><font color="#CC33000">font-family:Arial;</font>&nbsp; (any valid system font)</li>
+	<li class="ordlist"><font color="#CC3300">text-decoration:underline;</font>  (none, underline, overline, line-through, blink)</li>
+	<li class="ordlist"><font color="#CC3300">text-align:left;</font> (left, center, right)</li>
+	<li class="ordlist"><font color="#CC3300">line-height:1em;</font>  (use px, em, ex, etc...)</li>
+	<li class="ordlist"><font color="#CC3300">color:#ff0000;</font>  (hex value or color name [red,blue,etc.])</li>
+	<li class="ordlist"><font color="#CC3300">background-color:#ff0000;</font>  (hex value or color name [red,blue,etc.])</li>
+	<li class="ordlist"><font color="#CC3300">border-style:solid;</font>  (dotted,dashed,solid,double,groove,ridge,inset)</li>
+	<li class="ordlist"><font color="#CC3300">border-width:1px 1px 1px 1px;</font>  (top, right, bottom, left)</li>
+	<li class="ordlist"><font color="#CC3300">border-color:#000000;</font>  (hex value or color name [red,blue,etc.])</li>
+	<li class="ordlist"><font color="#CC3300">margin-width:#5px 5px 5px 5px;</font>  (top, right, bottom, left)</li>
+	<li class="ordlist"><font color="#CC3300">padding-width:#5px 5px 5px 5px;</font>  (top, right, bottom, left)</li>
+	<li class="ordlist"><font color="#CC3300">background-image:url(myimage.gif);</font></li>
+	<li class="ordlist"><font color="#CC3300">background-position:center center;</font> (combine: center left right  - or use units, e.g. 95%)</li>
+	<li class="ordlist"><font color="#CC3300">background-repeat:no-repeate;</font>  (repeat, no-repeat)</li>
+	<li class="ordlist"><font color="#CC3300">height:20px;</font> (use px, em, ex, etc...)</li>
+	<li class="ordlist"><font color="#CC3300">width:20px;</font> (use px, em, ex, etc...)</li>
+	
+</ul>
+
+
+
+
+</div><div class="bottomdivider"></div><div class="copyright">Copyright (c) 2007, OpenCube Inc., All Rights Reserved.</div></body></html>
+
+
+

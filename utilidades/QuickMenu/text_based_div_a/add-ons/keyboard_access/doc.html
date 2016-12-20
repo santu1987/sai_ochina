@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>QuickMenu</title>
+
+
+<style type="text/css">
+a:link {color:#0033cc;}
+a:visited {}
+
+.title {font-family:arial;font-size:15px;color:#000000;}
+.content {font-family:arial;font-size:13px;margin-left:10px;margin-right:10px;}
+.copyright {font-family:arial;font-size:10px;}
+
+.ctitle {font-family:arial;font-size:13px;color:#0033cc;font-weight:bold;margin-bottom:2px;padding-top:16px;}
+.icontent {margin-bottom:10px;}
+.ordlist {margin-bottom:10px;}
+.ordlist_container {margin-bottom:22px;}
+.iimage {text-align:left;margin:10px;}
+
+.topdivider {border-color:#333333;border-style:dashed;border-width:0px;border-bottom-width:1px;margin-bottom:10px;}
+.bottomdivider {border-color:#333333;border-style:dashed;border-width:0px;border-bottom-width:1px;margin-top:25px;margin-bottom:3px;}
+
+</style>
+
+
+</head><body class="title" style="margin:20px;"><div style="padding-bottom:5px;"><img src="images/oc_logo.gif" width=16 height=16 align=absbottom style="margin-right:5px;">QuickMenu</div><div class="topdivider"></div><div class="content">
+
+
+
+<div class="ctitle"><a name=b1>Keybaord Access Add-On</a></div>
+<div class="icontent">
+Keyboard access allows for the complete navigation of your menu using the tab key, arrow keys, and enter key.  The arrow keys move the focus between items and open sub menus which exist in the direction of movement.  The enter key activates links or opens child sub menus for an item.  The tab key and shift+tab keys move the focus back and forth between the items.
+</div>
+
+<div class="ctitle"><a name=b1>Applying the Add-On</a></div>
+<div class="icontent">
+The add-on is applied by including the core add-on code and the script reference to the 'qm_keybaord_access.js" file within your HTML.  The following code must be added directly after your documents call to the 'qm.js' file...
+</div>
+<div style="padding-left:50px;padding-top:20px;padding-bottom:10px;">
+&lt;!--%%%%%%%%%%%% QuickMenu JavaScript %%%%%%%%%%%*--&gt;<br>
+<br>
+&lt;!-- Core Menu Code --&gt;<br>
+&lt;script type=&quot;text/JavaScript&quot; src=&quot;qm.js&quot;&gt;&lt;/script&gt;<br>
+<br>
+<font color="#800000">&lt;!-- Add-On Core Code (Remove when not using any add-on's) 
+--&gt;<br>
+&lt;style type=&quot;text/css&quot;&gt;.qmfv{visibility:visible !important;}&lt;/style&gt;&lt;script 
+type=&quot;text/JavaScript&quot;&gt;var qmad = new Object();qmad.bvis=&quot;&quot;;qmad.bhide=&quot;&quot;;&lt;/script&gt;<br>
+<br>
+&lt;!-- Add-On Settings --&gt;<br>
+&lt;script type=&quot;text/JavaScript&quot;&gt;<br>
+<br>
+/******* Menu 0 Add-On Settings *******/<br>
+var a = qmad.qm0 = new Object();<br>
+<br>
+&nbsp;&nbsp;&nbsp; // Keyboard Access Add On<br>
+&nbsp;&nbsp;&nbsp; a.keyboard_access_active = true;<br>
+<br>
+&lt;/script&gt;<br>
+<br>
+&lt;!-- Optional Add-On's (Must appear after core menu code) --&gt;<br>
+&lt;script type=&quot;text/JavaScript&quot; src=&quot;qm_keyboard_access.js&quot;&gt;&lt;/script&gt;</font><br>
+&nbsp;
+<br>
+</div>
+<div class="icontent">
+*Note: It is not necessary to duplicate the core add-on code if you already have it included in your document.
+</div>
+
+<div class="ctitle"><a name=b1>Optional Hover Styles</a></div>
+<div class="icontent">
+Hover styles may be applied by adding a class name rule to your menus CSS styles.  The hover styles will be visible when navigating the structure. Add the portions in red to your menus "main hover" and "sub hover" CSS styles...
+</div>
+<div style="padding-left:50px;padding-top:20px;padding-bottom:10px;">
+/*&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; (MAIN) Hover State &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;*/<br>
+#qm0 a:hover<font color="#800000">, #qm0 .qmkeyboardaccess</font><br>
+{...<br><br><br>
+&nbsp;
+/*&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; [SUB] Hover State &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;*/<br>
+#qm0 div a:hover<font color="#800000">, #qm0 div .qmkeyboardaccess</font><br>
+{...<br><br>
+</div>
+<div class="icontent">
+*Note: Remember to include the comma which seperates the rules, without it your menu will not function correctly.
+</div>
+
+
+
+
+
+<br>
+<br>
+</div><div class="bottomdivider"></div><div class="copyright">Copyright (c) 2007, OpenCube Inc., All Rights Reserved.</div></body></html>
+
+
+

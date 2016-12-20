@@ -1,0 +1,41 @@
+.datePicker{position:absolute;color:#000}
+.datePicker .handle{margin:0;padding:0;height:24px;background:url(datePicker.png) no-repeat left top;width:190px}
+.datePicker .body{background:url(datePicker.png) no-repeat left bottom;padding:0 0 8px 0}
+.datePicker table {font:10px Verdana;border-collapse:separate;border-spacing:2px;empty-cells:hide;margin:0 0 0 3px}
+.datePicker b{float:left;font-weight:normal;padding:0 0 0 3px;cursor:default}
+.datePicker th{cursor:default;padding:4px 0}
+.datePicker td{text-align:center}
+.datePicker thead td{padding:3px 2px;background:#999;color:#fff}
+.datePicker tbody td{padding:3px 4px;cursor:default;color:#ccc;border:1px solid #eee;}
+.datePicker td.selectable{background:#fff;cursor:pointer;color:#000}
+.datePicker td.selectable:hover{border-color:#517fd5}
+.datePicker td.selected{background:#517fd5;color:#fff}
+.datePicker .incdec{float:right;width:26px;height:13px;background:url(speeder.gif) no-repeat left top}
+.datePicker .incdec span{display:block;width:13px;height:13px;cursor:pointer}
+.datePicker .incdec span.disabled{background-image:url(speeder.gif);cursor:default}
+.datePicker .up{background-position:right bottom;float:right}
+.datePicker .down{background-position:left bottom;float:left}
+.datePicker .close{cursor:pointer}
+
+.black_datePicker *{padding:0;margin:0;text-align:center;cursor:default}
+.black_datePicker{position:absolute;width:240px}
+.black_datePicker .handle{width:100%;height:32px;background:url(black_datePicker.png) no-repeat center top}
+.black_datePicker .body{padding:0 0 32px 0;background:url(black_datePicker.png) no-repeat center bottom}
+.black_datePicker b{float:left;font:bold 11px Verdana;padding:0 0 0 10px;cursor:default}
+.black_datePicker table{border-collapse:collapse;border-spacing:0;margin:0 auto;color:#fff}
+.black_datePicker thead th{padding:10px 0;color:#999;font-size:9px}
+.black_datePicker tbody td{padding:6px;font:11px Verdana}
+.black_datePicker td.selectable{background:url(black_selectable.png) no-repeat center;cursor:pointer}
+.black_datePicker td.selectable:hover{background-image:url(black_selectable_hover.png)}
+.black_datePicker td.selected{background-image:url(black_selected.png)}
+.black_datePicker .incdec{float:right;width:26px;height:13px;background:url(speeder.gif) no-repeat left top}
+.black_datePicker .incdec span{display:block;width:13px;height:13px;cursor:pointer}
+.black_datePicker .incdec span.disabled{background-image:url(speeder.gif);cursor:default}
+.black_datePicker .up{background-position:right bottom;float:right}
+.black_datePicker .down{background-position:left bottom;float:left}
+.black_datePicker .close{cursor:pointer}
+
+#fecha02{cursor:pointer}
+
+#sample3 p{padding:5px 0}
+#sample3 input{width:350px}

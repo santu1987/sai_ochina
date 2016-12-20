@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head><title>QuickMenu Template</title><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"> 
+
+
+
+<!-- *** QuickMenu copyright (c) 2007, OpenCube Inc. All Rights Reserved.
+
+          -This document, the JavaScript source code, and core CSS may not be modified,
+           re-distributed, or displayed for public consumption.
+    	
+          -This product must be purchased before its official inclusion in any public or 
+           private web site or application.
+
+          -This product may not be used in, or redistributed as part of an application whose
+           purpose is to enhance or create menu systems.
+-->     
+
+
+
+<!--%%%%%%%%%%%% QuickMenu JavaScript %%%%%%%%%%%*-->
+
+	<!-- Core Menu Code -->
+	<script type="text/JavaScript" src="qm.js"></script>
+
+	<!-- Add-On Core Code (Remove when not using any add-on's) -->
+	<style type="text/css">.qmfv{visibility:visible !important;}.qmfh{visibility:hidden !important;}</style><script type="text/JavaScript">var qmad = new Object();qmad.bvis="";qmad.bhide="";qmad.bhover="";</script>
+
+		<!-- Add-On Settings -->
+		<script type="text/JavaScript">
+
+			/*Menu 0 Settings*/
+			var a = qmad.qm0 = new Object();
+		
+			a.zoom_increment = .14;
+			a.zoom_start_size = .1;
+			a.zoom_mid_size = 1.7;
+			a.zoom_end_size = .8;
+
+
+
+		</script>
+
+
+	<!-- Optional Add-On's (Must appear after core menu code) -->
+	<script type="text/JavaScript" src="qm_zoom_effect.js"></script>
+
+
+<!--%%%%%%%%%%%% QuickMenu Styles [Keep in head for full validation!] %%%%%%%%%%%-->
+<style type="text/css">
+
+/*!!!!!!!!!!! QuickMenu Core CSS [Do Not Modify!] !!!!!!!!!!!!!*/
+.qmclear {font-size:1px;height:0px;width:0px;clear:left;line-height:0px;display:block;}.qmmc {position:relative;}.qmmc a {float:left;display:block;white-space:nowrap;}.qmmc div a {float:none;}.qmmc div {visibility:hidden;position:absolute;}
+
+
+/*!!!!!!!!!!! QuickMenu Styles [Please Modify!] !!!!!!!!!!!*/
+
+
+	/* Remove the comments bleow for vertical mains and change the false value to
+           true in the qm_create function after the menus structure. */
+	/*.qmmc a {float:none}*/
+
+	
+	/*"""""""" (MAIN) Container """"""""*/
+	#qm0
+	{ 
+		background-color:#ffffff;
+		padding-left:10px;
+		border-width:1px 0px 1px 0px;
+		border-style:solid;
+		border-color:#000000;
+		background-image:url(images/slide_bg.gif);
+		
+	}
+
+
+	 /*"""""""" (MAIN) Items """"""""*/
+	#qm0 a
+	{
+		color:#ffffff;
+		background-color:transparent;
+		font-family:Arial;
+		font-size:.8em;
+		text-decoration:none;
+		padding:5px 20px 5px 8px;
+		border-style:solid;
+		border-color:#000000;
+		border-width:0px 0px 0px 1px;
+		
+	}
+
+
+	/*"""""""" (MAIN) Hover State """"""""*/
+	#qm0 a:hover
+	{ 
+		/*border-color:#333333;*/
+
+		color:#000000;
+		background-color:#EFF4FA;
+		text-decoration:underline;
+	}
+
+
+	/*"""""""" (MAIN) Active State """"""""*/	
+	body #qm0 .qmactive, body #qm0 .qmactive:hover
+	{ 
+		color:#000000;
+		background-color:#EFF4FA;
+		text-decoration:underline;
+		background-image:url(images/slide_black_arrow.gif);
+	}
+
+
+	/*"""""""" (MAIN) Parent Items """"""""*/
+	#qm0 .qmparent
+	{
+		background-image:url(images/slide_white_arrow.gif);
+		background-repeat:no-repeat;
+		background-position:92%;
+		cursor:default;
+	}
+
+	
+
+
+	/*"""""""" [SUB] Containers """"""""*/
+	#qm0 div
+	{
+		
+		background-color:#D6DCE2;
+		padding:5px 5px 5px 5px;
+		border-style:solid;
+		border-width:1px 1px 1px 1px;
+		margin:0px;
+		border-color:#333333;
+		
+	}
+
+
+	/*"""""""" [SUB] Items """"""""*/
+	#qm0 div a
+	{		
+		font-size:.7em;
+		color:#333333;
+		border-width:0px 1px 0px 1px;
+		border-color:#D6DCE2;
+		border-style:solid;
+		padding:3px 30px 3px 5px;
+		
+	}
+	
+	/*"""""""" [SUB] Hover State """"""""*/
+	#qm0 div a:hover
+	{
+
+		border-color:#666666;
+		background-color:#EFF4FA;
+		color:#000000;
+		text-decoration:none;
+	}
+
+	#qm0 div div
+	{
+		margin:0px 0px 0px 3px;
+	}
+
+	/*""""""""[SUB] Active State """"""""*/
+	body #qm0 div .qmactive, body #qm0 div .qmactive:hover
+	{
+		
+		border-color:#666666;
+		background-color:#EFF4FA;
+		color:#000000;
+		text-decoration:underline;
+		background-image:url(images/slide_black_arrow_right.gif);
+		
+	}
+
+
+	/*"""""""" [SUB] Parent Items """"""""*/
+	#qm0 div .qmparent 
+	{
+
+		background-image:url(images/slide_black_arrow_right.gif);
+
+	}
+
+
+</style>
+</head>
+
+
+
+<body style="margin:40px">
+
+
+
+<!--%%%%%%%%%%%% QuickMenu Stucture %%%%%%%%%%%*-->
+
+<div id="qm0" class="qmmc">
+
+	<a href="#">Company</a>
+	
+		<div>
+		<a href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/buy_now.html">Purchase Software</a>
+		<a href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/contact.html">Customer Service</a>
+		<a href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/contact.html">Tech. Support</a>
+		<a href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/specs.html">Product Comparison</a>
+		<a href="#">Product Overviews</a>
+
+			<div style="width:7em;">
+			<a href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/im_overview.html">Infnite Menus</a>
+			<a href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/qm_overview.html" style="border-bottom-width:0px;">QuickMenu</a>
+			</div>
+
+		<a href="#">Our Customers</a>
+
+			<div style="width:7em;">
+			<a href="http://www.fedex.com/us/">Fex-Ex</a>
+			<a href="http://www.tyco.com">Tyco</a>
+			<a href="http://www.bestbuy.com">Best Buy</a>
+			<a href="http://www.kofax.com/">Kofax</a>
+			<a href="http://www.rayovac.com/">Rayovac</a>
+			<a href="http://www.bea.com/">BEA</a>
+			<a href="http://www.polycom.com/">Polycom</a>
+			<a href="http://www.act.com/">Act</a>
+			<a href="http://www.delta.com/" style="border-bottom-width:0px;">Delta</a>
+			</div>
+
+		<a href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/who_we_are.html" style="border-bottom-width:0px;">Who We Are</a>
+
+		</div>
+		
+	
+	<a href="#">Customers</a>
+
+		<div>
+		<a href="http://www.fedex.com/us/">Fex-Ex</a>
+		<a href="http://www.tyco.com">Tyco</a>
+		<a href="http://www.bestbuy.com">Best Buy</a>
+		<a href="http://www.kofax.com/">Kofax</a>
+		<a href="http://www.rayovac.com/">Rayovac</a>
+		<a href="http://www.bea.com/">BEA</a>
+		<a href="http://www.polycom.com/">Polycom</a>
+		<a href="http://www.act.com/">Act</a>
+		<a href="http://www.delta.com/" style="border-bottom-width:0px;">Delta</a>
+		</div>
+
+
+	<a href="#">QuickMenu</a>
+
+		<div>
+		<a href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/qm_overview.html">Overview</a>
+		<a href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/specs.html">Specifications</a>
+		<a href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/specs.html">Browser Support</a>
+		<a href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/qm_overview.html">Sample Menus</a>
+		<a href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/download.html" style="border-bottom-width:0px;">Download</a>
+		</div>
+
+	<a href="#">Infinite Menus</a>
+
+		<div>
+		<a href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/im_overview.html">Overview</a>
+		<a href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/specs.html">Specifications</a>
+		<a href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/specs.html">Browser Support</a>
+		<a href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/im_overview.html">Screen Shots</a>
+		<a href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/download.html" style="border-bottom-width:0px;">Download</a>
+		</div>
+
+	
+
+	<a style="border-right-width:1px;" href="../../../../../recursos/QuickMenu/text_based_div_a/add-ons/zoom_effect/buy_now.html">Buy Now!</a>
+
+	
+
+<span class="qmclear">&nbsp;</span></div>
+
+
+<!--%%%%%%%%%%%% QuickMenu Create Menu (menu id, is vertical, show timer (ms), hide timer (ms), on click) %%%%%%%%%%%*-->
+<script type="text/JavaScript">qm_create(0,false,0,500,false)</script>
+
+
+
+
+
+</body>
+</html>

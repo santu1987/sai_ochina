@@ -1,0 +1,60 @@
+<?php
+session_start();
+require_once('../../../../controladores/db.inc.php');
+require_once('../../../../utilidades/adodb/adodb.inc.php');
+$conn = &ADONewConnection('postgres');
+$db=dbconn("pgsql");
+$conn->PConnect($db["host"],$db["user"],$db["password"],$db["dbname"]);
+$fecha = date("Y-m-d H:i:s");
+$monto = str_replace(".","",$_POST[cuentas_por_pagar_db_facturas_total]);
+								
+//////////////////////////////////////////////////////////////////////////////////////////////////
+								$sql_pago="UPDATE orden_pago
+											SET
+												estatus='2',
+												ultimo_usuario=".$_SESSION['id_usuario']."	,
+												fecha_ultima_modificacion='".date("Y-m-d H:i:s")."',
+												documentos='{".$_POST[cuentas_por_pagar_db_facturas_oculto]."}'	
+											WHERE 
+												orden_pago='$_POST[cuentas_por_pagar_db_orden_numero_control]'
+											AND
+												orden_pago.id_organismo=".$_SESSION["id_organismo"]."
+										";				
+												
+											if (!$conn->Execute($sql_pago)) 
+												die ('Error al registrar: '.$sql_pago);
+					
+////////////////////////////////////////////////////////-ACTUALIZANDO LOS DOCUMENTOS SELECCIONADOS-///////////////////////////////////////////////////////////
+											$orden=$_POST[cuentas_por_pagar_db_orden_numero_control];
+											$vector=$_POST[cuentas_por_pagar_db_facturas_oculto];
+											$facturas=split(",",$vector);
+											sort($facturas);
+											if($facturas!="")
+											{
+												$contador=count($facturas);
+											
+												$is=0;
+												//////////////////////////blanqeando campos a modificar
+															/////////////////////////modificando
+												while($is<$contador)
+												{
+															
+															$sql = "UPDATE documentos_cxp 
+															 SET
+																estatus='2',
+																ultimo_usuario=".$_SESSION['id_usuario'].", 
+																fecha_ultima_modificacion='".date("Y-m-d H:i:s")."'
+															WHERE 
+																		id_organismo=$_SESSION[id_organismo]
+																AND
+																	id_documentos='$facturas[$is]'
+																	";
+																	if (!$conn->Execute($sql)) {
+																	die ('Error al Actualizar: '.$conn->ErrorMsg());}
+														
+												$is=$is+1;
+												}
+											}	
+							//--- CERRANDO ELSE//
+							die("Actualizado");
+	?>

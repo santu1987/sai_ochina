@@ -1,0 +1,212 @@
+.btn{
+	background-color: #DBEAF5; 
+	padding: 0px;
+}
+textarea, select,input[type="text"],input[type="password"],input[type="file"] {
+	color:#000000;
+	background-color: #DBEAF5;
+	border-style:solid;
+	padding:0px 0px 0px 4px;
+	border-top:1px #3c597b solid;
+	border-left:1px #3c597b solid;
+	border-bottom:1px #CEF0FD solid;	
+	border-right:1px #CEF0FD solid;
+}
+input[type="button"]{
+	background-color:#CCCCCC;
+	color:#000000;	
+}
+
+select{
+	min-width:150px;
+}
+.selectcorto
+{
+	min-width:40px;
+	text-align:center;
+}
+.cuerpo_formulario{
+	min-width:600px;
+	padding:0px;
+	border-spacing:0px;
+	width:1%;
+	margin:auto;
+}
+.cuerpo_formulario th{
+	vertical-align:top;
+	border-bottom:1px #BADBFC solid;
+	border-right:1px #BADBFC solid;	
+	border-left:1px #BADBFC solid;			
+	padding:2px;
+	text-align:justify;
+	width:1%;
+	white-space: nowrap;	
+}
+.cuerpo_formulario td{
+	
+	border-bottom:1px #BADBFC solid;		
+	border-right:1px #BADBFC solid;		
+	padding:2px;
+		
+}
+.cuerpo_formulario .titulo_frame{
+	border-left:1px #4c7595 solid;
+	border-right:none;
+	background-image:url(../imagenes/top_frame.png);
+	background-repeat:no-repeat;
+	background-color:#4c7595;
+	background-position:200px 0px;
+	color:#FFFFFF;
+}
+.cuerpo_formulario .titulo_frame img{
+	width:16px;
+}
+.cuerpo_formulario .sub_titulo_frame{
+	border:1px #4c7595 solid;		
+	text-align:center;
+	background-color:#4c7595;	
+	color:#FFFFFF;	
+}
+.cuerpo_formulario .bottom_frame{
+	border-right:none;
+	border-bottom:none;	
+	background-image:url(../imagenes/bottom_frame.png);
+	background-repeat:no-repeat;
+	height:16px;
+}
+.cuerpo_formulario .div_busqueda{
+	background-color:#BADBFC;
+	padding:5px;
+}
+.cuerpo_formulario .celda_consulta{
+	background-color:#BADBFC;
+	padding:0px;
+}
+.btn_guardar{
+	background-image:url(../imagenes/iconos/floppy.png);
+}
+.btn_actualizar{
+	background-image:url(../imagenes/iconos/floppy.png);
+}
+.btn_consultar{
+	background-image:url(../imagenes/iconos/xmag.png);
+}
+.btn_eliminar{
+	background-image:url(../imagenes/iconos/trashcan_full32x32.png);
+}
+.btn_cancelar{
+	background-image:url(../imagenes/iconos/limpiar32x32.png);
+}
+.btn_imprimir{
+	background-image:url(../imagenes/iconos/imprimir.png);
+}
+.btn_imprimir_vista_previa{
+	background-image:url(../imagenes/iconos/vistaprevia.png);
+}
+.btn_orden{
+	background-image:url(../imagenes/iconos/floppyorden.png);
+}
+.btn_preorden{
+	background-image:url(../imagenes/iconos/floppypreorden.png);
+}
+.btn_consulta_emergente{
+	width:16px;
+	height:auto;
+	cursor:pointer;
+	overflow:hidden;
+	background-image:url(../imagenes/iconos/view16x16.png);
+}
+.btn_add_foto{
+	width:16px;
+	height:auto;
+	cursor:pointer;
+	overflow:hidden;
+	background-image:url(../imagenes/add.png);
+}
+.btn_reimprimir{
+	background-image:url(../imagenes/iconos/reimprimir.png);
+	width:50px;
+	height:42px;
+}
+.btn_impuesto{
+	background-image:url(../imagenes/iconos/calculator);
+	width:16px;
+	height:16px;
+}
+.btn_correr{
+	background-image:url(../imagenes/iconos/correr.png);
+}
+.btn_anular{
+	background-image:url(../imagenes/iconos/anular.png);
+}
+.btn_reversar{
+	background-image:url(../imagenes/iconos/reversar.jpg);
+	
+}
+.input_con_emergente li{
+	display:table-cell;
+}
+#botonera{
+	top:115px;
+	position:fixed;
+	padding:0px;
+	margin:0px;
+	right:20px;
+	width:50%;
+	opacity:1;
+}
+#botonera img{
+	display:list-item;
+	position:relative;
+	top:-3px;
+	width:42px;
+	height:42px;
+	float:right;
+	border:5px #83B4D8 solid;
+	background-color:#83B4D8;
+	cursor:pointer;
+}
+.msg{
+	position:fixed;
+	padding:5px 15px 5px 15px;
+	margin:0px;
+	overflow:hidden;
+	z-index:auto;
+	bottom:0px;
+	background-color:#83B4D8;
+}
+.clear td, .clear th{
+	border:0px;
+	margin:0px;
+	padding:0px;
+}
+.titulo_td{
+	background-color:#4c7595;
+	color:#FFFFFF;
+	font-size:14px;
+}
+.cuerpo_form{
+	min-width:600px;
+	padding:0px;
+	border-spacing:0px;
+	width:1%;
+	margin:auto;
+}
+.cuerpo_form td{
+	vertical-align:top;
+		
+	border-left:1px #BADBFC solid;			
+	padding:2px;
+	text-align:justify;
+	width:1%;
+	white-space: nowrap;	
+}
+.cuerpo_form th{
+	vertical-align:top;
+	
+	border-left:1px #BADBFC solid;			
+	padding:2px;
+	text-align:justify;
+	width:1%;
+	white-space: nowrap;	
+}

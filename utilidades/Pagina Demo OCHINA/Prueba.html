@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Documento sin t&iacute;tulo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- jquery.js - Framework Jquery --> 
+<script type="text/javascript" language="JavaScript" src="jquery.js"> </script>
+<!-- jquery.meiomask.js - Formateo de campos de entrada --> 
+<script type="text/javascript" src="jquery.meiomask.js" charset="utf-8" ></script>
+<script type="text/javascript" language="JavaScript">   
+/* Marcaras de edicion de campos de entrada --> */
+(function($){
+	// call setMask function on the document.ready event. Formatos de Input
+	$(function(){ 
+		$('input:text').setMask(); 
+		}
+);    
+})(jQuery);
+</script>
+<style type="text/css">
+<!--
+.Estilo1 {
+	color: #000080;
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+
+<body>
+<p>&nbsp;</p>
+
+  <form >
+	<table width="189" align="center">
+	  <tr>
+		<td colspan="2"><div align="center" class="Estilo1">FORMATEAR CAMPOS</div></td>
+	  </tr>
+	  <tr>
+		<td colspan="2">&nbsp;</td>
+	  </tr>
+	  <tr>
+		<td width="63">Entero:</td>
+		<td width="114"><input name="entero" type="text" id="fecha5" size="14" maxlength="10" alt="integer-a"></td>
+	  </tr>
+	  <tr>
+		<td>Telefono:</td>
+		<td><input name="telefono" type="text" id="fecha4" size="14" maxlength="10" alt="phone-a"></td>
+	  </tr>
+	  <tr>
+		<td>Monto:</td>
+		<td><input name="monto" type="text" id="fecha3" size="14" maxlength="10" alt="decimal-a"></td>
+	  </tr>
+	  <tr>
+		<td>Cedula:</td>
+		<td><input name="cedula" type="text" id="cedula" size="14" maxlength="10" alt="cedula"></td>
+	  </tr>
+	  <tr>
+		<td>Fecha:</td>
+		<td><input name="fecha" type="text" id="fecha" size="14" maxlength="10" alt="date"></td>
+	  </tr>
+	  <tr>
+		<td>Hora:</td>
+		<td><input name="hora" type="text" id="hora" size="14" maxlength="10" alt="time"></td>
+	  </tr>
+	</table>
+  </form>
+<p align="center">
+<br><br>
+<span class="Estilo1">En la rutina de insertar/modificar registros (PHP)</span><br>
+<br>
+$cedula = str_replace(".","",$cedula);<br>
+$monto = str_replace(".","",$monto);<br>
+$monto = str_replace(",","",$monto);<br>
+</p>
+</body>
+</html>

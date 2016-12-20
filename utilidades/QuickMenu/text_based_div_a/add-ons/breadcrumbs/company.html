@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head><title>QuickMenu Template</title><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"> 
+
+
+
+<!-- *** QuickMenu copyright (c) 2007, OpenCube Inc. All Rights Reserved.
+
+          -This document, the JavaScript source code, and core CSS may not be modified,
+           re-distributed, or displayed for public consumption.
+    	
+          -This product must be purchased before its official inclusion in any public or 
+           private web site or application.
+
+          -This product may not be used in, or redistributed as part of an application whose
+           purpose is to enhance or create menu systems.
+-->     
+
+
+
+<!--%%%%%%%%%%%% QuickMenu JavaScript %%%%%%%%%%%*-->
+
+	<!-- Core Menu Code -->
+	<script type="text/JavaScript" src="qm.js"></script>
+
+	<!-- Add-On Core Code (Remove when not using any add-on's) -->
+	<style type="text/css">.qmfv{visibility:visible !important;}.qmfh{visibility:hidden !important;}</style><script type="text/JavaScript">var qmad = new Object();qmad.bvis="";qmad.bhide="";qmad.bhover="";</script>
+
+	<!-- Optional Add-On's (Must appear after core menu code) -->
+	<script type="text/JavaScript" src="qm_crumb_settings.js"></script>
+	<script type="text/JavaScript" src="qm_breadcrumbs.js"></script>
+
+
+<!--%%%%%%%%%%%% QuickMenu Styles [Keep in head for full validation!] %%%%%%%%%%%-->
+<link rel="stylesheet" href="qm_styles.css" type="text/css">
+</head>
+
+
+
+<body style="margin:40px">
+
+
+<!--%%%%%%%%%%%% Breadcrumb links container %%%%%%%%%%%*-->
+<div id="qmcrumbs" class="qm-crumbs-container"></div>
+
+
+<!--%%%%%%%%%%%% QuickMenu Stucture %%%%%%%%%%%*-->
+<script type="text/javascript" src="qm_menu_structure.js"></script>
+
+
+<!--%%%%%%%%%%%% QuickMenu Create Menu (menu id, is vertical, show timer (ms), hide timer (ms), on click) %%%%%%%%%%%*-->
+<script type="text/JavaScript">qm_create(0,false,0,500,false)</script>
+
+
+
+
+<!-- Page Content -->
+
+
+<div style="margin:70px 30px 0px 30px;color:#111111;font-family:Arial;font-size:.8em;">
+Breadcrumb Sample Document: <font style="color:#cc3300">Company</font>
+
+
+</div>
+
+
+
+<!-- End Content -->
+
+
+
+</body>
+</html>

@@ -1,0 +1,732 @@
+CREATE TABLE bienes
+(
+  id_bienes serial NOT NULL,
+  id_organismo integer NOT NULL,
+  nombre character varying(60),
+  fecha_compra date,
+  id_tipo_bienes integer,
+  id_sitio_fisico integer,
+  id_unidad_ejecutora integer,
+  id_proyecto integer,
+  id_accion_centralizada integer,
+  id_mayor character(60),
+  id_custodio integer,
+  id_orden_compra_servicioe integer,
+  descripcion_general text,
+  numero_comprobante integer,
+  fecha_comprobante date,
+  id_proveedor integer,
+  marca character varying(60),
+  modelo character varying(60),
+  anobien integer,
+  serial_motor character varying(60),
+  serial_carroceria character varying(60),
+  color character varying(60),
+  placa character varying(60),
+  numero_factura integer,
+  estatus_bienes integer,
+  comentarios text,
+  ultimo_usuario integer NOT NULL,
+  fecha_actualizacion timestamp without time zone NOT NULL,
+  codigo_bienes character(100) NOT NULL,
+  serial_bien character(20),
+  valor_compra money,
+  valor_rescate money,
+  vida_util integer,
+  ano_orden_compra integer,
+  calcular_depreciacion integer, -- 0= Si; 1=No
+  CONSTRAINT bienes_pkey PRIMARY KEY (id_bienes),
+  CONSTRAINT bienes_id_orden_compra_servicioe_fkey FOREIGN KEY (id_orden_compra_servicioe)
+      REFERENCES "orden_compra_servicioE" (id_orden_compra_servicioe) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT id_accion_centralizada FOREIGN KEY (id_accion_centralizada)
+      REFERENCES accion_centralizada (id_accion_central) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT id_custodio FOREIGN KEY (id_custodio)
+      REFERENCES custodio (id_custodio) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT id_estatus_bienes FOREIGN KEY (estatus_bienes)
+      REFERENCES estatus_bienes (id_estatus_bienes) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT id_mayor FOREIGN KEY (id_mayor)
+      REFERENCES mayor (id_mayor) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT id_organismo FOREIGN KEY (id_organismo)
+      REFERENCES organismo (id_organismo) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT id_proveedor FOREIGN KEY (id_proveedor)
+      REFERENCES proveedor (id_proveedor) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT id_proyecto FOREIGN KEY (id_proyecto)
+      REFERENCES proyecto (id_proyecto) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT id_sitio_fisico FOREIGN KEY (id_sitio_fisico)
+      REFERENCES sitio_fisico (id_sitio_fisico) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT id_tipo_bienes FOREIGN KEY (id_tipo_bienes)
+      REFERENCES tipo_bienes (id_tipo_bienes) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT id_unidad_ejecutora FOREIGN KEY (id_unidad_ejecutora)
+      REFERENCES unidad_ejecutora (id_unidad_ejecutora) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE bienes OWNER TO postgres;
+COMMENT ON COLUMN bienes.calcular_depreciacion IS '0= Si; 1=No';
+
+CREATE TABLE tipo_bienes
+(
+  id_tipo_bienes serial NOT NULL,
+  id_organismo integer NOT NULL,
+  nombre character varying(60),
+  comentarios text,
+  ultimo_usuario integer,
+  fecha_actualizacion timestamp without time zone,
+  id_mayor character(60),
+  CONSTRAINT tipo_bienes_pkey PRIMARY KEY (id_tipo_bienes),
+  CONSTRAINT id_mayor FOREIGN KEY (id_mayor)
+      REFERENCES mayor (id_mayor) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT id_organismo FOREIGN KEY (id_organismo)
+      REFERENCES organismo (id_organismo) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE tipo_bienes OWNER TO postgres;
+
+
+CREATE TABLE sitio_fisico
+(
+  id_sitio_fisico serial NOT NULL,
+  id_organismo integer NOT NULL,
+  nombre character varying(60),
+  contabilidad character varying(60),
+  comentarios text,
+  ultimo_usuario integer NOT NULL,
+  fecha_actualizacion timestamp without time zone NOT NULL,
+  id_unidad_ejecutora integer NOT NULL,
+  CONSTRAINT sitio_fisico_pkey PRIMARY KEY (id_sitio_fisico),
+  CONSTRAINT id_organismo FOREIGN KEY (id_organismo)
+      REFERENCES organismo (id_organismo) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT id_unidad_ejecutora FOREIGN KEY (id_unidad_ejecutora)
+      REFERENCES unidad_ejecutora (id_unidad_ejecutora) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE sitio_fisico OWNER TO postgres;
+
+CREATE TABLE mayor
+(
+  id_mayor character(60) NOT NULL DEFAULT nextval('mayor_id_mayor_seq'::regclass),
+  id_organismo integer NOT NULL,
+  nombre character varying(60),
+  comentarios text,
+  ultimo_usuario integer,
+  fecha_actualizacion timestamp without time zone,
+  CONSTRAINT mayor_pkey PRIMARY KEY (id_mayor),
+  CONSTRAINT id_organismo FOREIGN KEY (id_organismo)
+      REFERENCES organismo (id_organismo) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE mayor OWNER TO postgres;
+
+CREATE TABLE custodio
+(
+  id_custodio serial NOT NULL,
+  id_organismo integer NOT NULL,
+  nombre character varying(60),
+  comentarios text,
+  ultimo_usuario integer NOT NULL,
+  fecha_actualizacion timestamp without time zone NOT NULL,
+  cedula character varying(15),
+  CONSTRAINT custodio_pkey PRIMARY KEY (id_custodio),
+  CONSTRAINT id_organismo FOREIGN KEY (id_organismo)
+      REFERENCES organismo (id_organismo) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE custodio OWNER TO postgres;
+
+
+CREATE TABLE estatus_bienes
+(
+  id_estatus_bienes serial NOT NULL,
+  id_organismo integer NOT NULL,
+  nombre character varying(60),
+  comentario text,
+  ultimo_usuario integer,
+  fecha_actuzalizacion timestamp with time zone,
+  CONSTRAINT estatus_bienes_pkey PRIMARY KEY (id_estatus_bienes),
+  CONSTRAINT id_organismo FOREIGN KEY (id_organismo)
+      REFERENCES organismo (id_organismo) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE estatus_bienes OWNER TO postgres;
+
+CREATE TABLE depreciacion_mensual
+(
+  id_depreciacion_mensual integer NOT NULL DEFAULT nextval('depreciacion_mensual_id_depresiacion_mensual_seq'::regclass),
+  id_organismo integer NOT NULL,
+  id_bienes integer NOT NULL,
+  valor_depreciacion_mensual money,
+  valor_depreciacion_acumula money,
+  valor_libros money,
+  ultimo_usuario integer NOT NULL,
+  fecha_actualizacion timestamp without time zone,
+  fecha_depreciacion date,
+  vida_util_dep integer,
+  estatus_dep integer, -- Sin haber calculado la depreciacion=0; depreciacion calculada=1;
+  CONSTRAINT depreciacion_mensual_pkey PRIMARY KEY (id_depreciacion_mensual),
+  CONSTRAINT id_bienes FOREIGN KEY (id_bienes)
+      REFERENCES bienes (id_bienes) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT id_organismo FOREIGN KEY (id_organismo)
+      REFERENCES organismo (id_organismo) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE depreciacion_mensual OWNER TO postgres;
+COMMENT ON COLUMN depreciacion_mensual.estatus_dep IS 'Sin haber calculado la depreciacion=0; depreciacion calculada=1;';
+
+
+CREATE TABLE mejoras
+(
+  id_mejoras serial NOT NULL,
+  id_organismo integer NOT NULL,
+  id_bienes integer NOT NULL,
+  nombre_mejora character varying(60),
+  fecha_mejora timestamp without time zone,
+  usuario_carga_mejora character varying(60),
+  numero_comprobante character(60),
+  fecha_comprobante timestamp without time zone,
+  descripcion_general character varying(60),
+  comentarios character varying(60),
+  ultimo_usuario integer,
+  fecha_actualizacion timestamp without time zone,
+  valor_rescate money,
+  vida_util integer,
+  CONSTRAINT mejoras_pkey PRIMARY KEY (id_mejoras),
+  CONSTRAINT id_organismo FOREIGN KEY (id_organismo)
+      REFERENCES organismo (id_organismo) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE mejoras OWNER TO postgres;
+
+
+CREATE TABLE desincorporaciones
+(
+  id_desincorporaciones serial NOT NULL,
+  id_organismo integer NOT NULL,
+  id_bienes integer NOT NULL,
+  fecha_desincorporacion timestamp without time zone,
+  usuario_carga_desincorporacion character varying(60),
+  comprobante_desincorporacion integer,
+  fecha_comprobante_desincorporacion timestamp without time zone,
+  descripcion_general text,
+  codigo_tipo_desincorporacion integer,
+  comentarios text,
+  ultimo_usuario integer NOT NULL,
+  fecha_actualizacion timestamp without time zone NOT NULL,
+  id_tipo_desincorporaciones integer,
+  CONSTRAINT desincorporaciones_pkey PRIMARY KEY (id_desincorporaciones),
+  CONSTRAINT id_organismo FOREIGN KEY (id_organismo)
+      REFERENCES organismo (id_organismo) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT id_tipo_desincorporaciones FOREIGN KEY (id_tipo_desincorporaciones)
+      REFERENCES tipo_desincorporaciones (id_tipo_desincorporaciones) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE desincorporaciones OWNER TO postgres;
+
+
+CREATE TABLE tipo_desincorporaciones
+(
+  id_tipo_desincorporaciones serial NOT NULL,
+  id_organismo integer NOT NULL,
+  nombre character varying(60),
+  comentarios text,
+  ultimo_usuario integer,
+  fecha_actualizacion timestamp without time zone,
+  CONSTRAINT tipo_desincorporaciones_pkey PRIMARY KEY (id_tipo_desincorporaciones),
+  CONSTRAINT id_organismo FOREIGN KEY (id_organismo)
+      REFERENCES organismo (id_organismo) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE tipo_desincorporaciones OWNER TO postgres;
+
+
+CREATE TABLE fotos_bienes
+(
+  id_fotos_bienes serial NOT NULL,
+  id_organismo integer NOT NULL,
+  id_bienes integer,
+  nombre character varying(60),
+  ultimo_usuario integer,
+  fecha_actualizacion timestamp without time zone,
+  CONSTRAINT fotos_bienes_pkey PRIMARY KEY (id_fotos_bienes),
+  CONSTRAINT id_organismo FOREIGN KEY (id_organismo)
+      REFERENCES organismo (id_organismo) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE fotos_bienes OWNER TO postgres;
+
+CREATE TABLE fotos_desincorporacion
+(
+  id_fotos_desincorporacion serial NOT NULL,
+  id_organismo integer NOT NULL,
+  id_bienes integer NOT NULL,
+  nombre character varying(60),
+  ultimo_usuario integer NOT NULL,
+  fecha_actualizacion timestamp without time zone,
+  CONSTRAINT fotos_desincorporacion_pkey PRIMARY KEY (id_fotos_desincorporacion),
+  CONSTRAINT id_bienes FOREIGN KEY (id_bienes)
+      REFERENCES bienes (id_bienes) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT id_organismo FOREIGN KEY (id_organismo)
+      REFERENCES organismo (id_organismo) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE fotos_desincorporacion OWNER TO postgres;
+
+
+CREATE TABLE banco
+(
+  id_banco serial NOT NULL,
+  id_organismo integer NOT NULL,
+  nombre character varying(200),
+  sucursal character varying(100),
+  direccion text,
+  codigoarea integer,
+  telefono character varying(20),
+  fax character varying(20),
+  persona_contacto character varying(60),
+  cargo_contacto character varying(60),
+  email_contacto character varying(30),
+  pagina_banco character varying(30),
+  estatus integer,
+  usuario_inactiva character varying(2),
+  hora_inactiva character varying(2) DEFAULT 0,
+  fecha_inactiva timestamp with time zone,
+  comentarios text,
+  ultimo_usuario character varying,
+  hora_ultima_modificacion character varying,
+  fecha_ultima_modificacion timestamp with time zone,
+  codigo_banco character varying(10),
+  CONSTRAINT id_banco PRIMARY KEY (id_banco),
+  CONSTRAINT id_organismo FOREIGN KEY (id_organismo)
+      REFERENCES organismo (id_organismo) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE banco OWNER TO postgres;
+
+CREATE TABLE banco_cuentas
+(
+  id_cuenta_banco serial NOT NULL,
+  id_banco integer,
+  cuenta_contable_banco character varying(20),
+  estatus integer,
+  usuario_inactiva character varying,
+  hora_inactiva character varying,
+  fecha_inactiva timestamp with time zone,
+  comentario text,
+  ultimo_usuario character varying(60),
+  hora_ultima_modificacion character varying,
+  fecha_ultima_modificacion date,
+  cuenta_banco character varying(20) NOT NULL,
+  id_organismo integer,
+  comentarios text,
+  ayo integer,
+  disponibilidad double precision,
+  saldo_inicial double precision,
+  saldo_actual double precision,
+  fecha_apertura timestamp without time zone,
+  CONSTRAINT banco_cuentas_pkey PRIMARY KEY (cuenta_banco),
+  CONSTRAINT banco_cuentas_id_banco_fkey FOREIGN KEY (id_banco)
+      REFERENCES banco (id_banco) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT banco_cuentas_id_banco_fkey1 FOREIGN KEY (id_banco)
+      REFERENCES banco (id_banco) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT banco_cuentas_id_cuenta_banco_key UNIQUE (id_cuenta_banco)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE banco_cuentas OWNER TO postgres;
+
+-- Index: id_cuenta_banco
+
+-- DROP INDEX id_cuenta_banco;
+
+CREATE UNIQUE INDEX id_cuenta_banco
+  ON banco_cuentas
+  USING btree
+  (id_cuenta_banco);
+
+CREATE TABLE firmas_voucher
+(
+  id_firmas_voucher serial NOT NULL,
+  id_organismo integer,
+  codigo_director_ochina character varying(20),
+  codigo_director_administracion character varying(20),
+  codigo_jefe_finanzas character varying(20),
+  codigo_preparado_por character varying(20),
+  comentarios text,
+  ultimo_usuario integer,
+  hora_ultima_modificacion character varying,
+  fecha_ultima_modificacion timestamp with time zone,
+  ayo_mes character varying(20),
+  estatus "char",
+  fecha_firma timestamp with time zone,
+  CONSTRAINT firmas_voucher_pkey PRIMARY KEY (id_firmas_voucher),
+  CONSTRAINT firmas_voucher_id_organismo_fkey FOREIGN KEY (id_organismo)
+      REFERENCES organismo (id_organismo) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT firmas_voucher_id_firmas_voucher_key UNIQUE (id_firmas_voucher, id_organismo)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE firmas_voucher OWNER TO postgres;
+
+CREATE TABLE chequeras
+(
+  id_chequeras serial NOT NULL,
+  id_organismo integer NOT NULL,
+  id_banco integer NOT NULL,
+  cuenta character varying(20) NOT NULL DEFAULT nextval('chequeras_cuenta_seq'::regclass),
+  ultimo_emitido integer,
+  cantidad_cheques integer,
+  cantidad_emitidos integer,
+  estatus integer,
+  comentarios text,
+  ultimo_usuario character varying,
+  hora_ultima_modificacion character varying,
+  fecha_ultima_modificacion timestamp with time zone,
+  secuencia serial NOT NULL,
+  primer_cheque integer,
+  CONSTRAINT chequeras_pkey PRIMARY KEY (id_chequeras),
+  CONSTRAINT chequeras_id_banco_fkey FOREIGN KEY (id_banco)
+      REFERENCES banco (id_banco) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT chequeras_id_organismo_fkey FOREIGN KEY (id_organismo)
+      REFERENCES organismo (id_organismo) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT chequeras_id_chequeras_key UNIQUE (id_chequeras, id_organismo, id_banco)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE chequeras OWNER TO postgres;
+
+CREATE TABLE cheques
+(
+  id_cheques serial NOT NULL,
+  id_organismo integer NOT NULL,
+  id_banco integer,
+  cuenta_banco character varying(20),
+  tipo_cheque integer,
+  id_proveedor integer,
+  cedula_rif_beneficiario character varying(12),
+  nombre_beneficiario character varying(60),
+  monto_cheque double precision,
+  monto_escrito character varying(200),
+  concepto text,
+  orden_pago integer,
+  estatus integer,
+  contabilizado integer,
+  reimpreso integer,
+  codigo_banco_reimpreso integer,
+  cuenta_banco_reimpreso character varying(20),
+  numero_cheque_reimpreso integer,
+  fecha_reimpresion timestamp with time zone,
+  hora_reimpresion character varying,
+  usuario_reimpresion character varying,
+  fecha_cheque timestamp with time zone,
+  hora_cheque character varying,
+  fecha_caja timestamp with time zone,
+  hora_caja character varying,
+  usuario_recibe_caja character varying,
+  fecha_pago timestamp with time zone,
+  hora_pago timestamp with time zone,
+  usuario_pago character varying,
+  fecha_anula time with time zone,
+  usuario_anula character varying,
+  fecha_contab timestamp with time zone,
+  usuario_contab character varying,
+  cuenta_contable_banco character varying(25),
+  porcentaje_retencion_iva double precision,
+  monto_retencion_iva double precision,
+  porcentaje_islr double precision,
+  monto_islr double precision,
+  base_imponible double precision,
+  porcentaje_itf double precision,
+  monto_itf double precision,
+  comentarios text,
+  ultimo_usuario character varying,
+  fecha_ultima_modificacion timestamp with time zone,
+  ordenes integer[],
+  usuario_cheque integer,
+  numero_cheque integer,
+  secuencia integer,
+  fecha_firma timestamp with time zone,
+  estado character varying(9)[],
+  estado_fecha timestamp(6) without time zone[],
+  sustraendo integer,
+  CONSTRAINT cheques_pkey PRIMARY KEY (id_cheques)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE cheques OWNER TO postgres;
+
+
+CREATE TABLE parametros_tesoreria
+(
+  id_parametros_tesoreria serial NOT NULL,
+  id_organismo integer NOT NULL,
+  ano integer NOT NULL,
+  fecha_ultimo_cierre_mensual timestamp with time zone,
+  hora_ultimo_cierre_mensual character varying(12),
+  usuario_cierre_mensual character varying(12),
+  comentaros_cierre_mensual text,
+  fecha_ultimo_cierre_anual timestamp with time zone,
+  hora_ultimo_cierre_anual character varying,
+  usuario_ultimo_cierre_anual character varying,
+  comentarios_ultimo_cierre_anual text,
+  porcentaje_itf character(4),
+  comentarios text,
+  ultimo_usuario character varying,
+  hora_ultima_modificacion character varying,
+  fecha_ultima_modificacion timestamp with time zone,
+  ultimo_mes_cerrado integer,
+  CONSTRAINT parametros_tesoreria_pkey PRIMARY KEY (id_parametros_tesoreria, id_organismo, ano)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE parametros_tesoreria OWNER TO postgres;
+
+
+CREATE TABLE usuario_banco_cuentas
+(
+  id_organismo integer NOT NULL,
+  id_usuario integer NOT NULL,
+  id_banco integer,
+  cuenta_banco character varying(20),
+  estatus integer,
+  comentarios text,
+  ultimo_usuario character varying,
+  hora_ultima_modificacion character varying,
+  fecha_ultima_modificacion timestamp with time zone,
+  id_usuario_banco_cuentas serial NOT NULL,
+  CONSTRAINT usuario_banco_cuentas_pkey PRIMARY KEY (id_usuario_banco_cuentas),
+  CONSTRAINT usuario_banco_cuentas_id_banco_fkey FOREIGN KEY (id_banco)
+      REFERENCES banco (id_banco) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT usuario_banco_cuentas_id_banco_fkey1 FOREIGN KEY (id_banco)
+      REFERENCES banco (id_banco) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT usuario_banco_cuentas_id_organismo_fkey FOREIGN KEY (id_organismo)
+      REFERENCES organismo (id_organismo) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT usuario_banco_cuentas_id_usuario_fkey FOREIGN KEY (id_usuario)
+      REFERENCES usuario (id_usuario) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT usuario_banco_cuentas_id_usuario_fkey1 FOREIGN KEY (id_usuario)
+      REFERENCES usuario (id_usuario) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT usuario_banco_cuentas_id_usuario_banco_cuentas_key UNIQUE (id_usuario_banco_cuentas)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE usuario_banco_cuentas OWNER TO postgres;
+
+
+CREATE TABLE valor_moneda
+(
+  id_val_moneda serial NOT NULL,
+  id_moneda integer,
+  id_organismo integer,
+  fecha_valor timestamp without time zone,
+  valor_moneda double precision,
+  comentarios text,
+  fecha_modificacion timestamp with time zone,
+  ultimo_usuario integer,
+  usuarios_windows integer,
+  serial_maquina character varying
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE valor_moneda OWNER TO postgres;
+
+CREATE TABLE moneda
+(
+  id_moneda serial NOT NULL,
+  id_organismo integer,
+  codigo_moneda character varying,
+  comentario text,
+  fecha timestamp with time zone,
+  ultimo_usuario integer,
+  usuario_windows integer,
+  serial_maquina character varying,
+  fecha_actualizacion timestamp with time zone,
+  nombre character varying(30)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE moneda OWNER TO postgres;
+
+CREATE TABLE movimientos_cuentas
+(
+  id_movimientos_cuentas serial NOT NULL,
+  referencia character varying,
+  suma_resta "char",
+  monto double precision,
+  id_organismo integer,
+  ultimo_usuario integer,
+  fecha_ultima_modificacion timestamp with time zone,
+  id_banco integer,
+  cuenta_banco character varying,
+  fecha_proceso timestamp with time zone
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE movimientos_cuentas OWNER TO postgres;
+
+
+CREATE TABLE documentos_cxp
+(
+  id_documentos integer NOT NULL DEFAULT nextval('documentos_id_documentos_seq'::regclass),
+  id_organismo integer,
+  ano character varying(4),
+  id_proveedor integer,
+  tipo_documentocxp integer,
+  numero_documento character varying(6),
+  numero_control character varying(6),
+  porcentaje_iva double precision,
+  porcentaje_retencion_iva double precision,
+  monto_bruto double precision,
+  monto_base_imponible double precision,
+  orden_pago integer,
+  numero_compromiso character varying,
+  descripcion_documento character varying(180),
+  comentarios text,
+  ultimo_usuario integer,
+  fecha_ultima_modificacion timestamp with time zone,
+  fecha_documento timestamp with time zone,
+  porcentaje_retencion_islr double precision,
+  estatus integer,
+  fecha_vencimiento timestamp without time zone,
+  beneficiario character varying,
+  cedula_rif_beneficiario character varying(21),
+  estatus_404 integer,
+  CONSTRAINT documentos_cxp_pkey PRIMARY KEY (id_documentos)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE documentos_cxp OWNER TO postgres;
+
+
+CREATE TABLE orden_pago
+(
+  id_orden_pago serial NOT NULL,
+  id_organismo integer,
+  fecha_orden_pago timestamp with time zone,
+  id_banco integer,
+  cuenta_banco character varying(20),
+  comentarios text,
+  ultimo_usuario integer,
+  fecha_ultima_modificacion timestamp with time zone,
+  orden_pago serial NOT NULL,
+  id_proveedor integer,
+  ano character varying(4),
+  documentos integer[],
+  secuencia integer,
+  cheque integer,
+  estatus integer,
+  beneficiario character varying,
+  cedula_rif_beneficiario character varying(21),
+  estatus_orden integer
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE orden_pago OWNER TO postgres;
+
+CREATE TABLE tipo_documento_cxp
+(
+  id_tipo_documento serial NOT NULL,
+  id_organismo integer,
+  nombre character varying(30),
+  siglas character varying(6),
+  comentarios text,
+  ultimo_usuario integer,
+  fecha_ultima_modificacion timestamp with time zone
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE tipo_documento_cxp OWNER TO postgres;
+
+CREATE TABLE parametros_cxp
+(
+  id_parametros_cxp serial NOT NULL,
+  id_organismo integer,
+  ano integer,
+  fecha_ultimo_cierre_mensual timestamp with time zone,
+  usuario_cierre_mensual character varying,
+  comentarios_cierre_mensual text,
+  fecha_ultimo_cierre_anual timestamp with time zone,
+  usuario_ultimo_cierre_anual character varying,
+  comentarios_ultimo_cierre_anual text,
+  comentarios text,
+  ultimo_usuario character varying,
+  fecha_ultima_modificacion timestamp with time zone,
+  ultimo_mes_cerrado integer
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE parametros_cxp OWNER TO postgres;
+

@@ -1,0 +1,299 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head><title>QuickMenu Template</title><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"> 
+
+
+
+<!-- *** QuickMenu copyright (c) 2007, OpenCube Inc. All Rights Reserved.
+
+          -This document, the JavaScript source code, and core CSS may not be modified,
+           re-distributed, or displayed for public consumption.
+    	
+          -This product must be purchased before its official inclusion in any public or 
+           private web site or application.
+
+          -This product may not be used in, or redistributed as part of an application whose
+           purpose is to enhance or create menu systems.
+-->     
+
+
+
+<!--%%%%%%%%%%%% Quick Menu Script %%%%%%%%%%%*-->
+
+	<!-- Core Menu Code -->
+	<script type="text/JavaScript" src="qm.js"></script>
+	
+
+	<!-- Add-On Core Code (Remove when not using any add-on's) -->
+	<style type="text/css">.qmfv{visibility:visible !important;}.qmfh{visibility:hidden !important;}</style><script type="text/JavaScript">var qmad = new Object();qmad.bvis="";qmad.bhide="";qmad.bhover="";</script>
+
+
+		<!-- Add-On Settings -->
+		<script type="text/JavaScript">
+
+			/*Menu 0 Settings*/
+			var a = qmad.qm0 = new Object();
+		
+
+			/* ----Tree Menu Add-On Settings---- */
+
+			a.tree_hide_focus_box = true;
+			a.tree_auto_collapse = true;			
+
+			a.tree_expand_step_size = 8;
+			a.tree_collapse_step_size = 15;
+			a.tree_expand_animation = 2		//0=none, 1=acceleration, 2=deceleration, 3=normal
+			a.tree_collapse_animation = 3		//0=none, 1=acceleration, 2=deceleration, 3=normal
+
+
+			a.tree_width = 200;
+			a.tree_sub_sub_indent = 15; 
+
+			
+
+			/* ----Item Bullets Add-On Settings---- */
+			
+			a.ibullets_apply_to = "parent"  //parent, non-parent, all
+
+			a.ibullets_main_image = "images/main_plus.gif";
+			a.ibullets_main_image_active = "images/main_plus_active.gif";
+			a.ibullets_main_image_hover = "images/main_plus_hover.gif";
+			a.ibullets_main_image_width = 13;
+			a.ibullets_main_image_height = 13;
+			a.ibullets_main_position_x = -15;
+			a.ibullets_main_position_y = -6;
+			a.ibullets_main_align_x = "right"
+			a.ibullets_main_align_y = "middle"
+
+			a.ibullets_sub_image = "images/sub_plus.gif";
+			a.ibullets_sub_image_active = "images/sub_plus_active.gif";
+			a.ibullets_sub_image_hover = "images/sub_plus_hover.gif";
+			a.ibullets_sub_image_width = 5;
+			a.ibullets_sub_image_height = 5;
+			a.ibullets_sub_position_x = -10;
+			a.ibullets_sub_position_y = -3;
+			a.ibullets_sub_align_x = "left"
+			a.ibullets_sub_align_y = "middle"
+	
+			
+			
+		</script>
+
+
+
+<script type="text/JavaScript" src="qm_tree_menu.js"></script>
+<script type="text/JavaScript" src="qm_item_bullets.js"></script>
+
+
+<!--%%%%%%%%%%%% QuickMenu Styles [Keep in head for full validation!] %%%%%%%%%%%-->
+<style type="text/css">
+
+
+/*!!!!!!!!!!! QuickMenu Core CSS [Do Not Modify!] !!!!!!!!!!!!!*/
+.qmclear {font-size:1px;height:0px;width:0px;clear:left;line-height:0px;display:block;}.qmmc {position:relative;}.qmmc a {float:left;display:block;white-space:nowrap;}.qmmc div a {float:none;}.qmmc div {visibility:hidden;position:absolute;}
+
+
+/*!!!!!!!!!!! QuickMenu Styles [Please Modify!] !!!!!!!!!!!*/
+
+
+	/* Remove the comments bleow for vertical mains and change the false value to
+           true in the qm_create function after the menus structure. */
+	/*.qmmc a {float:none}*/
+
+		
+
+	/*"""""""" (MAIN) Container """"""""*/
+	#qm0
+	{ 
+		background-color:transparent;
+		
+		border-style:solid;
+		border-color:#66cc00;
+		border-width:1px 2px 1px 2px;
+	}
+
+
+	 /*"""""""" (MAIN) Items """"""""*/
+	#qm0 a
+	{
+		color:#000000;
+		background-color:#ffffff;
+		background-image:url(images/green_bg.gif);
+		font-family:Arial;
+		font-size:.8em;
+		text-decoration:none;
+		padding:5px 5px 5px 8px;
+		border-style:solid;
+		border-color:#66cc00;
+		border-width:1px 0px 1px 0px;
+	
+	}
+
+
+	/*"""""""" (MAIN) Hover State """"""""*/
+	#qm0 a:hover
+	{ 
+		/*background-color:#efefef;*/
+	}
+
+
+	/*"""""""" (MAIN) Active State """"""""*/	
+	body #qm0 .qmactive, body #qm0 .qmactive:hover
+	{ 
+		
+		text-decoration:underline;
+	}
+
+
+	/*"""""""" (MAIN) Parent Items """"""""*/
+	#qm0 .qmparent
+	{
+		/*background-image:url(images/arrow_down.gif);
+		background-repeat:no-repeat;
+		background-position:95%;*/
+	}
+
+
+	/*"""""""" [SUB] Containers """"""""*/
+	#qm0 div
+	{
+		/*background-image:url(images/green_bg2.gif);*/
+		background-color:#F8FDF5;
+		padding:10px 0px 10px 0px;
+		border-style:none;
+		border-width:1px;
+		border-color:#cccccc;
+		margin-top:-1px;
+	}
+
+	/*"""""""" [SUB] Items """"""""*/
+	#qm0 div a
+	{		
+		background-image:none;
+		background-color:transparent;
+		padding:2px 0px 2px 15px;
+		border-width:1px;
+		border-style:solid;
+		border-color:#F8FDF5;
+		margin:0px 5px 0px 5px;
+	}
+
+	
+	/*"""""""" [SUB] Hover State """"""""*/
+	#qm0 div a:hover
+	{
+		text-decoration:underline;
+	}
+
+
+	/*""""""""[SUB] Active State """"""""*/
+	body #qm0 div .qmactive, body #qm0 div .qmactive:hover
+	{
+		background-color:#D7F7C6;
+		border-color:#999999;
+	}
+
+
+	/*"""""""" [SUB] Parent Items """"""""*/
+	#qm0 div .qmparent 
+	{
+		/*background-image:url(images/arrow_right.gif);*/
+	}
+
+
+	
+
+
+</style>
+</head>
+
+
+
+<body style="margin:40px">
+
+
+
+<!--%%%%%%%%%%%% QuickMenu Stucture %%%%%%%%%%%*-->
+
+<div id="qm0" class="qmmc">
+
+	<a href="#">Who We Are</a>
+	
+		<div>
+		<a href="javascript:void(0)">Management</a>
+		<a href="javascript:void(0)">Global Sites</a>
+			
+			<div>
+			<a href="#">Asia</a>
+			<a href="#">South America</a>
+			<a href="#">Australia</a>
+			<a href="#">North America</a>
+			<a href="#">Europe</a>
+			<a href="#">Africa</a>
+			</div>
+
+		<a href="javascript:void(0)">Investors</a>
+		
+			<div>
+			<a href="#">Asia</a>
+			<a href="#">South America</a>
+			<a href="#">Australia</a>
+			<a href="#">North America</a>
+			<a href="#">Europe</a>
+			<a href="#">Africa</a>
+			</div>
+
+		<a href="#">Worldwide</a>
+		<a href="#">Product Overview</a>
+		<a href="#">Publicity</a>
+		</div>
+	
+	<a href="javascript:void(0)">Our Commitment</a>
+
+		<div>
+		<a href="#">Satisfaction</a>
+		<a href="#">Our Goals</a>
+		<a href="#">Product Warranty</a>
+		<a href="#">Future Outlook</a>
+		<a href="#">Product Quality</a>
+		<a href="#">Continued Support</a>
+		</div>
+
+
+	<a href="javascript:void(0)">Our Investors</a>
+	
+
+		<div>
+		<a href="#">Annual Meetings</a>
+		<a href="#">Financial Reports</a>
+		<a href="#">Nasdaq Quoting</a>
+		<a href="#">Dividend Information</a>
+		<a href="#">Future Outlook</a>
+		<a href="#">CEO Announcements</a>
+		</div>
+
+	
+	<a href="javascript:void(0)">Technology</a>
+
+		<div>
+		<a href="#">Satisfaction</a>
+		<a href="#">Our Goals</a>
+		<a href="#">Product Warranty</a>
+		<a href="#">Future Outlook</a>
+		<a href="#">Product Quality</a>
+		<a href="#">Continued Support</a>
+		</div>
+
+<span class="qmclear">&nbsp;</span></div>
+
+
+<!--%%%%%%%%%%%% QuickMenu Create Menu (menu id, is vertical, show timer (ms), hide timer (ms), on click) %%%%%%%%%%%*-->
+<script type="text/JavaScript">qm_create(0,false,0,500,true)</script>
+
+
+
+
+
+
+</body>
+</html>

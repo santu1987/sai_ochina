@@ -1,0 +1,53 @@
+<?php
+session_start();
+require_once('../../../../controladores/db.inc.php');
+require_once('../../../../utilidades/adodb/adodb.inc.php');
+$conn = &ADONewConnection('postgres');
+$db=dbconn("pgsql");
+$conn->PConnect($db["host"],$db["user"],$db["password"],$db["dbname"]);
+$fecha = date("Y-m-d H:i:s");
+$sql = "SELECT id_auxiliares FROM auxiliares
+ WHERE 
+ 	cuenta_contable=$_POST['contabilidad_auxiliares_db_cuenta_contable'] 
+or 
+	cuenta_auxiliar=$_POST['contabilidad_auxiliares_db_cuenta_auxiliar'] 
+or 
+	upper(nombre) ='".strtoupper($_POST['contabilidad_auxiliares_db_nombre'])."'"; 
+
+if (!$conn->Execute($sql)) die ('Error al Registrar: '.$conn->ErrorMsg());
+$row= $conn->Execute($sql);
+			
+if($row->EOF){
+$sql = "	
+				INSERT INTO 
+					auxiliares
+					(
+						cuenta_contable,
+						cuenta_auxiliar,
+						comentario,
+						id_organismo,
+						nombre,
+						ultimo_usuario,
+						ultima_modificacion
+			
+					) 
+					VALUES
+					(
+						'$_POST[contabilidad_auxiliares_db_cuenta_contable]',
+						'$_POST[contabilidad_auxiliares_db_cuenta_auxiliar]',
+						'$_POST[contabilidad_auxiliares_db_comentario]',
+				        ".$_SESSION["id_organismo"].",
+						".$_SESSION['id_usuario'].",
+						'".date("Y-m-d H:i:s")."'						
+					)
+			";
+	}						
+else
+	die("NoRegistro");
+	
+if (!$conn->Execute($sql)) 
+	//die ('Error al Registrar: '.$sql);
+die ('Error al Registrar: '.$conn->ErrorMsg());
+else
+	die("Registrado");
+?>
